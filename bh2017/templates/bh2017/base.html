@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Всероссийская битва художников {% endblock %}</title>
+</head>
+<body>
+    <div id="sidebar">
+        {% block sidebar %}
+            <ul>
+                <li>РЕГИСТРАЦИЯ</li>
+                <li>ЗАДАНИЯ</li>
+                <li>ПРИЗЫ</li>
+                <li>ПРАВИЛА</li>
+                <li>ЖЮРИ</li>
+                <li>СПОНСОРЫ</li>
+                <li>ПАРТНЕРЫ</li>
+                <li>ВОПРОСЫ-ОТВЕТЫ</li>
+            </ul>
+        {% endblock %}
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
