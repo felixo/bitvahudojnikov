@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Pala';
+    src: url("fonts/pala.ttf")  format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Palab';
+    src: url("fonts/palab.ttf");
+}
+
+@font-face {
+    font-family: 'Palabi';
+    src: url("fonts/palabi.ttf");
+}
+
+@font-face {
+    font-family: 'Palai';
+    src: url("fonts/palai.ttf");
+}
+
+@font-face {
+    font-family: 'ProximaNovaRegular';
+    src: url("fonts/ProximaNovaRegular.ttf");
+}
+
+body {
+    font: 18px 'Pala';
+    color: red;
+}

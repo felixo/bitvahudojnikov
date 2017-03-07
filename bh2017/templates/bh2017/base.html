@@ -3,9 +3,35 @@
 {% load staticfiles %}
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'bh2017/style.css' %}" />
     <title>{% block title %} Всероссийская битва художников {% endblock %}</title>
 </head>
 <body>
+    <div id="attic">
+        <ul id="atticList">
+            <li id="loginDot">
+               <div id="loginWrap">
+
+               </div>
+            </li>
+            <li id="nevskayaDot">
+                <div id="nevskayaWrap">
+
+                </div>
+            </li>
+            <li id="faberDot">
+                <div id="faberWrap">
+
+                </div>
+            </li>
+            <li id="socialDot">
+                <div id="socialWrap">
+
+                </div>
+            </li>
+        </ul>
+    </div>
+
     <div id="sidebar">
         {% block sidebar %}
             <ul>
