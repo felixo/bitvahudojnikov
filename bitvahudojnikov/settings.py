@@ -135,3 +135,10 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'mail.nic.ru'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'robot@bitvahudojnikov.ru'
+EMAIL_HOST_PASSWORD = 'do1236969'

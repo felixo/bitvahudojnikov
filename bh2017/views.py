@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from models import Artist
 from forms import ArtistForm
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 
 
 
@@ -24,6 +25,13 @@ def addArtist(request):
             if profile.user_id is None:
                 profile.user_id = user.id
             profile.save()
+            send_mail(
+                'Registration',
+                'Grac!',
+                'robot@bitvahudojnikov.ru',
+                [form.data['email']],
+                fail_silently=False,
+            )
             return HttpResponseRedirect(reverse('bh2017:thankyou'))
     else:
         form = ArtistForm()
