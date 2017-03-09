@@ -20,7 +20,18 @@
                         <li class="mAnnounce">ЗАРЕГЕСТРИРУЙСЯ И ЖДИ ПЕРВОЙ ЗАДАНИЕ</li>
                         <li calss="regformDotDot">
                             <div id="formWrap">
-
+                                <form action="{% url 'bh2017:addArtist' %}" method="POST" enctype="multipart/form-data">
+                                    <p>{% csrf_token %}</p>
+                                    <ul id="regformList">
+                                        <li></li>
+                                        <li></li>
+                                        <li>
+                                            <div>
+                                                <input type="submit" value="Отправить >>" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </form>
                             </div>
                         </li>
                     </ul>
