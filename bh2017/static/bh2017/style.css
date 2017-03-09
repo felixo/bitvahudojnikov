@@ -32,6 +32,14 @@ body {
     padding: 0;
 }
 
+div {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
 #attic {
     max-width: 1294px;
     width: 100%;
@@ -130,4 +138,50 @@ ul {
     width: 100%;
     max-width: 1294px;
     min-width: 1056px;
+}
+
+#regblock li {
+    list-style-type: none;
+    display: inline-block;
+    list-style-position: inside;
+}
+
+.hAnnounce {
+    font: 25 'Pala';
+    color: #004e96;
+}
+
+#regformDotList li{
+    list-style-type: none;
+    display: block;
+    list-style-position: inside;
+}
+
+.sAnnounce {
+    font: 17 'Pala';
+    color: #6e6d6d;
+}
+
+.mAnnounce {
+    font: 16 'Pala';
+    color: #004e96;
+}
+
+#fonDot {
+    width: 65.69%;
+    max-width: 850px;
+    margin-left: -74px;
+}
+
+#regblockWrap {
+    height: 547px;
+    margin-bot: 0;
+}
+
+#regformDot {
+    vertical-align: middle;
+    width: 34.31%;
+    max-width: 518px;
+    text-align: center;
+    height: 547px;
 }

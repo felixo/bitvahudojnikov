@@ -1,9 +1,31 @@
 {% extends 'bh2017/base.html'%}
+{% load staticfiles %}
 
 {% block title %} Всероссийская битва художников {% endblock %}
 
 {% block content %}
-    <p>
-        ART MAZA FUCKA BATLA
-    </p>
+    <div id="contentWrap">
+        <div id="regblockWrap">
+            <ul id="regblock">
+                <li id="fonDot">
+                    <div id="fonDotWrap">
+                        <img src="{% static "bh2017/images/fon.jpg" %}" />
+                    </div>
+                </li>
+                <li id="regformDot">
+                    <ul id="regformDotList">
+                        <li class="hAnnounce">ВСЕРОССИЙСКАЯ</li>
+                        <li class="hAnnounce">БИТВА ХУДОЖНИКОВ</li>
+                        <li class="sAnnounce">Начало 14 марта 2017 года</li>
+                        <li class="mAnnounce">ЗАРЕГЕСТРИРУЙСЯ И ЖДИ ПЕРВОЙ ЗАДАНИЕ</li>
+                        <li calss="regformDotDot">
+                            <div id="formWrap">
+
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
