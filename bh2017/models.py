@@ -20,20 +20,20 @@ Status = (
 class Artist(models.Model):
     user = models.OneToOneField(User)
     name = models.CharField(max_length=200)
-    email = models.EmailField(max_length=70, default="box@bitvahudojnikov.ru")
+    email = models.EmailField(max_length=70)
     city = models.CharField(max_length=200)
     favorite = models.CharField(max_length=200, choices=Status)
     data = models.DateTimeField('date published', auto_now_add=True)
 
     def __unicode__(self):  # __unicode__ on Python 2
-        return unicode(self.art_host_name) or u''
+        return unicode(self.name) or u''
 
 class Jury(models.Model):
     name = models.CharField(max_length=200)
     user = models.OneToOneField(User)
 
     def __unicode__(self):  # __unicode__ on Python 2
-        return unicode(self.art_host_name) or u''
+        return unicode(self.name) or u''
 
 class Tasks(models.Model):
     name = models.CharField(max_length=200)

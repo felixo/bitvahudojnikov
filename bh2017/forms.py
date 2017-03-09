@@ -15,4 +15,7 @@ class ArtistForm(forms.ModelForm):
             'name': _('ФИО'),
             'email': _('E-mail'),
         }
-        attr
+        widgets = {
+            'name': forms.TextInput({'placeholder': 'ФИО'}),
+            'email': forms.EmailInput({'placeholder': 'E-mail'}),
+        }

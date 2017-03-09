@@ -140,6 +140,11 @@ ul {
     min-width: 1056px;
 }
 
+#regblock {
+    text-align: center;
+    margin-left: -120px;
+}
+
 #regblock li {
     list-style-type: none;
     display: inline-block;
@@ -147,7 +152,7 @@ ul {
 }
 
 .hAnnounce {
-    font: 25 'Pala';
+    font: 25px 'Pala';
     color: #004e96;
 }
 
@@ -158,32 +163,39 @@ ul {
 }
 
 .sAnnounce {
-    font: 17 'Pala';
+    font: 17px 'Pala';
     color: #6e6d6d;
 }
 
 .mAnnounce {
-    font: 16 'Pala';
+    font: 16px 'Pala';
     color: #004e96;
 }
 
 #fonDot {
     width: 65.69%;
     max-width: 850px;
-    margin-left: -74px;
+    margin-left: -257px;
 }
 
 #regblockWrap {
     height: 547px;
     margin-bot: 0;
+    text-align: center;
 }
 
 #regformDot {
-    vertical-align: middle;
+    vertical-align: top;
     width: 34.31%;
     max-width: 518px;
     text-align: center;
     height: 547px;
+    margin-top: 34px;
+    margin-left: -28px;
+}
+
+#fonDotWrap img{
+    min-width: 830px;
 }
 
 input[type="submit"] {
@@ -198,19 +210,36 @@ input[type="submit"] {
 
 input[type="text"] {
     height: 38px;
-    width: 398px;
+    width: 373px;
     border: 1px inset #004e96;
     border-radius: 25px;
     font: 13px 'ProximaNovaRegular';
-    color: #6e6d6d;
+    color: #727272;
+    padding-left: 25px;
 }
 
 #id_email {
     height: 38px;
-    width: 398px;
+    width: 373px;
     border: 1px inset #004e96;
     border-radius: 25px;
     font: 13px 'ProximaNovaRegular';
-    color: #6e6d6d;
-    placeholder: "E-mail";
+    color: #727272;
+    padding-left: 25px;
+}
+
+#regformList li{
+    margin-top: 21px;
+}
+
+#hAnnounce {
+    margin-top: 15px;
+}
+
+#sAnnounce {
+    margin-top: 16px;
+}
+
+#mAnnounce {
+    margin-top: 49px;
 }
