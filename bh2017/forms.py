@@ -15,3 +15,4 @@ class ArtistForm(forms.ModelForm):
             'name': _('ФИО'),
             'email': _('E-mail'),
         }
+        attr

@@ -185,3 +185,32 @@ ul {
     text-align: center;
     height: 547px;
 }
+
+input[type="submit"] {
+    font: 13px 'Pala';
+    background-color: #e80606;
+    color: white;
+    border: 0;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+}
+
+input[type="text"] {
+    height: 38px;
+    width: 398px;
+    border: 1px inset #004e96;
+    border-radius: 25px;
+    font: 13px 'ProximaNovaRegular';
+    color: #6e6d6d;
+}
+
+#id_email {
+    height: 38px;
+    width: 398px;
+    border: 1px inset #004e96;
+    border-radius: 25px;
+    font: 13px 'ProximaNovaRegular';
+    color: #6e6d6d;
+    placeholder: "E-mail";
+}

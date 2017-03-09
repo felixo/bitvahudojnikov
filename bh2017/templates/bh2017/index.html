@@ -23,11 +23,11 @@
                                 <form action="{% url 'bh2017:addArtist' %}" method="POST" enctype="multipart/form-data">
                                     <p>{% csrf_token %}</p>
                                     <ul id="regformList">
-                                        <li></li>
-                                        <li></li>
+                                        <li>{{ form.name }}</li>
+                                        <li>{{ form.email}}</li>
                                         <li>
                                             <div>
-                                                <input type="submit" value="Отправить >>" />
+                                                <input type="submit" value="РЕГИСТРАЦИЯ" />
                                             </div>
                                         </li>
                                     </ul>
