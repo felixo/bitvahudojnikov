@@ -28,4 +28,106 @@
 body {
     font: 18px 'Pala';
     color: red;
+    margin: 0;
+    padding: 0;
+}
+
+#attic {
+    max-width: 1294px;
+    width: 100%;
+    height: 115px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    min-width: 1056px;
+}
+
+#atticList {
+
+}
+
+#atticList li{
+    display: inline-block;
+    margin-right: 18px;
+}
+
+#loginWrap {
+    font: 10px 'Pala';
+    color: #004e96;
+    border: 1px solid #004e96;
+    border-radius: 10px; /* Радиус скругления */
+    max-width: 116px;
+    text-align: center;
+    width: 116px;
+    height: 27px;
+}
+
+#loginWrap span {
+    vertical-align: -10px;
+}
+
+ul {
+    list-style-type: none;
+    display: inline-block;
+    list-style-position: inside;
+}
+
+#nevskayaWrapList li {
+    display: block;
+}
+
+#faberWrapList li {
+    display: block;
+}
+
+#nevskayaWrapListTextWrap {
+    font: 11px 'Pala';
+    color: #605f5f;
+}
+
+#faberWrapListTextWrap {
+    font: 11px 'Pala';
+    color: #605f5f;
+}
+
+#loginDot {
+    vertical-align: 56px;
+}
+
+#socialDot {
+    vertical-align: 36px;
+}
+
+#socialDotList li {
+    margin-right: 3px;
+}
+
+#menuLine {
+    border-top: 2px dotted #004e96; /* Параметры линии */
+    height: 18px; /* Высота блока */
+
+}
+
+#sidebarList li{
+    font: 14px 'ProximaNovaRegular';
+    color: #6e6d6d;
+    list-style-type: none;
+    display: inline-block;
+    list-style-position: inside;
+    margin-right: 40px;
+}
+
+#sidebar {
+    max-width: 1294px;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sidebarList {
+    margin-left: -10px;
+    width: 100%;
+    max-width: 1294px;
+    min-width: 1056px;
 }

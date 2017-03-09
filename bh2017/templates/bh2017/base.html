@@ -11,30 +11,69 @@
         <ul id="atticList">
             <li id="loginDot">
                <div id="loginWrap">
-
+                    <span>ВОЙТИ</span>
                </div>
             </li>
             <li id="nevskayaDot">
                 <div id="nevskayaWrap">
-
+                    <ul id="nevskayaWrapList">
+                        <li id="nevskayaWrapListLogoDot">
+                            <div id="nevskayaWrapListLogoWrap">
+                                <img src="{% static "bh2017/images/nevsakayalogo.png" %}" />
+                            </div>
+                        </li>
+                        <li id="nevskayaWrapListTextDot">
+                            <div id="nevskayaWrapListTextWrap">
+                                <span>Генеральный спонсор</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </li>
             <li id="faberDot">
                 <div id="faberWrap">
-
+                    <ul id="faberWrapList">
+                        <li>
+                            <div>
+                                <img src="{% static "bh2017/images/faberlogo.png" %}" />
+                            </div>
+                        </li>
+                        <li>
+                            <div id="faberWrapListTextWrap">
+                                <span>Официальный спонсор</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </li>
             <li id="socialDot">
                 <div id="socialWrap">
-
+                    <ul id="socialDotList">
+                        <li>
+                            <div>
+                                <img src="{% static "bh2017/images/vklogo.png" %}" />
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="{% static "bh2017/images/instalogo.png" %}" />
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="{% static "bh2017/images/fblogo.png" %}" />
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </li>
         </ul>
+        <div id="menuLine"></div>
     </div>
 
     <div id="sidebar">
         {% block sidebar %}
-            <ul>
+            <ul id="sidebarList">
                 <li>РЕГИСТРАЦИЯ</li>
                 <li>ЗАДАНИЯ</li>
                 <li>ПРИЗЫ</li>
