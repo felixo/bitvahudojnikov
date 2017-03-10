@@ -382,3 +382,34 @@ h1 {
 .textRome {
     margin-top: 31px;
 }
+
+#footerWrap {
+    max-width: 1294px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#footerback {
+    float: left;
+    margin-bottom: -196px;
+}
+
+#bfb {
+    width: 11px;
+}
+
+#footerList {
+    font: 18px 'Pala';
+    color: #004e96;
+}
+
+#footerSocList {
+    margin-top: 28px;
+}
+
+#footerSocList li {
+    display: inline-block;
+    margin-right: 28px;
+}
