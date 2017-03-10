@@ -4,6 +4,7 @@
     <list default="true" id="3f6215b5-bdea-463d-9da5-fe44a8371ed9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bh2017/static/bh2017/style.css" afterPath="$PROJECT_DIR$/bh2017/static/bh2017/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bh2017/templates/bh2017/base.html" afterPath="$PROJECT_DIR$/bh2017/templates/bh2017/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bh2017/templates/bh2017/index.html" afterPath="$PROJECT_DIR$/bh2017/templates/bh2017/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,28 +22,28 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bh2017/templates/bh2017/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="131" column="32" lean-forward="false" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="100" />
+            <state relative-caret-position="807">
+              <caret line="184" column="14" lean-forward="false" selection-start-line="184" selection-start-column="14" selection-end-line="184" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bh2017/templates/bh2017/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
-              <caret line="104" column="37" lean-forward="false" selection-start-line="104" selection-start-column="24" selection-end-line="104" selection-end-column="37" />
+            <state relative-caret-position="582">
+              <caret line="94" column="68" lean-forward="false" selection-start-line="94" selection-start-column="68" selection-end-line="94" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bh2017/static/bh2017/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="395" column="23" lean-forward="false" selection-start-line="395" selection-start-column="23" selection-end-line="395" selection-end-column="23" />
+            <state relative-caret-position="681">
+              <caret line="442" column="17" lean-forward="false" selection-start-line="442" selection-start-column="17" selection-end-line="442" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -81,9 +82,9 @@
         <option value="$PROJECT_DIR$/bh2017/urls.py" />
         <option value="$PROJECT_DIR$/bh2017/views.py" />
         <option value="$PROJECT_DIR$/bh2017/static/bh2017/script.js" />
+        <option value="$PROJECT_DIR$/bh2017/static/bh2017/style.css" />
         <option value="$PROJECT_DIR$/bh2017/templates/bh2017/index.html" />
         <option value="$PROJECT_DIR$/bh2017/templates/bh2017/base.html" />
-        <option value="$PROJECT_DIR$/bh2017/static/bh2017/style.css" />
       </list>
     </option>
   </component>
@@ -569,26 +570,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bh2017/static/bh2017/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="442" column="17" lean-forward="false" selection-start-line="442" selection-start-column="17" selection-end-line="442" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bh2017/templates/bh2017/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="131" column="32" lean-forward="false" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="100" />
+        <state relative-caret-position="807">
+          <caret line="184" column="14" lean-forward="false" selection-start-line="184" selection-start-column="14" selection-end-line="184" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bh2017/templates/bh2017/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="687">
-          <caret line="104" column="37" lean-forward="false" selection-start-line="104" selection-start-column="24" selection-end-line="104" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bh2017/static/bh2017/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="395" column="23" lean-forward="false" selection-start-line="395" selection-start-column="23" selection-end-line="395" selection-end-column="23" />
+        <state relative-caret-position="582">
+          <caret line="94" column="68" lean-forward="false" selection-start-line="94" selection-start-column="68" selection-end-line="94" selection-end-column="68" />
           <folding />
         </state>
       </provider>

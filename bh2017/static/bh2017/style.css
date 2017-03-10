@@ -316,6 +316,7 @@ h1 {
 #prizesWrap {
     text-align: center;
     margin-top: 30px;
+    margin-bottom: 50px;
 }
 
 .prizeImgWrap {
@@ -412,4 +413,41 @@ h1 {
 #footerSocList li {
     display: inline-block;
     margin-right: 28px;
+}
+
+.outofDot {
+    display: inline-block;
+    width: 50%
+    min-width: 412px;
+}
+
+.oufofDotListDot {
+    display: inline-block;
+    text-align: left;
+}
+
+#wwfWrap {
+    width: 72px;
+    height: 93px;
+}
+
+#bbWrap {
+    width: 143px;
+    height: 46px;
+}
+
+#outofWrap {
+    font: 22px 'Pala';
+    color: #004e96;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+#wwfImgWrap {
+    vertical-align: -23px;
+}
+
+.outofText {
+    margin-left: 30px;
 }
