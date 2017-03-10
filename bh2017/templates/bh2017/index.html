@@ -1,6 +1,6 @@
 {% extends 'bh2017/base.html'%}
 {% load staticfiles %}
-
+{% block script %}<script src="{% static 'bh2017/script.js' %}"></script>{% endblock %}
 {% block title %} Всероссийская битва художников {% endblock %}
 
 {% block content %}
@@ -26,7 +26,7 @@
                                         <li>{{ form.name }}</li>
                                         <li>{{ form.email}}</li>
                                         <li>
-                                            <div>
+                                            <div id="submitId">
                                                 <input type="submit" value="РЕГИСТРАЦИЯ" />
                                             </div>
                                         </li>

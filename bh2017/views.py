@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import (HttpResponse, HttpResponseForbidden,
                          HttpResponseRedirect)
@@ -6,7 +9,8 @@ from models import Artist
 from forms import ArtistForm
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 
 def index(request):
@@ -20,14 +24,16 @@ def addArtist(request):
     if request.method == 'POST':
         form = ArtistForm(request.POST, request.FILES)
         if form.is_valid():
-            user = User.objects.create_user(form.data['name'], form.data['email'], 'johnpassword')
+            password1 = User.objects.make_random_password()
+            user = User.objects.create_user(form.data['email'], form.data['email'], password1)
             profile = form.save(commit=False)
             if profile.user_id is None:
                 profile.user_id = user.id
+                message = "Поздравляем! Вы успешно зарегестрировались на сайте проекта Битва художников! Ваш пароль: " + password1
             profile.save()
             send_mail(
                 'Registration',
-                'Grac!',
+                message,
                 'robot@bitvahudojnikov.ru',
                 [form.data['email']],
                 fail_silently=False,
@@ -36,3 +42,12 @@ def addArtist(request):
     else:
         form = ArtistForm()
     return render(request, 'bh2017/index.html', {'form': form})
+
+@csrf_exempt
+def mailCheck(request):
+    print "ok"
+    email = request.POST.get('email')
+    data = True
+    if User.objects.filter(username=email).exists():
+        data = False
+    return HttpResponse(data)
