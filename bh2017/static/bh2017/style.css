@@ -243,3 +243,142 @@ input[type="text"] {
 #mAnnounce {
     margin-top: 49px;
 }
+
+.headerWrap {
+    width: 100%;
+    with-max: 1294px;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    color: #e80606;
+    font: 32px 'Pali';
+    margin: 0;
+}
+
+.circle {
+      width: 36px;
+      height: 36px;
+      -webkit-border-radius: 18px;
+      -moz-border-radius: 18px;
+      border-radius: 36px;
+      border: 2px solid #0d5ca3;
+      text-align: center;
+}
+
+.circleNum {
+    font: 24px 'Palab';
+    color: #0d5ca3;
+    vertical-align: -9px;
+}
+
+.wtdTextWrap{
+    font: 15px 'Pala';
+    color: #605f5f;
+    text-align: left;
+}
+
+#wtdList {
+    text-align: center;
+    width: 100%;
+    max-width: 1294px;
+    margin-top: 60px;
+    margin-bottom: 63px;
+}
+
+.wtdListDotList li{
+    display: inline-block;
+}
+
+.wtdNum {
+    margin-right: 50px;
+}
+
+.wtdText {
+    vertical-align: -15px;
+    max-width: 334px;
+}
+
+.wtdListDot {
+    display: inline-block;
+    max-width: 482px;
+    min-width: 482px;
+    width: 37%;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+#wrdWrap {
+    text-align: center;
+}
+
+#prizesWrap {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.prizeImgWrap {
+    width: 242px;
+    height: 242px;
+}
+
+.prizesDot {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 29px;
+}
+
+.numPrize {
+    font: 24px 'Pala';
+    color: #004e96;
+    padding-top: 40px;
+}
+
+.textRome span {
+    font: 36px 'Pala';
+    color: #605f5f;
+}
+
+.prizeExp {
+    font: 22px 'Pala';
+    color: #605f5f;
+    padding-top: 23px;
+}
+
+#prizeLogoNev {
+    width: 236px;
+    height: 30px;
+    margin-top: 38px;
+}
+
+#prizeLogoFaber {
+    width: 133px;
+    height: 39px;
+    margin-left: 50px;
+    margin-top: 18px;
+}
+
+#romeprizeWrap {
+
+}
+
+#imgRomeBack {
+    width: 437px;
+    float: left;
+    margin-bottom: -402px;
+    margin-left: -73px;
+    margin-top: -1px;
+}
+
+#imgPenBack {
+    width: 476px;
+    float: left;
+    margin-bottom: -402px;
+    margin-left: 125px;
+    margin-top: -1px;
+}
+
+.textRome {
+    margin-top: 31px;
+}
