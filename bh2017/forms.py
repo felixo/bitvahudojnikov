@@ -28,5 +28,5 @@ class UserAuth(forms.ModelForm):
         fields = ('email', 'password')
         widgets = {
             'email': forms.TextInput({'placeholder': 'Логин (почта, указанная при регистрации)'}),
-            
+
         }

@@ -88,3 +88,6 @@ def partners(request):
 
 def faq(request):
     return render(request, 'bh2017/faq.html')
+
+def forgetpass(request):
+    return render(request, 'bh2017/forgetpass.html')

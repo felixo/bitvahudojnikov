@@ -15,5 +15,5 @@ urlpatterns = [
     url(r'^sponsors/$', views.sponsors, name='sponsors'),
     url(r'^partners/$', views.partners, name='partners'),
     url(r'^faq/$', views.faq, name='faq'),
-
+    url(r'^forgetpass/$', views.forgetpass, name='forgetpass'),
 ]
