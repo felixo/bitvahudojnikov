@@ -93,6 +93,19 @@
         {% endblock %}
         {% block partner %}
             <div class="headerWrap"><h1>ПАРТНЕРЫ КОНКУРСА</h1></div>
+            <div id="partnerWarp">
+                <ul id="partnerList">
+                    {% if documents %}
+                        {% for document in documents %}
+                            <li class="partnerDot">
+                                <a href="{{document.text}}">
+                                    <img id="document.id" src="{{ document.logo.url }}" alt="Reducto!" class="partnerLogo">
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
         {% endblock %}
     </div>
 <footer>

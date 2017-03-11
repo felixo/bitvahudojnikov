@@ -55,7 +55,7 @@ class Partner(models.Model):
     logo = models.FileField(upload_to='logoPartner')
 
     def __unicode__(self):  # __unicode__ on Python 2
-        return unicode(self.art) or u''
+        return unicode(self.name) or u''
 
 class Sponsor(models.Model):
     name = models.CharField(max_length=200)
