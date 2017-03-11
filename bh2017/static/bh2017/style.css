@@ -496,15 +496,29 @@ a:hover {
   z-index: 100;
   top: 0;
   left: 0;
-  display: none;
+  display: block;
+  color: #004e96;
 }
 #popup {
+  text-align: center;
   background-color: white;
   height: 402px;
   position: fixed;
   top: 100px;
   left: 40%;
-  color: #f00;
+  color: #004e96;
   width: 526px;
   border-radius: 8px;
+}
+
+#loginlogo {
+    max-width: 357px;
+}
+
+#authText {
+    margin-top: -70px;
+}
+
+#authText span {
+    font: 24px 'Pala';
 }

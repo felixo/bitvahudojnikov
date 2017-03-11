@@ -7,6 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 
+
 class ArtistForm(forms.ModelForm):
     class Meta:
         model = Artist
@@ -18,4 +19,14 @@ class ArtistForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput({'placeholder': 'ФИО'}),
             'email': forms.EmailInput({'placeholder': 'E-mail'}),
+        }
+
+class UserAuth(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}))
+    class Meta:
+        model = Artist
+        fields = ('email', 'password')
+        widgets = {
+            'email': forms.TextInput({'placeholder': 'Логин (почта, указанная при регистрации)'}),
+            
         }

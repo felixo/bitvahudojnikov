@@ -6,7 +6,7 @@ from django.http import (HttpResponse, HttpResponseForbidden,
                          HttpResponseRedirect)
 from django.core.urlresolvers import reverse
 from models import Artist, Partner
-from forms import ArtistForm
+from forms import ArtistForm, UserAuth
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.http import JsonResponse
@@ -16,10 +16,10 @@ from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
 
 def index(request):
     form = ArtistForm()
+    formAuth = UserAuth()
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
-
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -28,7 +28,7 @@ def index(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/index.html', {'form': form, 'documents': documents})
+    return render(request, 'bh2017/index.html', {'form': form, 'documents': documents, 'formAuth': formAuth})
 
 def thankyou(request):
     return render(request, 'bh2017/thankyou.html')

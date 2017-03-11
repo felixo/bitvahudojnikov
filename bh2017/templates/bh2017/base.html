@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="{% static 'bh2017/jquery-3.1.1.min.js' %}"></script>
-    {% block script %} {% endblock %}
+    {% block script %}<script src="{% static 'bh2017/script.js' %}"></script> {% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'bh2017/style.css' %}" />
     <link rel="icon" href="{% static "bh2017/images/favicon-bitva.jpg"%}">
     <title>{% block title %} Всероссийская битва художников {% endblock %}</title>
@@ -138,7 +138,24 @@
  <div id="parent_popup">
     <div id="popup">
     <p style="cursor: pointer;" onclick="document.getElementById('parent_popup').style.display='none';">Закрыть</p>
-    <img id="loginlogo" src="{% static 'bh2017/images/loginlogo.jpg' %}">
+        <img id="loginlogo" src="{% static 'bh2017/images/loginlogo.jpg' %}">
+        <div id="authText">
+            <span>АВТОРИЗАЦИЯ</span>
+        </div>
+        <div id="formAuthWrap">
+            <form action="{% url 'bh2017:addArtist' %}" method="POST" enctype="multipart/form-data">
+                <p>{% csrf_token %}</p>
+                <ul id="formAuthList">
+                    <li>{{ formAuth.email }}</li>
+                    <li>{{ formAuth.password }}</li>
+                 </ul>
+                <div>
+                    <input type="submit" value="РЕГИСТРАЦИЯ" />
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
+
+
