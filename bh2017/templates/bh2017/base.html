@@ -111,6 +111,11 @@
             </div>
         {% endblock %}
     </div>
+
+
+
+
+
 <footer>
     <div id="footerWrap">
         <img id="footerback" src="{% static "bh2017/images/footer.jpg" %}" />
@@ -130,5 +135,10 @@
         </ul>
     </div>
 </footer>
+ <div id="parent_popup">
+    <div id="popup">
+    <p style="cursor: pointer;" onclick="document.getElementById('parent_popup').style.display='none';">Закрыть</p>
+    <img id="loginlogo" src="{% static 'bh2017/images/loginlogo.jpg' %}">
+    </div>
 </body>
 </html>

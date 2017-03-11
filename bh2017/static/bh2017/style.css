@@ -471,12 +471,40 @@ h1 {
 
 a   {
     text-decoration: none;
+    color: #6e6d6d;
 }
 
 #sidebarList a {
-    color: #6e6d6d;
+
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+.menuSelected {
+    text-decoration: underline;
+    color: #004e96;
+}
+
+#parent_popup {
+  background: #000;
+  height: 100%;
+  opacity: 0.95;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: none;
+}
+#popup {
+  background-color: white;
+  height: 402px;
+  position: fixed;
+  top: 100px;
+  left: 40%;
+  color: #f00;
+  width: 526px;
+  border-radius: 8px;
 }

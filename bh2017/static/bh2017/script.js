@@ -11,6 +11,10 @@
             onAjaxSuccess
                 );
      });
+     $("#loginWrap").click(function(){
+        //alert("BombardaMaxia");
+        $("#parent_popup").css('display','block');
+     });
 
 });
 
