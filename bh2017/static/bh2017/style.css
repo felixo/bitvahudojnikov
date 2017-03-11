@@ -468,3 +468,15 @@ h1 {
     vertical-align: middle;
     padding-right: 22px;
 }
+
+a   {
+    text-decoration: none;
+}
+
+#sidebarList a {
+    color: #6e6d6d;
+}
+
+a:hover {
+    text-decoration: underline;
+}

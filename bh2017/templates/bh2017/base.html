@@ -22,7 +22,7 @@
                     <ul id="nevskayaWrapList">
                         <li id="nevskayaWrapListLogoDot">
                             <div id="nevskayaWrapListLogoWrap">
-                                <img src="{% static "bh2017/images/nevsakayalogo.png" %}" />
+                                <a href="http://www.nevskayapalitra.ru/"><img src="{% static "bh2017/images/nevsakayalogo.png" %}" /></a>
                             </div>
                         </li>
                         <li id="nevskayaWrapListTextDot">
@@ -38,7 +38,7 @@
                     <ul id="faberWrapList">
                         <li>
                             <div>
-                                <img src="{% static "bh2017/images/faberlogo.png" %}" />
+                                <a href="http://faber-castell.com.ru/"><img src="{% static "bh2017/images/faberlogo.png" %}" /></a>
                             </div>
                         </li>
                         <li>
@@ -54,17 +54,17 @@
                     <ul id="socialDotList">
                         <li>
                             <div>
-                                <img src="{% static "bh2017/images/vklogo.png" %}" />
+                                <a href="https://vk.com/bitvahudojnikov"><img src="{% static "bh2017/images/vklogo.png" %}" /></a>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <img src="{% static "bh2017/images/instalogo.png" %}" />
+                                <a href="https://www.instagram.com/bitvahudojnikov/"><img src="{% static "bh2017/images/instalogo.png" %}" /></a>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <img src="{% static "bh2017/images/fblogo.png" %}" />
+                                <a href="https://www.facebook.com/bitvahudojnikov/"><img src="{% static "bh2017/images/fblogo.png" %}" /></a>
                             </div>
                         </li>
                     </ul>
@@ -77,14 +77,14 @@
     <div id="sidebar">
         {% block sidebar %}
             <ul id="sidebarList">
-                <li>РЕГИСТРАЦИЯ</li>
-                <li>ЗАДАНИЯ</li>
-                <li>ПРИЗЫ</li>
-                <li>ПРАВИЛА</li>
-                <li>ЖЮРИ</li>
-                <li>СПОНСОРЫ</li>
-                <li>ПАРТНЕРЫ</li>
-                <li>ВОПРОСЫ-ОТВЕТЫ</li>
+                <li><a class="menuNone" href="{% url 'bh2017:registration' %}">РЕГИСТРАЦИЯ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:tasks' %}">ЗАДАНИЯ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:prizes' %}">ПРИЗЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:rules' %}">ПРАВИЛА</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:jury' %}">ЖЮРИ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:sponsors' %}">СПОНСОРЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:partners' %}">ПАРТНЕРЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:faq' %}">ВОПРОСЫ-ОТВЕТЫ</a></li>
             </ul>
         {% endblock %}
     </div>
@@ -105,6 +105,9 @@
                         {% endfor %}
                     {% endif %}
                 </ul>
+                {% if documents.has_next %}
+                    <div><a id="nextButton" href="?page={{ documents.next_page_number }}"> ЕЩЕ</a></div>
+                {% endif %}
             </div>
         {% endblock %}
     </div>
@@ -119,9 +122,9 @@
             </li>
             <li>
                 <ul id="footerSocList">
-                    <li><img height="17" src="{% static "bh2017/images/bvk.png" %}" /></li>
-                    <li><img height="18" src="{% static "bh2017/images/binst.png" %}" /</li>
-                    <li><img id="bfb" src="{% static "bh2017/images/bfb.png" %}" /</li>
+                    <li><a href="https://vk.com/bitvahudojnikov"><img height="17" src="{% static "bh2017/images/bvk.png" %}" /></a></li>
+                    <li><a href="https://www.instagram.com/bitvahudojnikov/"><img height="18" src="{% static "bh2017/images/binst.png" %}"></a></li>
+                    <li><a href="https://www.facebook.com/bitvahudojnikov/"><img id="bfb" src="{% static "bh2017/images/bfb.png" %}"></a></li>
                 </ul>
             </li>
         </ul>

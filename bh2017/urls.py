@@ -7,4 +7,13 @@ urlpatterns = [
     url(r'^addArtist/', views.addArtist, name='addArtist'),
     url(r'^thankyou/', views.thankyou, name='thankyou'),
     url(r'^mailCheck/$', views.mailCheck, name='mailCheck'),
+    url(r'^registration/$', views.registration, name='registration'),
+    url(r'^tasks/$', views.tasks, name='tasks'),
+    url(r'^prizes/$', views.prizes, name='prizes'),
+    url(r'^rules/$', views.rules, name='rules'),
+    url(r'^jury/$', views.jury, name='jury'),
+    url(r'^sponsors/$', views.sponsors, name='sponsors'),
+    url(r'^partners/$', views.partners, name='partners'),
+    url(r'^faq/$', views.faq, name='faq'),
+
 ]

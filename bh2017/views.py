@@ -64,3 +64,27 @@ def mailCheck(request):
     if User.objects.filter(username=email).exists():
         data = False
     return HttpResponse(data)
+
+def registration(request):
+    return render(request, 'bh2017/registration.html')
+
+def tasks(request):
+    return render(request, 'bh2017/tasks.html')
+
+def prizes(request):
+    return render(request, 'bh2017/prizes.html')
+
+def rules(request):
+    return render(request, 'bh2017/rules.html')
+
+def jury(request):
+    return render(request, 'bh2017/jury.html')
+
+def sponsors(request):
+    return render(request, 'bh2017/sponsors.html')
+
+def partners(request):
+    return render(request, 'bh2017/partners.html')
+
+def faq(request):
+    return render(request, 'bh2017/faq.html')
