@@ -13,9 +13,19 @@
     <div id="attic">
         <ul id="atticList">
             <li id="loginDot">
-               <div id="loginWrap">
-                    <span>ВОЙТИ</span>
-               </div>
+                   {% if user and not user.is_anonymous %}
+                   <div id="logoutWarp">
+                       <ul id="logoutWarpList">
+                           <li ><div id="logoutBut">ВЫЙТИ</div></li>
+                           <li id="logoutText">Здравствуйте,<br>{{ Artist }}</li>
+                       </ul>
+                   </div>
+                   {% else %}
+                    <div id="loginWrap">
+                        <span>ВОЙТИ</span>
+                    </div>
+                   {% endif %}
+
             </li>
             <li id="nevskayaDot">
                 <div id="nevskayaWrap">
@@ -143,7 +153,7 @@
             <span>АВТОРИЗАЦИЯ</span>
         </div>
         <div id="formAuthWrap">
-            <form action="{% url 'bh2017:addArtist' %}" method="POST" enctype="multipart/form-data">
+            <form action="{% url 'bh2017:loginAuth' %}" method="POST" enctype="multipart/form-data">
                 <p>{% csrf_token %}</p>
                 <ul id="formAuthList">
                     <li>{{ formAuth.email }}</li>

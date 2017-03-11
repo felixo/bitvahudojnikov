@@ -556,3 +556,26 @@ a:hover {
     width: 100%;
     padding: 0;
 }
+
+#logoutBut {
+    font: 14px 'Pala';
+    background-color: #e80606;
+    color: white;
+    border: 1px solid #e80606;
+    border-radius: 10px; /* Радиус скругления */
+    max-width: 116px;
+    text-align: center;
+    width: 116px;
+    height: 27px;
+}
+
+#logoutWarpList li {
+    display: block;
+    font: 13px 'Pali';
+    color: #6e6d6d;
+    text-align: left;
+}
+
+#logoutText {
+    margin-top: 5px;
+}

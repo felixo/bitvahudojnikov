@@ -12,6 +12,7 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
+from django.contrib.auth import authenticate,login
 
 
 def index(request):
@@ -20,6 +21,9 @@ def index(request):
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
+    print request.user
+    fullName = Artist.objects.filter(user=request.user)
+    print fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -28,7 +32,7 @@ def index(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/index.html', {'form': form, 'documents': documents, 'formAuth': formAuth})
+    return render(request, 'bh2017/index.html', {'form': form, 'documents': documents, 'formAuth': formAuth, 'Artist': fullName[0].name})
 
 def thankyou(request):
     return render(request, 'bh2017/thankyou.html')
@@ -91,3 +95,22 @@ def faq(request):
 
 def forgetpass(request):
     return render(request, 'bh2017/forgetpass.html')
+
+def loginAuth(request):
+    if request.method == 'POST':
+        formAuth = UserAuth(request.POST, request.FILES)
+        if formAuth.is_valid():
+            user = authenticate(username=formAuth.data['email'], password=formAuth.data['password'])
+            if user is not None:
+                login(request, user)
+            # A backend authenticated the credentials
+                print 'OK'
+                return HttpResponse(user)
+            else:
+            # No backend authenticated the credentials
+                print 'Nope'
+            return HttpResponse(User.user)
+           # return HttpResponseRedirect(reverse('bh2017:thankyou'))
+  #  else:
+ #       form = ArtistForm()
+ #   return render(request, 'bh2017/index.html', {'form': form})
