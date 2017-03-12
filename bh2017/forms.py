@@ -54,4 +54,8 @@ class registrationFull(forms.ModelForm):
         widgets = {
             'name': forms.TextInput({'placeholder': 'ФИО'}),
             'email': forms.EmailInput({'placeholder': 'E-mail'}),
+            'city': forms.TextInput({'placeholder': 'Город'}),
+            'age': forms.NumberInput({'placeholder': 'Возраст'}),
+            'favorite': forms.Select({'placeholder': 'Любимый инструмент'}),
+
         }

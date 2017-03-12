@@ -12,6 +12,7 @@ from datetime import datetime
 
 
 Status = (
+    ('','Любимый инструмент'),
     ('Unseen', 'На рассмотрении'),
     ('Approved', 'Утверждено'),
     ('Denide', 'Отклонено'),
@@ -24,7 +25,7 @@ class Artist(models.Model):
     city = models.CharField(max_length=200)
     favorite = models.CharField(max_length=200, choices=Status)
     data = models.DateTimeField('date published', auto_now_add=True)
-    age = models.IntegerField(default=0);
+    age = models.IntegerField();
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''

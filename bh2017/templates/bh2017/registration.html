@@ -23,20 +23,23 @@
             <form action="{% url 'bh2017:addArtist' %}" method="POST" enctype="multipart/form-data">
                 <p>{% csrf_token %}</p>
                 <ul id="fullRegList1">
-                    <li>{{ regForm.name }}</li>
-                    <li>{{ regForm.email }}</li>
+                    <li class="fullRegDot">{{ regForm.name }}</li>
+                    <li class="fullRegDot">{{ regForm.email }}</li>
                 </ul>
-                <h2>ЛИЧНЫЕ ДАННЫЕ</h2>
+                <h2 class="h2Form">ЛИЧНЫЕ ДАННЫЕ</h2>
                 <ul id="fullRegList2">
-                    <li>{{ regForm.city }}</li>
-                    <li>{{ regForm.age }}</li>
-                    <li>{{ regForm.favorite }}</li>
+                    <li class="fullRegDot">{{ regForm.city }}</li>
+                    <li class="fullRegDot">{{ regForm.age }}</li>
+                    <li class="fullRegDot">{{ regForm.favorite }}</li>
                 </ul>
-                <h2>ПАРОЛЬ</h2>
+                <h2 class="h2Form">ПАРОЛЬ</h2>
                 <ul id="fullRegList3">
-                    <li>{{ regForm.password }}</li>
-                    <li>{{ regForm.passwordcheck }}</li>
+                    <li class="fullRegDot">{{ regForm.password }}</li>
+                    <li class="fullRegDot">{{ regForm.passwordCheck }}</li>
                 </ul>
+                <div id="submitId">
+                                                <input type="submit" value="РЕГИСТРАЦИЯ" />
+                                            </div>
             </form>
         </div>
     </div>
