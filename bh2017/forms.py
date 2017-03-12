@@ -30,3 +30,28 @@ class UserAuth(forms.ModelForm):
             'email': forms.TextInput({'placeholder': 'Логин (почта, указанная при регистрации)'}),
 
         }
+
+class UserAuth(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}))
+    class Meta:
+        model = Artist
+        fields = ('email', 'password')
+        widgets = {
+            'email': forms.TextInput({'placeholder': 'Логин (почта, указанная при регистрации)', 'id': '21285'}),
+
+        }
+
+class registrationFull(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}))
+    passwordCheck = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Подтверждение пароля'}))
+    class Meta:
+        model = Artist
+        fields = ('name', 'email', 'city', 'age', 'favorite', 'password', 'passwordCheck')
+        labels = {
+            'name': _('ФИО'),
+            'email': _('E-mail'),
+        }
+        widgets = {
+            'name': forms.TextInput({'placeholder': 'ФИО'}),
+            'email': forms.EmailInput({'placeholder': 'E-mail'}),
+        }

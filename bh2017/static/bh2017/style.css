@@ -592,6 +592,7 @@ a:hover {
 
 #contentWrap {
     text-align: center;
+    margin: 50px 0;
 }
 
 #wrongPass {
@@ -604,4 +605,14 @@ a:hover {
 
 #formAuthWrapWrap {
     margin-bottom: 50px;
+}
+
+#logoother {
+    max-width: 597px;
+}
+
+h2 {
+    font: 15.5px 'Pala';
+    color: #004e96;
+    margin: 30px 0;
 }
