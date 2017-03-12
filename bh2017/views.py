@@ -72,10 +72,15 @@ def mailCheck(request):
     return HttpResponse(data)
 
 def registration(request):
+    formAuth = UserAuth()
     regForm = registrationFull()
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
+    fullName = 0
+    if (request.user.is_authenticated):
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -84,7 +89,7 @@ def registration(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/registration.html', {'documents': documents, 'regForm': regForm})
+    return render(request, 'bh2017/registration.html', {'documents': documents, 'regForm': regForm, 'formAuth': formAuth, 'Artist': fullName})
 
 def tasks(request):
     obj = Partner.objects.all()
@@ -136,6 +141,7 @@ def loginAuth(request):
                 print 'Nope'
                 data = "0"
             return HttpResponseRedirect(reverse('bh2017:loginFail'))
+    return HttpResponseRedirect(reverse('bh2017:loginFail'))
   #  else:
  #       form = ArtistForm()
  #   return render(request, 'bh2017/index.html', {'form': form})
@@ -164,3 +170,48 @@ def loginFail(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
     return render(request, 'bh2017/loginFail.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName})
+
+def fullArtistAdd(request):
+    if request.method == 'POST':
+        form = registrationFull(request.POST, request.FILES)
+        if form.is_valid():
+            password1 = form.data['password']
+            user = User.objects.create_user(form.data['email'], form.data['email'], password1)
+            profile = form.save(commit=False)
+            if profile.user_id is None:
+                profile.user_id = user.id
+                message = "Поздравляем! Вы успешно зарегестрировались на сайте проекта Битва художников! Ваш пароль: " + password1
+            profile.save()
+            send_mail(
+                'Registration',
+                message,
+                'robot@bitvahudojnikov.ru',
+                [form.data['email']],
+                fail_silently=False,
+            )
+            return HttpResponseRedirect(reverse('bh2017:thankyou'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})
+
+def cabinet(request):
+    regForm = registrationFull()
+    obj = Partner.objects.all()
+    paginator = Paginator(obj, 12)
+    page = request.GET.get('page')
+    fullName = 0
+    if (request.user.is_authenticated):
+        fullName = Artist.objects.filter(user=request.user)
+        artist = fullName[0]
+        fullName = fullName[0].name
+    else:
+        return HttpResponseRedirect(reverse('bh2017:loginFail'))
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    return render(request, 'bh2017/cabinet.html', {'documents': documents, 'Artist': fullName, 'regForm': regForm, 'artist': artist})

@@ -15,9 +15,30 @@
         //alert("BombardaMaxia");
         $("#parent_popup").css('display','block');
      });
-
+     $( "#id_passwordCheck" ).change(function() {
+        //alert( "Handler for .click() called." );
+        var A = $("#id_passwordCheck").val();
+        var B = $("#id_password").val();
+        if (A == B){
+            $( "#registrationButton" ).prop('disabled',false);
+            $( "#registrationButton" ).animate({
+                 width: "150px"
+             }, 50, function(){
+            $( "#registrationButton" ).attr('value','РЕГИСТРАЦИЯ');
+        });
+        }
+        else {
+            $( "#registrationButton" ).prop('disabled',true);
+            $( "#registrationButton" ).animate({
+                width: "236px"
+                }, 50, function(){
+            $( "#registrationButton" ).attr('value','Пароль и проверка пароля должны совпадать');
+                });
+        }
+      });
 
 });
+
 
 
 
@@ -26,19 +47,19 @@ function onAjaxSuccess(data)
   // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
   //alert(data);
   if (data == 'False'){
-    $( "input[type|='submit']" ).prop('disabled',true);
-    $( "input[type|='submit']" ).animate({
-        width: "236px"
+    $( "#registrationButton" ).prop('disabled',true);
+    $( "#registrationButton" ).animate({
+        width: "300px"
     }, 50, function(){
-    $( "input[type|='submit']" ).attr('value','Этот почтовый ящик уже занят');
+    $( "#registrationButton" ).attr('value','Этот почтовый ящик уже занят');
     });
     }
   else {
-    $( "input[type|='submit']" ).prop('disabled',false);
-    $( "input[type|='submit']" ).animate({
+    $( "#registrationButton" ).prop('disabled',false);
+    $( "#registrationButton" ).animate({
         width: "150px"
     }, 50, function(){
-    $( "input[type|='submit']" ).attr('value','РЕГИСТРАЦИЯ');
+    $( "#registrationButton" ).attr('value','РЕГИСТРАЦИЯ');
     });
   }
 }

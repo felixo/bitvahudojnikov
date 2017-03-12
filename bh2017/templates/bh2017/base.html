@@ -18,7 +18,7 @@
                    <div id="logoutWarp">
                        <ul id="logoutWarpList">
                            <li ><a href="{% url 'bh2017:logoutArtist' %}"><div id="logoutBut"><span>ВЫЙТИ</span></div></a></li>
-                           <li id="logoutText">Здравствуйте,<br><a href="{% url 'bh2017:registration' %}">{{ Artist }}</a></li>
+                           <li id="logoutText">Здравствуйте,<br><a href="{% url 'bh2017:cabinet' %}">{{ Artist }}</a></li>
                        </ul>
                    </div>
                     </li>
@@ -167,7 +167,7 @@
                     <li class="loginButListDot"><a class="menuSelected" href="{% url 'bh2017:forgetpass' %}">Забыли пароль?</a></li>
                     <li class="loginButListDot">
                         <div id="loginBut">
-                            <input type="submit" value="ВОЙТИ" />
+                            <input id=loginButton" type="submit" value="ВОЙТИ" />
                         </div>
                     </li>
                     <li class="loginButListDot"><a class="menuSelected" href="{% url 'bh2017:registration' %}">Регистрация</a></li>

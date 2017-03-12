@@ -21,15 +21,7 @@ class ArtistForm(forms.ModelForm):
             'email': forms.EmailInput({'placeholder': 'E-mail'}),
         }
 
-class UserAuth(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}))
-    class Meta:
-        model = Artist
-        fields = ('email', 'password')
-        widgets = {
-            'email': forms.TextInput({'placeholder': 'Логин (почта, указанная при регистрации)'}),
 
-        }
 
 class UserAuth(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}))

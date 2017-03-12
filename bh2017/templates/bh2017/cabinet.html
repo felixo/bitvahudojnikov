@@ -17,8 +17,7 @@
 {% block content %}
     <div id="contentWrap">
         <img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}">
-        <h1>РЕГИСТРАЦИЯ</h1>
-        <h2>ЗАРЕГИСТРИРУЙСЯ И ЖДИ ПЕРВОЕ ЗАДАНИЕ</h2>
+        <h1>ЛИЧНЫЙ КАБИНЕТ</h1>
         <div id="fullRegWrap">
             <form action="{% url 'bh2017:fullArtistAdd' %}" method="POST" enctype="multipart/form-data">
                 <p>{% csrf_token %}</p>

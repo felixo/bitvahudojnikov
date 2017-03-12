@@ -19,4 +19,6 @@ urlpatterns = [
     url(r'^login/', views.loginAuth, name='loginAuth'),
     url(r'^logoutArtist', views.logoutArtist, name='logoutArtist'),
     url(r'^loginFail', views.loginFail, name='loginFail'),
+    url(r'^fullArtistAdd', views.fullArtistAdd, name='fullArtistAdd'),
+    url(r'^cabinet', views.cabinet, name='cabinet'),
 ]
