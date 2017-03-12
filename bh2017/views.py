@@ -111,8 +111,8 @@ def loginAuth(request):
             else:
             # No backend authenticated the credentials
                 print 'Nope'
-            return HttpResponse(0)
-           # return HttpResponseRedirect(reverse('bh2017:thankyou'))
+                data = "0"
+            return HttpResponseRedirect(reverse('bh2017:loginFail'))
   #  else:
  #       form = ArtistForm()
  #   return render(request, 'bh2017/index.html', {'form': form})
@@ -121,3 +121,23 @@ def logoutArtist(request):
     logout(request)
     #return HttpResponse("shit")
     return HttpResponseRedirect(reverse('bh2017:index'))
+
+def loginFail(request):
+    formAuth = UserAuth()
+    obj = Partner.objects.all()
+    paginator = Paginator(obj, 12)
+    page = request.GET.get('page')
+    print request.user
+    fullName = 0
+    if (request.user.is_authenticated):
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    return render(request, 'bh2017/loginFail.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName})

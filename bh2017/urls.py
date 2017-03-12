@@ -18,4 +18,5 @@ urlpatterns = [
     url(r'^forgetpass/$', views.forgetpass, name='forgetpass'),
     url(r'^login/', views.loginAuth, name='loginAuth'),
     url(r'^logoutArtist', views.logoutArtist, name='logoutArtist'),
+    url(r'^loginFail', views.loginFail, name='loginFail'),
 ]

@@ -589,3 +589,19 @@ a:hover {
 #logoutText a{
     text-decoration: underline;
 }
+
+#contentWrap {
+    text-align: center;
+}
+
+#wrongPass {
+    margin: 50px 0;
+}
+
+#wrongPass h1 {
+    font: 20px 'Pali';
+}
+
+#formAuthWrapWrap {
+    margin-bottom: 50px;
+}

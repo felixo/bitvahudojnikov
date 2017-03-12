@@ -1,0 +1,43 @@
+{% extends 'bh2017/base.html'%}
+{% load staticfiles %}
+
+{% block title %} Всероссийская битва художников {% endblock %}
+{% block sidebar %}
+    <ul id="sidebarList">
+                <li><a class="menuNone" href="{% url 'bh2017:registration' %}">РЕГИСТРАЦИЯ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:tasks' %}">ЗАДАНИЯ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:prizes' %}">ПРИЗЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:rules' %}">ПРАВИЛА</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:jury' %}">ЖЮРИ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:sponsors' %}">СПОНСОРЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:partners' %}">ПАРТНЕРЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:faq' %}">ВОПРОСЫ-ОТВЕТЫ</a></li>
+            </ul>
+{% endblock %}
+{% block content %}
+    <div id="contentWrap">
+        <div id="wrongPass">
+            <h1>НЕВЕРНЫЙ ЛОГИН ИЛИ ПАРОЛЬ, ПОПРУБУЙТЕ ЕЩЕ РАЗ!</h1>
+        </div>
+        <div id="formAuthWrapWrap">
+        <div id="formAuthWrap">
+            <form action="{% url 'bh2017:loginAuth' %}" method="POST" enctype="multipart/form-data">
+                <p>{% csrf_token %}</p>
+                <ul id="formAuthList">
+                    <li>{{ formAuth.email }}</li>
+                    <li>{{ formAuth.password }}</li>
+                 </ul>
+                <ul id="loginButList">
+                    <li class="loginButListDot"><a class="menuSelected" href="{% url 'bh2017:forgetpass' %}">Забыли пароль?</a></li>
+                    <li class="loginButListDot">
+                        <div id="loginBut">
+                            <input type="submit" value="ВОЙТИ" />
+                        </div>
+                    </li>
+                    <li class="loginButListDot"><a class="menuSelected" href="{% url 'bh2017:registration' %}">Регистрация</a></li>
+                </ul>
+            </form>
+        </div>
+        </div>
+    </div>
+{% endblock %}
