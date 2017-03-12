@@ -12,21 +12,25 @@
 <body>
     <div id="attic">
         <ul id="atticList">
-            <li id="loginDot">
-                   {% if user and not user.is_anonymous %}
+
+                   {% if user and user.is_authenticated %}
+                    <li id="logoutDot">
                    <div id="logoutWarp">
                        <ul id="logoutWarpList">
-                           <li ><div id="logoutBut">ВЫЙТИ</div></li>
-                           <li id="logoutText">Здравствуйте,<br>{{ Artist }}</li>
+                           <li ><a href="{% url 'bh2017:logoutArtist' %}"><div id="logoutBut"><span>ВЫЙТИ</span></div></a></li>
+                           <li id="logoutText">Здравствуйте,<br><a href="{% url 'bh2017:registration' %}">{{ Artist }}</a></li>
                        </ul>
                    </div>
+                    </li>
                    {% else %}
-                    <div id="loginWrap">
-                        <span>ВОЙТИ</span>
-                    </div>
+                    <li id="loginDot">
+                        <div id="loginWrap">
+                            <span>ВОЙТИ</span>
+                        </div>
+                    </li>
                    {% endif %}
 
-            </li>
+
             <li id="nevskayaDot">
                 <div id="nevskayaWrap">
                     <ul id="nevskayaWrapList">

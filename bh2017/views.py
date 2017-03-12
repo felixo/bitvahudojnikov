@@ -12,7 +12,7 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login, logout
 
 
 def index(request):
@@ -22,8 +22,10 @@ def index(request):
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
     print request.user
-    fullName = Artist.objects.filter(user=request.user)
-    print fullName[0].name
+    fullName = 0
+    if (request.user.is_authenticated):
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -32,7 +34,7 @@ def index(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/index.html', {'form': form, 'documents': documents, 'formAuth': formAuth, 'Artist': fullName[0].name})
+    return render(request, 'bh2017/index.html', {'form': form, 'documents': documents, 'formAuth': formAuth, 'Artist': fullName})
 
 def thankyou(request):
     return render(request, 'bh2017/thankyou.html')
@@ -105,12 +107,17 @@ def loginAuth(request):
                 login(request, user)
             # A backend authenticated the credentials
                 print 'OK'
-                return HttpResponse(user)
+                return HttpResponseRedirect(reverse('bh2017:index'))
             else:
             # No backend authenticated the credentials
                 print 'Nope'
-            return HttpResponse(User.user)
+            return HttpResponse(0)
            # return HttpResponseRedirect(reverse('bh2017:thankyou'))
   #  else:
  #       form = ArtistForm()
  #   return render(request, 'bh2017/index.html', {'form': form})
+
+def logoutArtist(request):
+    logout(request)
+    #return HttpResponse("shit")
+    return HttpResponseRedirect(reverse('bh2017:index'))

@@ -562,11 +562,15 @@ a:hover {
     background-color: #e80606;
     color: white;
     border: 1px solid #e80606;
-    border-radius: 10px; /* Радиус скругления */
+    border-radius: 20px; /* Радиус скругления */
     max-width: 116px;
     text-align: center;
     width: 116px;
     height: 27px;
+}
+
+#logoutBut span {
+    vertical-align: -7px;
 }
 
 #logoutWarpList li {
@@ -578,4 +582,10 @@ a:hover {
 
 #logoutText {
     margin-top: 5px;
+    decoration: underline;
+    margin-left: 17px;
+}
+
+#logoutText a{
+    text-decoration: underline;
 }
