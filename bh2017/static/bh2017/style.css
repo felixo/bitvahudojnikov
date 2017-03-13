@@ -769,3 +769,59 @@ input[type="number"] {
     margin-left: auto;
     margin-right: auto;
 }
+
+#sponsorLogoNev {
+    width: 327px;
+    height: 34px;
+}
+
+#sponsorLogoFaber {
+    width: 209px;
+    height: 61px;
+}
+
+.sponsorsList li{
+    display: inline-block;
+}
+
+.sponsorLogo {
+    width: 455px;
+    text-align: -webkit-center;
+}
+
+.sponsorName {
+    font: 18px 'Pala';
+    color: #004e96;
+}
+
+.sponsorType {
+    font: 18px 'Palai';
+    color: #6e6d6d;
+}
+
+.sponsorText {
+    font: 14px 'Pala';
+    color: #6e6d6d;
+    white-space: pre-wrap;
+}
+
+.sponsorsText {
+        width: 545px;
+        vertical-align: top;
+}
+
+.sponsorfixList li {
+    display: inline-block;
+}
+
+.sponsorsTextDot {
+    text-align: left;
+}
+
+.sponsorsTextDot li {
+    display: block;
+}
+
+.sponsorsList {
+    margin-top: 50px;
+}

@@ -33,6 +33,9 @@ class Artist(models.Model):
 class Jury(models.Model):
     name = models.CharField(max_length=200)
     user = models.OneToOneField(User)
+    text = models.CharField(max_length=2000, default="")
+    docfile = models.FileField(upload_to='Jurys', default="")
+    Post = models.CharField(max_length=2000, default="")
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
