@@ -670,3 +670,66 @@ input[type="number"] {
 #passwordForm {
     margin: 50px 0;
 }
+
+.prizeRowList li {
+    display: inline-block;
+}
+
+.prizeRowTextList li {
+    display: block;
+}
+
+.numPrizeFull {
+    font: 24px 'Pala';
+    color: #004e96;
+}
+
+.textRomeFull span {
+    font: 36px 'Pala';
+    color: #605f5f;
+}
+
+.prizeExpFull {
+    font: 22px 'Pala';
+    color: #605f5f;
+}
+
+#prizeLogoNevFull {
+    width: 236px;
+    height: 30px;
+}
+
+#prizeLogoFaberFull {
+    width: 133px;
+    height: 39px;
+}
+
+#fullPrizesList li {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.prizeImgWrap {
+    width: 400px;
+    height: 257px;
+}
+
+.outOfImg {
+    width: 251px;
+    height: 172px;
+}
+
+.prizesOutRowList li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 12px 0;
+}
+
+.prizesOutTextWrap {
+    max-width: 490px;
+    width: 37.86%;
+    min-width: 410px;
+    text-align: left;
+    color: #6e6d6d;
+    font: 22px 'Pala';
+}

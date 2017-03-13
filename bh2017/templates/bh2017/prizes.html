@@ -16,8 +16,88 @@
 {% endblock %}
 {% block content %}
     <div id="contentWrap">
-        PRIZES
-        {{ form }}
-        </div>
+        <img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}">
+        <h1>ПРИЗЫ КОНКУРСА</h1>
+        <ul id="fullPrizesList">
+            <li>
+                <ul class="prizeRowList">
+                    <li>
+                        <div class="prizeImgWrap">
+                            <img src="{% static 'bh2017/images/prize-rome.jpg' %}">
+                        </div>
+                    </li>
+                    <li>
+                        <ul class="prizeRowTextList">
+                            <li><div class="numPrizeFull"><span>ПРИЗ ЗА ПЕРВОЕ МЕСТО:</span></div></li>
+                            <li><div class="textRomeFull"><span>билеты в Рим!</span></div></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+               <ul class="prizeRowList">
+                    <li>
+                        <div class="prizeImgWrap">
+                            <img src="{% static 'bh2017/images/prize-nevskaya.jpg' %}">
+                        </div>
+                    </li>
+                    <li>
+                        <ul class="prizeRowTextList">
+                            <li><div class="numPrizeFull"><span>ПРИЗ ЗА ВТОРОЕ МЕСТО:</span></div></li>
+                            <li><div class="prizeExpFull"><span>Большой набор красок от бренда<br>"Невская палитра"</span></div></li>
+                            <li><div id="prizeLogoNevFull"><img src="{% static "bh2017/images/nevsakayalogo.png" %}"></div></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="prizeRowList">
+                    <li>
+                        <div class="prizeImgWrap">
+                            <img src="{% static 'bh2017/images/prize-faber.jpg' %}">
+                        </div>
+                    </li>
+                    <li>
+                        <ul class="prizeRowTextList">
+                            <li><div class="numPrizeFull"><span>ПРИЗ ЗА ТРЕТЬЕ МЕСТО:</span></div></li>
+                            <li><div class="prizeExpFull"><span>Большой набор карандашей, маркеров и ручек<br>от бренда "Faber-Castell"</span></div></li>
+                            <li><div id="prizeLogoFaberFull"><img src="{% static "bh2017/images/faberlogo.png" %}"></div></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h1>ВНЕКОНКУРСНЫЕ ПРИЗЫ</h1>
+        <ul id="prizesOutList">
+            <li>
+                <ul class="prizesOutRowList">
+                    <li>
+                        <div class="outOfImg" id="wwfoutlogoWrap">
+                            <img src="{% static 'bh2017/images/wwfprizelogo.png' %}">
+                        </div>
+                    </li>
+                    <li>
+                       <div class="prizesOutTextWrap">
+                           <span>Сотрудничество с Фондом дикой природы по созданию иллюстраций для сувенирной продукции</span>
+                       </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="prizesOutRowList">
+                    <li>
+                        <div class="outOfImg" id="bbeoutlogoWrap">
+                            <img src="{% static 'bh2017/images/bbeprizelogo.png' %}">
+                        </div>
+                    </li>
+                    <li>
+                       <div class="prizesOutTextWrap">
+                           <span>Онлайн-обучение в Bang-Bang Education: курс <a href="https://bangbangeducation.ru/course/dizayn-myshlenie-nbsp-mdash-nakachka-ideyami-2 ">"Дизайн-мышление - накачка идеями"</a> или курс <a href="https://bangbangeducation.ru/course/idei-v-illyustracii-2">"Идеи в иллюстрации" </a></span>
+                       </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 {% endblock %}

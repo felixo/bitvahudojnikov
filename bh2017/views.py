@@ -124,7 +124,24 @@ def tasks(request):
     return render(request, 'bh2017/tasks.html', {'documents': documents})
 
 def prizes(request):
-    return render(request, 'bh2017/prizes.html')
+    formAuth = UserAuth()
+    obj = Partner.objects.all()
+    paginator = Paginator(obj, 12)
+    page = request.GET.get('page')
+    # print request.user
+    fullName = 0
+    if (request.user.is_authenticated):
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    return render(request, 'bh2017/prizes.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName})
 
 def rules(request):
     return render(request, 'bh2017/rules.html')
