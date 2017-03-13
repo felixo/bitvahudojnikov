@@ -47,8 +47,10 @@ def thankyou(request):
     print request.user
     fullName = 0
     if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        fullName = fullName[0].name
+        if (request.user.is_authenticated):
+            if not request.user.is_anonymous:
+                fullName = Artist.objects.filter(user=request.user)
+                fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -99,8 +101,9 @@ def registration(request):
     page = request.GET.get('page')
     fullName = 0
     if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        fullName = fullName[0].name
+        if not request.user.is_anonymous:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -133,8 +136,9 @@ def prizes(request):
     # print request.user
     fullName = 0
     if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        fullName = fullName[0].name
+        if not request.user.is_anonymous:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -153,8 +157,9 @@ def rules(request):
     # print request.user
     fullName = 0
     if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        fullName = fullName[0].name
+        if not request.user.is_anonymous:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -173,8 +178,9 @@ def jury(request):
     # print request.user
     fullName = 0
     if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        fullName = fullName[0].name
+        if not request.user.is_anonymous:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -189,8 +195,9 @@ def sponsors(request):
     formAuth = UserAuth()
     fullName = 0
     if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        fullName = fullName[0].name
+        if not request.user.is_anonymous:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
     return render(request, 'bh2017/sponsors.html', {'formAuth': formAuth, 'Artist': fullName})
 
 def partners(request):
@@ -199,16 +206,18 @@ def partners(request):
     obj = Partner.objects.all()
     fullName = 0
     if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        fullName = fullName[0].name
+        if not request.user.is_anonymous:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
     return render(request, 'bh2017/partners.html',{'form': form, 'documents': obj, 'formAuth': formAuth, 'Artist': fullName})
 
 def faq(request):
     formAuth = UserAuth()
     fullName = 0
     if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        fullName = fullName[0].name
+        if not request.user.is_anonymous:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
@@ -263,8 +272,9 @@ def loginFail(request):
     print request.user
     fullName = 0
     if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        fullName = fullName[0].name
+        if not request.user.is_anonymous:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -301,8 +311,9 @@ def fullArtistAdd(request):
 def cabinet(request):
     fullName = 0
     if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        artist = fullName[0]
+        if not request.user.is_anonymous:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
         fullName = fullName[0].name
     else:
         return HttpResponseRedirect(reverse('bh2017:loginFail'))
