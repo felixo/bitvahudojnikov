@@ -733,3 +733,39 @@ input[type="number"] {
     color: #6e6d6d;
     font: 22px 'Pala';
 }
+
+.materialListDot {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.materiaslRow li {
+    display: block;
+}
+
+.materialTextWrap {
+    color: #6e6d6d;
+    font: 14px 'Pala';
+}
+
+#materialList {
+    margin: 50px 0;
+}
+
+#ruleHeadaer {
+    max-width: 704px;
+    width: 56.71%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#textruleWrap {
+    white-space: pre-wrap;
+    color: #6e6d6d;
+    font: 14px 'Pala';
+    text-align: left;
+    max-width: 940px;
+    widh: 72.643%;
+    margin-left: auto;
+    margin-right: auto;
+}
