@@ -6,7 +6,7 @@ from django.http import (HttpResponse, HttpResponseForbidden,
                          HttpResponseRedirect)
 from django.core.urlresolvers import reverse
 from models import Artist, Partner
-from forms import ArtistForm, UserAuth, registrationFull
+from forms import ArtistForm, UserAuth, registrationFull, changePersonal, passwordChange
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.http import JsonResponse
@@ -37,7 +37,25 @@ def index(request):
     return render(request, 'bh2017/index.html', {'form': form, 'documents': documents, 'formAuth': formAuth, 'Artist': fullName})
 
 def thankyou(request):
-    return render(request, 'bh2017/thankyou.html')
+    form = ArtistForm()
+    formAuth = UserAuth()
+    obj = Partner.objects.all()
+    paginator = Paginator(obj, 12)
+    page = request.GET.get('page')
+    print request.user
+    fullName = 0
+    if (request.user.is_authenticated):
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    return render(request, 'bh2017/thankyou.html', {'form': form, 'documents': documents, 'formAuth': formAuth, 'Artist': fullName})
 
 def addArtist(request):
     if request.method == 'POST':
@@ -195,10 +213,6 @@ def fullArtistAdd(request):
     return render(request, 'bh2017/index.html', {'form': form})
 
 def cabinet(request):
-    regForm = registrationFull()
-    obj = Partner.objects.all()
-    paginator = Paginator(obj, 12)
-    page = request.GET.get('page')
     fullName = 0
     if (request.user.is_authenticated):
         fullName = Artist.objects.filter(user=request.user)
@@ -206,6 +220,11 @@ def cabinet(request):
         fullName = fullName[0].name
     else:
         return HttpResponseRedirect(reverse('bh2017:loginFail'))
+    passChange = passwordChange()
+    regForm = changePersonal(initial={'name': artist.name, 'city': artist.city, 'age': artist.age, 'favorite': artist.favorite})
+    obj = Partner.objects.all()
+    paginator = Paginator(obj, 12)
+    page = request.GET.get('page')
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -214,4 +233,20 @@ def cabinet(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/cabinet.html', {'documents': documents, 'Artist': fullName, 'regForm': regForm, 'artist': artist})
+    return render(request, 'bh2017/cabinet.html', {'documents': documents, 'Artist': fullName, 'regForm': regForm, 'artist': artist, 'passChange': passChange})
+
+def changeArtist(request):
+    if request.method == 'POST':
+        form = changePersonal(request.POST, request.FILES)
+        fullName = Artist.objects.filter(user=request.user)
+        artist = fullName[0]
+        if form.is_valid():
+            artist.name = form.data['name']
+            artist.city = form.data['city']
+            artist.age = form.data['age']
+            artist.favorite = form.data['favorite']
+            artist.save()
+            return HttpResponseRedirect(reverse('bh2017:thankyou'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})

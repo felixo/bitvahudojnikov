@@ -51,3 +51,29 @@ class registrationFull(forms.ModelForm):
             'favorite': forms.Select({'placeholder': 'Любимый инструмент'}),
 
         }
+class changePersonal(forms.ModelForm):
+    class Meta:
+        model = Artist
+        fields = ('name', 'city', 'age', 'favorite')
+        labels = {
+
+        }
+        widgets = {
+            'name': forms.TextInput({'placeholder': 'ФИО'}),
+            'city': forms.TextInput({'placeholder': 'Город'}),
+            'age': forms.NumberInput({'placeholder': 'Возраст'}),
+            'favorite': forms.Select({'placeholder': 'Любимый инструмент'}),
+        }
+
+class passwordChange(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}))
+    passwordCheck = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Подтверждение пароля'}))
+    class Meta:
+        model = Artist
+        fields = ('password', 'passwordCheck')
+        labels = {
+
+        }
+        widgets = {
+
+        }
