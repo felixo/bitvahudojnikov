@@ -825,3 +825,39 @@ input[type="number"] {
 .sponsorsList {
     margin-top: 50px;
 }
+
+#bigpartnerList {
+    display: block;
+    margin-top: 50px;
+}
+
+.bplDorWrap img {
+    width: initial;
+}
+
+.bigpartnerRow li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.bptDotWrapList li {
+    display: block;
+    text-align: left;
+    max-width: 582px;
+
+}
+
+.text2Wrap{
+    white-space: pre-wrap;
+    font: 14px 'Pala';
+    color: #6e6d6d;
+}
+
+.nameWrap {
+    font: 18px 'Pala';
+    color: #004e96;
+}
+
+.bplDorWrap {
+    width: 320px;
+}

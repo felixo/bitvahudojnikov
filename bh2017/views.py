@@ -192,7 +192,14 @@ def sponsors(request):
     return render(request, 'bh2017/sponsors.html', {'formAuth': formAuth, 'Artist': fullName})
 
 def partners(request):
-    return render(request, 'bh2017/partners.html')
+    form = ArtistForm()
+    formAuth = UserAuth()
+    obj = Partner.objects.all()
+    fullName = 0
+    if (request.user.is_authenticated):
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
+    return render(request, 'bh2017/partners.html',{'form': form, 'documents': obj, 'formAuth': formAuth, 'Artist': fullName})
 
 def faq(request):
     return render(request, 'bh2017/faq.html')

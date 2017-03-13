@@ -16,8 +16,46 @@
 {% endblock %}
 {% block content %}
     <div id="contentWrap">
-        Partners
-        {{ form }}
+        <img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}">
+        <h1>ПАРТНЕРЫ КОНКУРСА</h1>
+        <div id="bigpartnerListWrap">
+            <ul id="bigpartnerList">
+                {% if documents %}
+                {% for document in documents %}
+                <li>
+                <ul class="bigpartnerRow">
+                    <li class="bplDot">
+                        <div class="bplDorWrap">
+                            <a href="{{document.text}}">
+                                <img id="{{document.id}}" src="{{ document.logo.url }}" alt="Reducto!" class="partnerLogo">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="bptDot">
+                        <div class="bptDotWrap">
+                            <ul class="bptDotWrapList">
+                                <li>
+                                    <div class="nameWrap">
+                                        <span>{{document.name }}</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="text2Wrap">
+{{document.text2}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                </li>
+                {% endfor %}
+                {% endif %}
+            </ul>
         </div>
     </div>
 {% endblock %}
+{% block partner %}
+{% endblock %}
+
+
