@@ -27,6 +27,7 @@ def index(request):
         if not request.user.is_anonymous:
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
+
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:

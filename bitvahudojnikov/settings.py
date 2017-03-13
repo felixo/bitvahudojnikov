@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bitvahudojnikov',
         'USER': 'root',
-        'PASSWORD': '1236969'
+        'PASSWORD': 'dO1236969ab'
     }
 }
 
@@ -124,13 +124,9 @@ USE_TZ = True
 
 
 
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
