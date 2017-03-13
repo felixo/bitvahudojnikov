@@ -215,18 +215,13 @@ def faq(request):
     formAuth = UserAuth()
     fullName = 0
     if (request.user.is_authenticated):
-        if (request.user.is_authenticated):
-            if not request.user.is_anonymous:
-                fullName = Artist.objects.filter(user=request.user)
-                fullName = fullName[0].name
+        if not request.user.is_anonymous:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
     # print request.user
-    fullName = 0
-    if (request.user.is_authenticated):
-        fullName = Artist.objects.filter(user=request.user)
-        fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
