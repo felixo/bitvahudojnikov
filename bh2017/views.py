@@ -67,6 +67,7 @@ def addArtist(request):
         if form.is_valid():
             password1 = User.objects.make_random_password()
             user = User.objects.create_user(form.data['email'], form.data['email'], password1)
+            form.age=0
             profile = form.save(commit=False)
             if profile.user_id is None:
                 profile.user_id = user.id
