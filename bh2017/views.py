@@ -23,8 +23,7 @@ def index(request):
     page = request.GET.get('page')
     #print request.user
     fullName = 0
-    if (not request.user.is_authenticated):
-        if not request.user.is_anonymous:
+    if not request.user.is_anonymous():
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
 
@@ -46,9 +45,7 @@ def thankyou(request):
     page = request.GET.get('page')
     print request.user
     fullName = 0
-    if (request.user.is_authenticated):
-        if (request.user.is_authenticated):
-            if not request.user.is_anonymous:
+    if not request.user.is_anonymous():
                 fullName = Artist.objects.filter(user=request.user)
                 fullName = fullName[0].name
     try:
@@ -101,8 +98,7 @@ def registration(request):
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
     fullName = 0
-    if (request.user.is_authenticated):
-        if not request.user.is_anonymous:
+    if not request.user.is_anonymous():
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
     try:
@@ -136,8 +132,7 @@ def prizes(request):
     page = request.GET.get('page')
     # print request.user
     fullName = 0
-    if (request.user.is_authenticated):
-        if not request.user.is_anonymous:
+    if not request.user.is_anonymous():
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
     try:
@@ -157,8 +152,7 @@ def rules(request):
     page = request.GET.get('page')
     # print request.user
     fullName = 0
-    if (request.user.is_authenticated):
-        if not request.user.is_anonymous:
+    if not request.user.is_anonymous():
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
     try:
@@ -178,8 +172,7 @@ def jury(request):
     page = request.GET.get('page')
     # print request.user
     fullName = 0
-    if (request.user.is_authenticated):
-        if not request.user.is_anonymous:
+    if not request.user.is_anonymous():
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
     try:
@@ -195,8 +188,7 @@ def jury(request):
 def sponsors(request):
     formAuth = UserAuth()
     fullName = 0
-    if (request.user.is_authenticated):
-        if not request.user.is_anonymous:
+    if not request.user.is_anonymous():
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
     return render(request, 'bh2017/sponsors.html', {'formAuth': formAuth, 'Artist': fullName})
@@ -206,8 +198,7 @@ def partners(request):
     formAuth = UserAuth()
     obj = Partner.objects.all()
     fullName = 0
-    if (request.user.is_authenticated):
-        if not request.user.is_anonymous:
+    if not request.user.is_anonymous():
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
     return render(request, 'bh2017/partners.html',{'form': form, 'documents': obj, 'formAuth': formAuth, 'Artist': fullName})
@@ -215,8 +206,7 @@ def partners(request):
 def faq(request):
     formAuth = UserAuth()
     fullName = 0
-    if (request.user.is_authenticated):
-        if not request.user.is_anonymous:
+    if not request.user.is_anonymous():
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
     obj = Partner.objects.all()
@@ -268,8 +258,7 @@ def loginFail(request):
     page = request.GET.get('page')
     print request.user
     fullName = 0
-    if (request.user.is_authenticated):
-        if not request.user.is_anonymous:
+    if not request.user.is_anonymous():
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
     try:
@@ -307,10 +296,8 @@ def fullArtistAdd(request):
 
 def cabinet(request):
     fullName = 0
-    if (request.user.is_authenticated):
-        if not request.user.is_anonymous:
-            fullName = Artist.objects.filter(user=request.user)
-            fullName = fullName[0].name
+    if not request.user.is_anonymous():
+        fullName = Artist.objects.filter(user=request.user)
         fullName = fullName[0].name
     else:
         return HttpResponseRedirect(reverse('bh2017:loginFail'))
