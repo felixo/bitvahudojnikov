@@ -659,12 +659,12 @@ input[type="number"] {
     color: #727272;
     padding-left: 25px;
     margin-bottom: 40px;
+    text-align: left;
 }
 
 #emailWrap span {
     vertical-align: -7px;
     text-align: left;
-    margin-left: -287px;
 }
 
 #passwordForm {

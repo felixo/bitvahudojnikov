@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^fullArtistAdd', views.fullArtistAdd, name='fullArtistAdd'),
     url(r'^cabinet', views.cabinet, name='cabinet'),
     url(r'^changeArtist', views.changeArtist, name='changeArtist'),
+    url(r'^changePassword', views.changePassword, name='changePassword'),
 ]

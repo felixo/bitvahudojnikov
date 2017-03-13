@@ -250,3 +250,14 @@ def changeArtist(request):
     else:
         form = ArtistForm()
     return render(request, 'bh2017/index.html', {'form': form})
+
+def changePassword(request):
+    if request.method == 'POST':
+        form = passwordChange(request.POST, request.FILES)
+        if form.is_valid():
+            request.user.set_password(form.data['password'])
+            request.user.save()
+            return HttpResponseRedirect(reverse('bh2017:thankyou'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})
