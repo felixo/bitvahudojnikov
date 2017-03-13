@@ -23,7 +23,7 @@ def index(request):
     page = request.GET.get('page')
     #print request.user
     fullName = 0
-    if (request.user.is_authenticated):
+    if (not request.user.is_authenticated):
         if not request.user.is_anonymous:
             fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
