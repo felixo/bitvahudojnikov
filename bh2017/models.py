@@ -13,9 +13,13 @@ from datetime import datetime
 
 Status = (
     ('','Любимый инструмент'),
-    ('Unseen', 'На рассмотрении'),
-    ('Approved', 'Утверждено'),
-    ('Denide', 'Отклонено'),
+    ('akvarek', 'Акварельные краски'),
+    ('akril', 'Акриловые краски'),
+    ('oil', 'Масляные краски'),
+    ('akp', 'Капиллярные ручки'),
+    ('color', 'Цветные карандаши'),
+    ('mono', 'Монохрномные инструменты'),
+
 )
 
 class Artist(models.Model):
@@ -25,7 +29,7 @@ class Artist(models.Model):
     city = models.CharField(max_length=200)
     favorite = models.CharField(max_length=200, choices=Status)
     data = models.DateTimeField('date published', auto_now_add=True)
-    age = models.IntegerField();
+    age = models.IntegerField(default=0);
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
