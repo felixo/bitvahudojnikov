@@ -16,8 +16,126 @@
 {% endblock %}
 {% block content %}
     <div id="contentWrap">
-        FAQ
-        {{ form }}
+        <img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}">
+        <h1>ВОПРОСЫ-ОТВЕТЫ</h1>
+        <div>
+            <ul id="faqList">
+                <li class="faqListDot">
+                    <div class="faqcolumn">
+                        <ul class="columnList">
+                            <li class="columListDot">
+                                <ul class="faq">
+                                    <li class="faqhead">
+                                        <div><span>О конкурсе</span></div>
+                                    </li>
+                                    <li class="faqtext">
+                                        <div>
+                                            <span class="qwest">1. Кто может принимать участие в конкурсе?</span><br>
+                                            <span class="answer">Начинающие художники, художники любители, школьники, ученики студий и школ рисования в возрасте от 14 до 99 лет.</span><br>
+                                            <span class="qwest">2. Могу ли я принять участие, если я не из России?</span><br>
+                                            <span class="answer">В конкурсе могут принять участие жители России, Беларуси, Казахстана, Кыргызстана, Украины.</span><br>
+                                            <span class="qwest">3. Почему тема конкурса - “Животные Красной книги”?</span><br>
+                                            <span class="answer">2017 год - год экологии в России.</span><br>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="columListDot">
+                                <ul class="faq">
+                                    <li class="faqhead">
+                                        <div><span>О времени и датах</span></div>
+                                    </li>
+                                    <li class="faqtext">
+                                        <span class="qwest">1. Когда начало и окончание конкурса?</span><br>
+                                        <span class="answer">Начало 14 марта , окончание 3 июня 2017 года</span><br>
+                                        <span class="qwest">2. Сколько времени есть на выполнение одного задания?</span><br>
+                                        <span class="answer">7 дней</span><br>
+                                        <span class="qwest">3. Сколько дней продлится финальная битва?</span><br>
+                                        <span class="answer">1 день</span><br>
+                                        <span class="qwest">4. Когда состоится финальная арт-битва?</span><br>
+                                        <span class="answer">3 июня 2017 года</span><br>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="columListDot">
+                                <ul class="faq">
+                                    <li class="faqhead">
+                                        <div><span>О детях</span></div>
+                                    </li>
+                                    <li class="faqtext">
+                                        <span class="qwest">1. Могут ли дети до 14 лет участвовать в конкурсе?</span><br>
+                                        <span class="answer">Да. Детские работы размещаются размещаются вместе с остальными, но оцениваются как отдельная категория. Несовершеннолетние лица могут участвовать в конкурса только с согласия (через) своих законных представителей. Мы вправе в любой момент времени затребовать подобное согласие законных представителей на участие в Конкурсе.</span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="faqListDot">
+                    <div class="faqcolumn">
+                        <ul class="columnList">
+                            <li class="columListDot">
+                                <ul class="faq">
+                                    <li class="faqhead">
+                                        <div><span>О выборе победителя<br> за неделю</span></div>
+                                    </li>
+                                    <li class="faqtext">
+                                        <span class="qwest">1. Кто выбирает победителя по итогам каждого задания?</span><br>
+                                        <span class="answer">Компетентное жюри конкурса. Подробнее о составе жюри в разделе “Жюри”.</span><br>
+                                        <span class="qwest">2. Когда и где публикуются имена победителей?</span><br>
+                                        <span class="answer">Имена победителей по итогам каждого задания публикуются в сообществах Конкурса в социальных сетях  на следующий день после окончания времени приема работ по конкретному заданию.</span><br>
+                                        <span class="qwest">3. Участвует ли моя работа в голосовании, если я не выполнил(а) задание за неделю?</span><br>
+                                        <span class="answer">Нет, но вы можете продолжить участвовать в Битве, если выполните задание и разместите его на сайте www.bitvahudojnikov.ru в разделе “Задания”.</span><br>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="columListDot">
+                                <ul class="faq">
+                                    <li class="faqhead">
+                                        <div><span>О финальном <br>мероприятии</span></div>
+                                    </li>
+                                    <li class="faqtext">
+                                        <span class="qwest">1. Где будет проходить финальная Битва?</span><br>
+                                        <span class="answer">В городе Москве. Информация о времени и месте проведения будут опубликованы в социальных сетях и на сайте Конкурса.</span><br>
+                                        <span class="qwest">2. Что делать, если я пройду в финал, но не смогу приехать в Москву?</span><br>
+                                        <span class="answer">В этом случае вы также сможете участвовать в Битве вместе с остальными участниками в режиме онлайн. Для этой цели будет организована трансляция на канал YouTube  и открыта возможность загрузки ваших работ на сайте.</span><br>
+                                        <span class="qwest">3. Что нужно будет делать участникам финального мероприятия Битвы?</span><br>
+                                        <span class="answer">Выполнить три задания на время.</span><br>
+                                        <span class="qwest">4. Сколько будет победителей?</span><br>
+                                        <span class="answer">Конкурс предполагает 3 призовых места, а также 3 внеконкурсных приза. Подробнее в разделе “Призы”</span><br>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="faqListDot">
+                    <div class="faqcolumn">
+                        <ul>
+                            <li class="columListDot">
+                                <ul class="faq">
+                                    <li class="faqhead">
+                                        <div><span>О заданиях</span></div>
+                                    </li>
+                                    <li class="faqtext">
+                                        <span class="qwest">1. Как получить задание?</span><br>
+                                        <span class="answer">На сайте www.bitvahudojnikov.ru в разделе Задания. Просмотр подробного задания доступен только зарегистрированным участникам.</span><br>
+                                        <span class="qwest">2. Какие материалы можно использовать?</span><br>
+                                        <span class="answer">Акварель, масляные и акриловые краски, карандаши, маркеры, ручки, пастель.</span><br>
+                                        <span class="qwest">3. Где нужно размещать выполненную работу?</span><br>
+                                        <span class="answer">На странице задания на сайте www.bitvahudojnikov.ru, а также в фотоальбом сообщества https://www.facebook.com/bitvahudojnikov/  и https://vk.com/bitvahudojnikov  с хэштегом #bitvahudojnikov #битвахудожников</span><br>
+                                        <span class="qwest">4. Обязательно ли подписываться на сообщества в социальных сетях?</span><br>
+                                        <span class="answer">Обязательно. В сообществах будут публиковаться имена победителей по итогам каждого задания, а также другие новости и события Конкурса.</span><br>
+                                        <span class="qwest">5. Могу ли я присоединиться к челленджу, если пропустил(а) одно или несколько заданий?</span><br>
+                                        <span class="answer">Вы можете зарегистрироваться на сайте www.bitvahudojnikov.ru в период проведения конкурса, найти предыдущие задания в соответствующем разделе и разместить свои работы. Однако, на участие в финальной части могут претендовать участники, выполнившие минимум 4 задания. В соответствии с этим условием для получения возможности участвовать в финальном мероприятии вам необходимо присоединиться к Конкурсу не позднее 17 апреля 2017 года.</span><br>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
+        <h3>Если вы не нашли ответ на свой вопрос, напишите нам по адресу contest@bitvahudojnikov.ru</h3>
     </div>
 {% endblock %}

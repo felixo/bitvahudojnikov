@@ -202,7 +202,28 @@ def partners(request):
     return render(request, 'bh2017/partners.html',{'form': form, 'documents': obj, 'formAuth': formAuth, 'Artist': fullName})
 
 def faq(request):
-    return render(request, 'bh2017/faq.html')
+    formAuth = UserAuth()
+    fullName = 0
+    if (request.user.is_authenticated):
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
+    obj = Partner.objects.all()
+    paginator = Paginator(obj, 12)
+    page = request.GET.get('page')
+    # print request.user
+    fullName = 0
+    if (request.user.is_authenticated):
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    return render(request, 'bh2017/faq.html',{'formAuth': formAuth, 'Artist': fullName, 'documents': documents})
 
 def forgetpass(request):
     return render(request, 'bh2017/forgetpass.html')

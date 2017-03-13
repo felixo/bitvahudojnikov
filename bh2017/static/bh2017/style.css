@@ -861,3 +861,32 @@ input[type="number"] {
 .bplDorWrap {
     width: 320px;
 }
+
+.faqhead {
+    font: 24px 'Pala';
+    color: #004e96;
+}
+
+.faqListDot {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.columListDot {
+    display: block;
+}
+
+.faqtext {
+    text-align: left;
+    width: 290px;
+}
+
+.qwest {
+    color: black;
+    font: 14px 'Pala';
+}
+
+.answer {
+    font: 14px 'Pala';
+    color: #6e6d6d;
+}
