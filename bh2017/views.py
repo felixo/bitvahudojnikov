@@ -115,6 +115,10 @@ def tasks(request):
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
+    fullName = 0
+    if not request.user.is_anonymous():
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -123,7 +127,7 @@ def tasks(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/tasks.html', {'documents': documents})
+    return render(request, 'bh2017/tasks.html', {'documents': documents, 'Artist': fullName})
 
 def prizes(request):
     formAuth = UserAuth()
