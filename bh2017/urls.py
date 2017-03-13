@@ -23,4 +23,7 @@ urlpatterns = [
     url(r'^cabinet', views.cabinet, name='cabinet'),
     url(r'^changeArtist', views.changeArtist, name='changeArtist'),
     url(r'^changePassword', views.changePassword, name='changePassword'),
+    url(r'^restore', views.restore, name='restore'),
+    url(r'^resetPass', views.resetPass, name='resetPass'),
+    url(r'^restoreError', views.restoreError, name='restoreError'),
 ]

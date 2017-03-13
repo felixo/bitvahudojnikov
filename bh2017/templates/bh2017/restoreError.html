@@ -5,7 +5,7 @@
 {% block sidebar %}
     <ul id="sidebarList">
                 <li><a class="menuNone" href="{% url 'bh2017:registration' %}">РЕГИСТРАЦИЯ</a></li>
-                <li><a class="menuSelected" href="{% url 'bh2017:tasks' %}">ЗАДАНИЯ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:tasks' %}">ЗАДАНИЯ</a></li>
                 <li><a class="menuNone" href="{% url 'bh2017:prizes' %}">ПРИЗЫ</a></li>
                 <li><a class="menuNone" href="{% url 'bh2017:rules' %}">ПРАВИЛА</a></li>
                 <li><a class="menuNone" href="{% url 'bh2017:jury' %}">ЖЮРИ</a></li>
@@ -16,7 +16,17 @@
 {% endblock %}
 {% block content %}
     <div id="contentWrap">
-       <h1>Первое задание появится 24 марта!</h1>
+        <h2>Нет такой почты или неверный возраст, попробуйте снова</h2>
+         <form action="{% url 'bh2017:resetPass' %}" method="POST" enctype="multipart/form-data">
+                <p>{% csrf_token %}</p>
+                <ul id="fullRegList2">
+                    <li class="fullRegDot">{{ forgetPassForm.email }}</li>
+                    <li class="fullRegDot">{{ forgetPassForm.age }}</li>
+                </ul>
+                <div id="submitIdPersonal">
+                    <input id="savePersonal" type="submit" value="СБРОСИТЬ ПАРОЛЬ" />
+                </div>
+        </form>
     </div>
 {% endblock %}
 

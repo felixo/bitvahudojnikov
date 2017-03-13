@@ -77,3 +77,15 @@ class passwordChange(forms.ModelForm):
         widgets = {
 
         }
+
+class forgetPass(forms.ModelForm):
+    class Meta:
+        model = Artist
+        fields = ('email', 'age')
+        labels = {
+
+        }
+        widgets = {
+            'email': forms.TextInput({'placeholder': 'Почта'}),
+            'age': forms.NumberInput({'placeholder': 'Возраст'}),
+        }
