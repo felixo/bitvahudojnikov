@@ -24,8 +24,8 @@ Status = (
 
 class Artist(models.Model):
     user = models.OneToOneField(User)
-    name = models.CharField(max_length=200)
-    email = models.EmailField(max_length=70)
+    name = models.CharField(max_length=200, required=True, default="")
+    email = models.EmailField(max_length=70, required=True, default="" )
     city = models.CharField(max_length=200)
     favorite = models.CharField(max_length=200, choices=Status)
     data = models.DateTimeField('date published', auto_now_add=True)
