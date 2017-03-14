@@ -1,4 +1,5 @@
  $(document).ready(function() {
+    $( ":input" ).attr('required','true');
     $( "#id_email" ).change(function() {
         //alert( "Handler for .click() called." );
         var email = $("#id_email").val();
