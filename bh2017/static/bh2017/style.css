@@ -329,7 +329,7 @@ h1 {
     margin-bottom: 50px;
 }
 
-.prizeImgWrap {
+.prizeImgWrap1 {
     width: 242px;
     height: 242px;
 }
@@ -710,7 +710,7 @@ input[type="number"] {
 }
 
 .prizeImgWrap {
-    width: 400px;
+    width: 400px;    
     height: 257px;
 }
 

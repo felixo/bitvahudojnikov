@@ -44,13 +44,14 @@ class registrationFull(forms.ModelForm):
             'email': _('E-mail'),
         }
         widgets = {
-            'name': forms.TextInput({'placeholder': 'ФИО'}),
+            'name': forms.TextInput({'placeholder': 'ФИО', 'required': 'true'}),
             'email': forms.EmailInput({'placeholder': 'E-mail'}),
             'city': forms.TextInput({'placeholder': 'Город'}),
             'age': forms.NumberInput({'placeholder': 'Возраст'}),
             'favorite': forms.Select({'placeholder': 'Любимый инструмент'}),
 
         }
+
 class changePersonal(forms.ModelForm):
     class Meta:
         model = Artist
