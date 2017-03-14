@@ -45,10 +45,10 @@ class registrationFull(forms.ModelForm):
         }
         widgets = {
             'name': forms.TextInput({'placeholder': 'ФИО', 'required': 'true'}),
-            'email': forms.EmailInput({'placeholder': 'E-mail'}),
-            'city': forms.TextInput({'placeholder': 'Город'}),
-            'age': forms.NumberInput({'placeholder': 'Возраст'}),
-            'favorite': forms.Select({'placeholder': 'Любимый инструмент'}),
+            'email': forms.EmailInput({'placeholder': 'E-mail','required': 'true'}),
+            'city': forms.TextInput({'placeholder': 'Город', 'required': 'true'}),
+            'age': forms.NumberInput({'placeholder': 'Возраст', 'required': 'true'}),
+            'favorite': forms.Select({'placeholder': 'Любимый инструмент', 'required': 'true'}),
 
         }
 
