@@ -26,7 +26,11 @@ SECRET_KEY = 'cv_9nycy=lnqu-bgck@-zssnjjf$+%zo-8l1u(fl#89$%=%47a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'bitvahudojnikov.ru:80',
+    'bitvahudojnikov.ru',
+    '138.201.116.120:80',
+]
 
 
 # Application definition
