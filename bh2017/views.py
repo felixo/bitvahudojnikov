@@ -68,7 +68,7 @@ def addArtist(request):
             profile = form.save(commit=False)
             if profile.user_id is None:
                 profile.user_id = user.id
-                message = "Поздравляем! Вы успешно зарегестрировались на сайте проекта Битва художников! Ваш пароль: " + password1
+                message = "Поздравляем! Вы успешно зарегистрировались на сайте проекта Битва художников! Ваш пароль: " + password1
             profile.save()
             send_mail(
                 'Registration',
@@ -284,7 +284,7 @@ def fullArtistAdd(request):
             profile = form.save(commit=False)
             if profile.user_id is None:
                 profile.user_id = user.id
-                message = "Поздравляем! Вы успешно зарегестрировались на сайте проекта Битва художников! Ваш пароль: " + password1
+                message = "Поздравляем! Вы успешно зарегистрировались на сайте проекта Битва художников! Ваш пароль: " + password1
             profile.save()
             send_mail(
                 'Registration',
@@ -399,7 +399,7 @@ def resetPass(request):
                 user1 = User.objects.get_by_natural_key(username=form.data['email'])
                 user1.set_password(password1)
                 user1.save()
-                message = "Поздравляем! Вы успешно зарегестрировались на сайте проекта Битва художников! Ваш пароль: " + password1
+                message = "Поздравляем! Вы успешно зарегистрировались на сайте проекта Битва художников! Ваш пароль: " + password1
                 send_mail(
                     'Registration',
                     message,
