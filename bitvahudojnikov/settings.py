@@ -27,6 +27,7 @@ SECRET_KEY = 'cv_9nycy=lnqu-bgck@-zssnjjf$+%zo-8l1u(fl#89$%=%47a'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'www.bitvahudojnikov.ru',
     'bitvahudojnikov.ru',
     'localhost',
     '138.201.116.120',
