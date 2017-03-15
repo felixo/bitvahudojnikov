@@ -1,4 +1,21 @@
  $(document).ready(function() {
+    $( "input" ).prop('required',true);
+    $("form").submit(function(e) {
+
+    var ref = $(this).find("[required]");
+
+    $(ref).each(function(){
+        if ( $(this).val() == '' )
+        {
+            alert("Все поля должны быть заполнены!");
+
+            $(this).focus();
+
+            e.preventDefault();
+            return false;
+        }
+    });  return true;
+    });
     $( "#id_email" ).change(function() {
         //alert( "Handler for .click() called." );
         var email = $("#id_email").val();

@@ -68,7 +68,7 @@ def addArtist(request):
             profile = form.save(commit=False)
             if profile.user_id is None:
                 profile.user_id = user.id
-                message = "Поздравляем! Вы успешно зарегестрировались на сайте проекта Битва художников! Ваш пароль: " + password1
+                message = "Поздравляем! Вы успешно зарегистрировались на сайте проекта Битва художников! Ваш пароль: " + password1
             profile.save()
             send_mail(
                 'Registration',
@@ -115,6 +115,11 @@ def tasks(request):
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
+    fullName = 0
+    if not request.user.is_anonymous():
+         fullName = Artist.objects.filter(user=request.user)
+         fullName = fullName[0].name
+
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -133,8 +138,8 @@ def prizes(request):
     # print request.user
     fullName = 0
     if not request.user.is_anonymous():
-            fullName = Artist.objects.filter(user=request.user)
-            fullName = fullName[0].name
+      	 fullName = Artist.objects.filter(user=request.user)
+       	 fullName = fullName[0].name
     try:
         documents = paginator.page(page)
     except PageNotAnInteger:
@@ -280,7 +285,7 @@ def fullArtistAdd(request):
             profile = form.save(commit=False)
             if profile.user_id is None:
                 profile.user_id = user.id
-                message = "Поздравляем! Вы успешно зарегестрировались на сайте проекта Битва художников! Ваш пароль: " + password1
+                message = "Поздравляем! Вы успешно зарегистрировались на сайте проекта Битва художников! Ваш пароль: " + password1
             profile.save()
             send_mail(
                 'Registration',
@@ -298,6 +303,7 @@ def cabinet(request):
     fullName = 0
     if not request.user.is_anonymous():
         fullName = Artist.objects.filter(user=request.user)
+	artist = fullName[0]
         fullName = fullName[0].name
     else:
         return HttpResponseRedirect(reverse('bh2017:loginFail'))
@@ -394,7 +400,7 @@ def resetPass(request):
                 user1 = User.objects.get_by_natural_key(username=form.data['email'])
                 user1.set_password(password1)
                 user1.save()
-                message = "Поздравляем! Вы успешно зарегестрировались на сайте проекта Битва художников! Ваш пароль: " + password1
+                message = "Поздравляем! Вы успешно зарегистрировались на сайте проекта Битва художников! Ваш пароль: " + password1
                 send_mail(
                     'Registration',
                     message,
@@ -426,3 +432,4 @@ def restoreError(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
     return render(request, 'bh2017/restoreError.html', {'documents': documents,'formAuth': formAuth, 'forgetPassForm': forgetPassForm})
+
