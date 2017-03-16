@@ -93,7 +93,7 @@ def mailCheck(request):
 
 def registration(request):
     formAuth = UserAuth()
-    regForm = registrationFull()
+    regForm = registrationFull(initial={ 'age': 'Ваш возраст' })
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
