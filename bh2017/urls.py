@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^changePassword', views.changePassword, name='changePassword'),
     url(r'^restore', views.restore, name='restore'),
     url(r'^resetPass', views.resetPass, name='resetPass'),
-    url(r'^restoreError', views.restoreError, name='restoreError'),
+    url(r'^errorpass', views.errorpass, name='errorpass'),
+    url(r'^message/$', views.message, name='message'),
 ]

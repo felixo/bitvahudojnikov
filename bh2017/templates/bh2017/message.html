@@ -1,0 +1,34 @@
+{% extends 'bh2017/base.html'%}
+{% load staticfiles %}
+
+{% block title %} Всероссийская битва художников {% endblock %}
+
+{% block content %}
+    <div id="contentWrap">
+        <h2>Извините, эта почта уже занята попробуйте другую.</h2>
+        <h1>РЕГИСТРАЦИЯ</h1>
+        <div id="fullRegWrap">
+            <form action="{% url 'bh2017:fullArtistAdd' %}" method="POST" enctype="multipart/form-data">
+                <p>{% csrf_token %}</p>
+                <ul id="fullRegList1">
+                    <li class="fullRegDot">{{ regForm.name }}</li>
+                    <li class="fullRegDot">{{ regForm.email }}</li>
+                </ul>
+                <h2 class="h2Form">ЛИЧНЫЕ ДАННЫЕ</h2>
+                <ul id="fullRegList2">
+                    <li class="fullRegDot">{{ regForm.city }}</li>
+                    <li class="fullRegDot">{{ regForm.age }}</li>
+                    <li class="fullRegDot">{{ regForm.favorite }}</li>
+                </ul>
+                <h2 class="h2Form">ПАРОЛЬ</h2>
+                <ul id="fullRegList3">
+                    <li class="fullRegDot">{{ regForm.password }}</li>
+                    <li class="fullRegDot">{{ regForm.passwordCheck }}</li>
+                </ul>
+                <div id="submitId">
+                    <input id="registrationButton" type="submit" value="РЕГИСТРАЦИЯ" />
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
