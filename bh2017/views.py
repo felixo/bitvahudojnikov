@@ -14,6 +14,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
 from django.contrib.auth import authenticate,login, logout
 from django.core.exceptions import ObjectDoesNotExist
+from django.db import IntegrityError
+from django.template import RequestContext
 
 def index(request):
     form = ArtistForm()
@@ -56,14 +58,17 @@ def thankyou(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/thankyou.html', {'form': form, 'documents': documents, 'formAuth': formAuth, 'Artist': fullName})
+    return (request, 'bh2017/thankyou.html', {'form': form, 'documents': documents, 'formAuth': formAuth, 'Artist': fullName})
 
 def addArtist(request):
     if request.method == 'POST':
         form = ArtistForm(request.POST, request.FILES)
         if form.is_valid():
             password1 = User.objects.make_random_password()
-            user = User.objects.create_user(form.data['email'], form.data['email'], password1)
+            try:
+                user = User.objects.create_user(form.data['email'], form.data['email'], password1)
+            except IntegrityError:
+                return HttpResponseRedirect(reverse('bh2017:message'))
             form.age=0
             profile = form.save(commit=False)
             if profile.user_id is None:
@@ -350,7 +355,7 @@ def changePassword(request):
     return render(request, 'bh2017/index.html', {'form': form})
 
 def restore(request):
-    forgetPassForm = forgetPass()
+    forgetPassForm = forgetPass(initial={'age': 'Ваш возраст'})
     formAuth = UserAuth()
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
@@ -368,8 +373,6 @@ def restore(request):
     return render(request, 'bh2017/forgetPass.html', {'documents': documents,'formAuth': formAuth, 'forgetPassForm': forgetPassForm})
 
 def resetPass(request):
-    forgetPassForm = forgetPass()
-    formAuth = UserAuth()
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
@@ -389,7 +392,7 @@ def resetPass(request):
             try:
                 user = Artist.objects.get(email=form.data['email'])
             except ObjectDoesNotExist:
-                return render(request, 'bh2017/restoreError.html', {'documents': documents,'formAuth': formAuth, 'forgetPassForm': forgetPassForm})
+                return HttpResponseRedirect(reverse('bh2017:errorpass'))
             print user.age
             print form.data['age']
             orev = int(form.data['age'])
@@ -410,13 +413,13 @@ def resetPass(request):
                 )
                 return HttpResponseRedirect(reverse('bh2017:thankyou'))
             else:
-                render(request, 'bh2017/restoreError.html',
-                       {'documents': documents, 'formAuth': formAuth, 'forgetPassForm': forgetPassForm})
+                print "here3"
+                return HttpResponseRedirect(reverse('bh2017:errorpass'))
         else:
-            return render(request, 'bh2017/restoreError.html', {'documents': documents,'formAuth': formAuth, 'forgetPassForm': forgetPassForm})
+            return HttpResponseRedirect(reverse('bh2017:errorpass'))
 
-def restoreError(request):
-    forgetPassForm = forgetPass()
+def errorpass(request):
+    forgetPassForm = forgetPass(initial={'age': 'Ваш возраст'})
     formAuth = UserAuth()
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
@@ -433,3 +436,23 @@ def restoreError(request):
         documents = paginator.page(paginator.num_pages)
     return render(request, 'bh2017/restoreError.html', {'documents': documents,'formAuth': formAuth, 'forgetPassForm': forgetPassForm})
 
+def message(request):
+    formAuth = UserAuth()
+    obj = Partner.objects.all()
+    paginator = Paginator(obj, 12)
+    page = request.GET.get('page')
+    regForm = registrationFull(initial={'age': 'Ваш возраст'})
+    print request.user
+    fullName = 0
+    if not request.user.is_anonymous():
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    return render(request, 'bh2017/message.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName, 'regForm': regForm})
