@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^resetPass', views.resetPass, name='resetPass'),
     url(r'^errorpass', views.errorpass, name='errorpass'),
     url(r'^message/$', views.message, name='message'),
+    url(r'^loadmorepartner/$', views.loadmorepartner, name='loadmorepartner'),
 ]
