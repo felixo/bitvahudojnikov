@@ -67,16 +67,19 @@ var csrftoken = getCookie('csrftoken');
       $("#nextButton").click(function( event ) {
         event.preventDefault();
         var link = $("#nextButton").attr('href');
-        var link2 = 'http://127.0.0.1:8000/loadmorepartner/?page=2';
-        alert(link2);
+
         jQuery.ajax({
                 'type': 'POST',
-                'ulr': '/loadmorepartner/',
+                'url': '/loadmorepartner/'+link,
                 'data': {},
                 'success': function(data){
-                            alert('Bang');
-                            alert(data);
-                            $("#partnerList").append(data);
+                            var arr = data.split('///');
+                            $("#partnerList").append(arr[0]);
+                            $("#nextButton").attr('href',arr[1]);
+                            if (arr[1]=='Last')
+                            {
+                            $("#nextButton").hide();
+                            }
                     }
                 });
             });
