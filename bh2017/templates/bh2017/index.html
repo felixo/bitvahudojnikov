@@ -47,7 +47,7 @@
                         <div class="circle"><span class="circleNum">1</span></div>
                     </li>
                     <li class="wtdText">
-                        <div class="wtdTextWrap">Зарегистрироваться на сайте <br>bitvahudojnikov.ru</div>
+                        <div class="wtdTextWrap"><a href="{% url 'bh2017:registration' %}" style="text-decoration: underline">Зарегистрироваться</a> на сайте <br>bitvahudojnikov.ru</div>
                     </li>
                 </ul>
             </li>
@@ -57,7 +57,7 @@
                         <div class="circle"><span class="circleNum">2</span></div>
                     </li>
                     <li class="wtdText">
-                        <div class="wtdTextWrap">Получать задания на сайте <br>в разделе "Задания"</div>
+                        <div class="wtdTextWrap">Получать задания на сайте <br>в разделе <a href="{% url 'bh2017:tasks' %}" style="text-decoration: underline">"Задания"</a></div>
                     </li>
                 </ul>
             </li>
@@ -67,7 +67,27 @@
                         <div class="circle"><span class="circleNum">3</span></div>
                     </li>
                     <li class="wtdText">
-                        <div class="wtdTextWrap">Подписаться на страницы конкурса <br>в социальных сетях и следить за новостями</div>
+                        <div class="wtdTextWrap">Подписаться на страницы конкурса <br>в
+                            <div id="socialWrap2">
+                                <ul id="socialDotList2">
+                                    <li>
+                                    <div>
+                                        <a href="https://vk.com/bitvahudojnikov"><img src="{% static "bh2017/images/vklogo.png" %}" /></a>
+                                    </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="https://www.instagram.com/bitvahudojnikov/"><img src="{% static "bh2017/images/instalogo.png" %}" /></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="https://www.facebook.com/bitvahudojnikov/"><img src="{% static "bh2017/images/fblogo.png" %}" /></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            и следить за новостями</div>
                     </li>
                 </ul>
             </li>
@@ -77,7 +97,7 @@
                         <div class="circle"><span class="circleNum">4</span></div>
                     </li>
                     <li class="wtdText">
-                        <div class="wtdTextWrap">Выполнить 7 творческих заданий. <br>Читать правила</div>
+                        <div class="wtdTextWrap">Выполнить 7 творческих заданий. <br><a href="{% url 'bh2017:rules' %}" style="text-decoration: underline">Читать правила</a></div>
                     </li>
                 </ul>
             </li>
@@ -97,7 +117,7 @@
                         <div class="circle"><span class="circleNum">6</span></div>
                     </li>
                     <li class="wtdText">
-                        <div class="wtdTextWrap">Войти в число победителей и получить один <br>из потрясающих подарков!</div>
+                        <div class="wtdTextWrap">Войти в число победителей и получить один <br>из <a href="{% url 'bh2017:prizes' %}" style="text-decoration: underline">потрясающих подарков!</a></div>
                     </li>
                 </ul>
             </li>
