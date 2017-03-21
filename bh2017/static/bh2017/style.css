@@ -890,3 +890,13 @@ input[type="number"] {
     font: 14px 'Pala';
     color: #6e6d6d;
 }
+
+#socialWrap2 {
+    display: inline;
+    vertical-align: sub;
+}
+
+#socialDotList2 {
+    margin: 0;
+    padding: 0;
+}
