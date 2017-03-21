@@ -117,6 +117,7 @@ def registration(request):
     return render(request, 'bh2017/registration.html', {'documents': documents, 'regForm': regForm, 'formAuth': formAuth, 'Artist': fullName})
 
 def tasks(request):
+    formAuth = UserAuth()
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
@@ -133,7 +134,7 @@ def tasks(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/tasks.html', {'documents': documents})
+    return render(request, 'bh2017/tasks.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName})
 
 def prizes(request):
     formAuth = UserAuth()
@@ -456,3 +457,27 @@ def message(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
     return render(request, 'bh2017/message.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName, 'regForm': regForm})
+
+@csrf_exempt
+def loadmorepartner(request):
+    obj = Partner.objects.all()
+    paginator = Paginator(obj, 12)
+    page = request.GET.get('page')
+    data = ''
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    for document in documents:
+        data = data + '<li class="partnerDot"><a href="'+document.text+'" class="partnerLinks"><img id="document.id" src="'+document.logo.url+'" alt="Reducto!" class="partnerLogo"></a></li>'
+    next = documents.has_next()
+    print next
+    if next:
+        data = data + '///?page=' + str(documents.next_page_number())
+    else:
+        data = data + '///Last'
+    return HttpResponse(data)

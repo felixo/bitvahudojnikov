@@ -112,7 +112,7 @@
                     {% if documents %}
                         {% for document in documents %}
                             <li class="partnerDot">
-                                <a href="{{document.text}}">
+                                <a href="{{document.text}}" class="partnerLinks">
                                     <img id="document.id" src="{{ document.logo.url }}" alt="Reducto!" class="partnerLogo">
                                 </a>
                             </li>
@@ -120,6 +120,7 @@
                     {% endif %}
                 </ul>
                 {% if documents.has_next %}
+                <p>{% csrf_token %}</p>
                     <div><a id="nextButton" href="?page={{ documents.next_page_number }}"> ЕЩЕ</a></div>
                 {% endif %}
             </div>
