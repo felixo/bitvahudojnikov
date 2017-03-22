@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import (HttpResponse, HttpResponseForbidden,
                          HttpResponseRedirect)
 from django.core.urlresolvers import reverse
-from models import Artist, Partner, Jury
+from models import Artist, Partner, Jury, Tasks
 from forms import ArtistForm, UserAuth, registrationFull, changePersonal, passwordChange, forgetPass
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
@@ -122,6 +122,7 @@ def tasks(request):
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
     fullName = 0
+    tasks1 = Tasks.objects.all()
     if not request.user.is_anonymous():
          fullName = Artist.objects.filter(user=request.user)
          fullName = fullName[0].name
@@ -134,7 +135,7 @@ def tasks(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/tasks.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName})
+    return render(request, 'bh2017/tasks.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName, 'tasks': tasks1})
 
 def prizes(request):
     formAuth = UserAuth()
@@ -288,7 +289,10 @@ def fullArtistAdd(request):
         form = registrationFull(request.POST, request.FILES)
         if form.is_valid():
             password1 = form.data['password']
-            user = User.objects.create_user(form.data['email'], form.data['email'], password1)
+            try:
+                user = User.objects.create_user(form.data['email'], form.data['email'], password1)
+            except IntegrityError:
+                return HttpResponseRedirect(reverse('bh2017:message'))
             profile = form.save(commit=False)
             if profile.user_id is None:
                 profile.user_id = user.id
