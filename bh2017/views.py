@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import (HttpResponse, HttpResponseForbidden,
                          HttpResponseRedirect)
 from django.core.urlresolvers import reverse
-from models import Artist, Partner
+from models import Artist, Partner, Jury
 from forms import ArtistForm, UserAuth, registrationFull, changePersonal, passwordChange, forgetPass
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
@@ -181,6 +181,7 @@ def jury(request):
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
+    jurys = Jury.objects.all()
     # print request.user
     fullName = 0
     if not request.user.is_anonymous():
@@ -194,7 +195,7 @@ def jury(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/jury.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName})
+    return render(request, 'bh2017/jury.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName, 'jurys': jurys})
 
 def sponsors(request):
     formAuth = UserAuth()

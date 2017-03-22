@@ -900,3 +900,46 @@ input[type="number"] {
     margin: 0;
     padding: 0;
 }
+
+.juryImgWrap {
+    width: 365px;
+    height: 233px;
+}
+
+.juryName {
+    font: 18px 'Pala';
+    color: #004e96;
+}
+
+.juryTitle {
+    font: 16px 'Palai';
+    color: #a6a8af;
+}
+
+.juryPost {
+    font: 14px 'Pala';
+    color: #a6a8af;
+}
+
+.jurysListDotList li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+.juryText {
+    max-width: 542px;
+}
+
+.juryTextWrap li {
+    display: block;
+    text-align: left;
+}
+
+.juristList li{
+
+}
+
+.juryTextWrap {
+    margin-top: 10px;
+}

@@ -17,6 +17,34 @@
 {% block content %}
     <div id="contentWrap">
         <img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}">
-        <h2>ЖЮРИ КОНКУРСА БУДУТ ОБЪЯВЛЕНЫ 24 МАРТА</h2>
+        <h1>ЖЮРИ КОНКУРСА</h1>
+        {% if jurys %}
+            <ul id="jurysList">
+                {% for jury in jurys%}
+                <li class="jurysListDot">
+                    <ul class="jurysListDotList">
+                        <li class="juryImg">
+                            <div class="juryImgWrap">
+                                <img id="jury.id" src="{{ jury.docfile.url }}" alt="Reducto!" class="partnerLogo">
+                            </div>
+                        </li>
+                        <li class="juryText">
+                            <ul class="juryTextWrap">
+                                <li class="juryName">
+                                    <span>{{ jury.name }}</span>
+                                </li>
+                                <li class="juryTitle">
+                                    <span>{{ jury.text }}</span>
+                                </li>
+                                <li class="juryPost">
+                                    <span>{{ jury.Post }}</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 {% endblock %}
