@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 from django.db import models
 from datetime import datetime
-
+from tinymce.models import HTMLField
 
 
 Status = (
@@ -40,6 +40,7 @@ class Jury(models.Model):
     text = models.CharField(max_length=2000, default="")
     docfile = models.FileField(upload_to='Jurys', default="")
     Post = models.CharField(max_length=2000, default="")
+    Post2 = HTMLField(default="")
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
