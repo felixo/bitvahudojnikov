@@ -16,7 +16,47 @@
 {% endblock %}
 {% block content %}
     <div id="contentWrap">
-       <h1>Первое задание появится 24 марта!</h1>
+        <img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}">
+        <h1>ЗАДАНИЯ КОНКУРСА</h1>
+        {% if user and not user.is_anonymous %}
+            {% if tasks %}
+                <ul id="taskList">
+                    {% if tasks.0 and tasks.0.visible %}
+                        <li>
+                            <ul class="taskUl">
+                                <li><div class="circle"><span class="circleNum">1</span></div></li>
+                                <li class="taskLi">Задание</li>
+                                <li>
+                                    <div class="taskNameLi"><span>{{ tasks.0.name }}</span></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="taskTextWrap"><p>{{ tasks.0.text }}</p></div>
+                        </li>
+                    {% endif %}
+                    {% if tasks.1 and tasks.1.visible %}
+                        <li>
+                            <div>{{ tasks.1.text }}</div>
+                        </li>
+                    {% endif %}
+                </ul>
+            {% else %}
+                <h2>Первое задание появится 24 марта!</h2>
+            {% endif %}
+        {% else %}
+            <h2>Просмотр заданий доступен только зарегестрированным пользователям</h2>
+            <ul id="tasksAuth">
+                <li>
+                    <div id="tasksAuthLogin" class="taskBut"><span>ВОЙТИ</span></div>
+                </li>
+                <li>
+                    <div id="tasksAuthReg" class="taskBut"><span><a id="taskRegLink" href="{% url 'bh2017:registration' %}">РЕГИСТРАЦИЯ</a></span></div>
+                </li>
+            </ul>
+        {% endif %}
     </div>
+{% endblock %}
+{% block partner %}
 {% endblock %}
 

@@ -963,3 +963,27 @@ input[type="number"] {
     list-style-type: disc;
     margin-top: -10px;
 }
+
+.taskBut {
+    font: 13px 'Pala';
+    background-color: #e80606;
+    color: white;
+    border: 0;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+}
+
+.taskBut span {
+    vertical-align: -10px;
+}
+
+#tasksAuth li {
+    display: inline-block;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#taskRegLink {
+    color: white;
+}

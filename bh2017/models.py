@@ -48,9 +48,10 @@ class Jury(models.Model):
 class Tasks(models.Model):
     name = models.CharField(max_length=200)
     text = models.CharField(max_length=2000)
+    visible = models.BooleanField(default=False)
 
     def __unicode__(self):  # __unicode__ on Python 2
-        return unicode(self.art_host_name) or u''
+        return unicode(self.name) or u''
 
 class Faq(models.Model):
     quest = models.CharField(max_length=200)
