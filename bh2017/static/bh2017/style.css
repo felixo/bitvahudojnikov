@@ -919,6 +919,7 @@ input[type="number"] {
 .juryPost {
     font: 14px 'Pala';
     color: #a6a8af;
+    white-space: pre-wrap;
 }
 
 .jurysListDotList li {
@@ -942,4 +943,23 @@ input[type="number"] {
 
 .juryTextWrap {
     margin-top: 10px;
+}
+
+.juryPost p{
+    margin: 0;
+    margin-top: -10px;
+}
+
+.juryPost ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+    display: inline-block;
+}
+
+.juryPost ul li{
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+    margin-top: -10px;
 }
