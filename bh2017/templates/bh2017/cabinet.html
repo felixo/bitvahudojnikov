@@ -16,7 +16,7 @@
 {% endblock %}
 {% block content %}
     <div id="contentWrap">
-        <img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}">
+        <a href="{% url 'bh2017:index' %}"><img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}"></a>
         <h1>ЛИЧНЫЙ КАБИНЕТ</h1>
         <ul>
             <li><div id="emailWrap"><span>{{ artist.email }}</span></div></li>

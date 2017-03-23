@@ -16,7 +16,7 @@
 {% endblock %}
 {% block content %}
     <div id="contentWrap">
-        <img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}">
+        <a href="{% url 'bh2017:index' %}"><img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}"></a>
         <h1>СПОНСОРЫ КОНКУРСА</h1>
         <ul class="sponsorsList">
             <li class="sponsorLogo">

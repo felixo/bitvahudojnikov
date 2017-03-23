@@ -16,12 +16,16 @@
 {% endblock %}
 {% block content %}
     <div id="contentWrap">
-        <img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}">
+        <a href="{% url 'bh2017:index' %}"><img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}"></a>
         <h1>ЗАДАНИЯ КОНКУРСА</h1>
         {% if user and not user.is_anonymous %}
             {% if tasks %}
                 <ul id="taskList">
                     {% if tasks.0 and tasks.0.visible %}
+                    <li class="taskListLi">
+                    <ul class="taskFrame">
+                    <li class="taskFrameLeft">
+                        <ul>
                         <li>
                             <ul class="taskUl">
                                 <li><div class="circle"><span class="circleNum">1</span></div></li>
@@ -32,12 +36,480 @@
                             </ul>
                         </li>
                         <li>
-                            <div class="taskTextWrap"><p>{{ tasks.0.text }}</p></div>
+                            <div class="taskTextWrap"><p>{{ tasks.0.text|safe }}</p></div>
+                        </li>
+                            </ul>
+                    </li>
+                    <li class="taskFrameRight">
+                        <div class="taskFrameRightWrap">
+                            {% if task_1.0 %}
+                                <div class="formLoadedWrap">
+                                    <ul>
+                                    <li>
+                                        <div class="taskFrameRightWrap">
+                                            <img id="task_1.0.id" src="{{ task_1.0.docfile.url }}" alt="Reducto!" class="partnerLogo">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <form action="{% url 'bh2017:deleteImg1' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                            <div>
+                                                <input id="deleteArt" type="submit" value="УДАЛИТЬ РАБОТУ" />
+                                            </div>
+                                        </form>
+                                    </li>
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <div class="formNotWrap" >
+                                    <form action="{% url 'bh2017:loadImg1' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                        <ul>
+                                            <li>
+                                                <div class="fileUpload">
+                                                    <label>
+                                                        {{ loadArt_1.docfile }}
+                                                        <span>Выберите файл</span>
+                                                    </label>
+
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="fileName1" class="fileName"></div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <input id="loadArt1" type="submit" value="ЗАГРУЗИТЬ РАБОТУ" />
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                        </ul>
                         </li>
                     {% endif %}
+
                     {% if tasks.1 and tasks.1.visible %}
+                    <li class="taskListLi">
+                    <ul class="taskFrame">
+                    <li class="taskFrameLeft">
+                        <ul>
                         <li>
-                            <div>{{ tasks.1.text }}</div>
+                            <ul class="taskUl">
+                                <li><div class="circle"><span class="circleNum">2</span></div></li>
+                                <li class="taskLi">Задание</li>
+                                <li>
+                                    <div class="taskNameLi"><span>{{ tasks.1.name }}</span></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="taskTextWrap"><p>{{ tasks.1.text }}</p></div>
+                        </li>
+                            </ul>
+                    </li>
+                    <li class="taskFrameRight">
+                        <div class="taskFrameRightWrap">
+                            {% if task_2.0 %}
+                                <div class="formLoadedWrap">
+                                    <ul>
+                                    <li>
+                                        <div class="taskFrameRightWrap">
+                                            <img id="task_2.0.id" src="{{ task_2.0.docfile.url }}" alt="Reducto!" class="partnerLogo">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <form action="{% url 'bh2017:deleteImg2' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                            <div>
+                                                <input id="deleteArt2" type="submit" value="УДАЛИТЬ РАБОТУ" />
+                                            </div>
+                                        </form>
+                                    </li>
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <div class="formNotWrap" >
+                                    <form action="{% url 'bh2017:loadImg2' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                        <ul>
+                                            <li>
+                                                <div class="fileUpload">
+                                                    <label>
+                                                        {{ loadArt_2.docfile }}
+                                                        <span>Выберите файл</span>
+                                                    </label>
+
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="fileName2" class="fileName"></div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <input id="loadArt2" type="submit" value="ЗАГРУЗИТЬ РАБОТУ" />
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                        </ul>
+                        </li>
+                    {% endif %}
+                    {% if tasks.2 and tasks.2.visible %}
+                    <li class="taskListLi">
+                    <ul class="taskFrame">
+                    <li class="taskFrameLeft">
+                        <ul>
+                        <li>
+                            <ul class="taskUl">
+                                <li><div class="circle"><span class="circleNum">3</span></div></li>
+                                <li class="taskLi">Задание</li>
+                                <li>
+                                    <div class="taskNameLi"><span>{{ tasks.2.name }}</span></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="taskTextWrap"><p>{{ tasks.2.text }}</p></div>
+                        </li>
+                            </ul>
+                    </li>
+                    <li class="taskFrameRight">
+                        <div class="taskFrameRightWrap">
+                            {% if task_3.0 %}
+                                <div class="formLoadedWrap">
+                                    <ul>
+                                    <li>
+                                        <div class="taskFrameRightWrap">
+                                            <img id="task_3.0.id" src="{{ task_3.0.docfile.url }}" alt="Reducto!" class="partnerLogo">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <form action="{% url 'bh2017:deleteImg3' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                            <div>
+                                                <input id="deleteArt3" type="submit" value="УДАЛИТЬ РАБОТУ" />
+                                            </div>
+                                        </form>
+                                    </li>
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <div class="formNotWrap" >
+                                    <form action="{% url 'bh2017:loadImg3' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                        <ul>
+                                            <li>
+                                                <div class="fileUpload">
+                                                    <label>
+                                                        {{ loadArt_3.docfile }}
+                                                        <span>Выберите файл</span>
+                                                    </label>
+
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="fileName3" class="fileName"></div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <input id="loadArt3" type="submit" value="ЗАГРУЗИТЬ РАБОТУ" />
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                        </ul>
+                        </li>
+                    {% endif %}
+                    {% if tasks.3 and tasks.3.visible %}
+                    <li class="taskListLi">
+                    <ul class="taskFrame">
+                    <li class="taskFrameLeft">
+                        <ul>
+                        <li>
+                            <ul class="taskUl">
+                                <li><div class="circle"><span class="circleNum">4</span></div></li>
+                                <li class="taskLi">Задание</li>
+                                <li>
+                                    <div class="taskNameLi"><span>{{ tasks.3.name }}</span></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="taskTextWrap"><p>{{ tasks.3.text }}</p></div>
+                        </li>
+                            </ul>
+                    </li>
+                    <li class="taskFrameRight">
+                        <div class="taskFrameRightWrap">
+                            {% if task_4.0 %}
+                                <div class="formLoadedWrap">
+                                    <ul>
+                                    <li>
+                                        <div class="taskFrameRightWrap">
+                                            <img id="task_4.0.id" src="{{ task_4.0.docfile.url }}" alt="Reducto!" class="partnerLogo">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <form action="{% url 'bh2017:deleteImg4' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                            <div>
+                                                <input id="deleteArt4" type="submit" value="УДАЛИТЬ РАБОТУ" />
+                                            </div>
+                                        </form>
+                                    </li>
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <div class="formNotWrap" >
+                                    <form action="{% url 'bh2017:loadImg4' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                        <ul>
+                                            <li>
+                                                <div class="fileUpload">
+                                                    <label>
+                                                        {{ loadArt_4.docfile }}
+                                                        <span>Выберите файл</span>
+                                                    </label>
+
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="fileName4" class="fileName"></div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <input id="loadArt4" type="submit" value="ЗАГРУЗИТЬ РАБОТУ" />
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                        </ul>
+                        </li>
+                    {% endif %}
+                    {% if tasks.4 and tasks.4.visible %}
+                    <li class="taskListLi">
+                    <ul class="taskFrame">
+                    <li class="taskFrameLeft">
+                        <ul>
+                        <li>
+                            <ul class="taskUl">
+                                <li><div class="circle"><span class="circleNum">5</span></div></li>
+                                <li class="taskLi">Задание</li>
+                                <li>
+                                    <div class="taskNameLi"><span>{{ tasks.4.name }}</span></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="taskTextWrap"><p>{{ tasks.4.text }}</p></div>
+                        </li>
+                            </ul>
+                    </li>
+                    <li class="taskFrameRight">
+                        <div class="taskFrameRightWrap">
+                            {% if task_5.0 %}
+                                <div class="formLoadedWrap">
+                                    <ul>
+                                    <li>
+                                        <div class="taskFrameRightWrap">
+                                            <img id="task_5.0.id" src="{{ task_5.0.docfile.url }}" alt="Reducto!" class="partnerLogo">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <form action="{% url 'bh2017:deleteImg5' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                            <div>
+                                                <input id="deleteArt5" type="submit" value="УДАЛИТЬ РАБОТУ" />
+                                            </div>
+                                        </form>
+                                    </li>
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <div class="formNotWrap" >
+                                    <form action="{% url 'bh2017:loadImg5' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                        <ul>
+                                            <li>
+                                                <div class="fileUpload">
+                                                    <label>
+                                                        {{ loadArt_5.docfile }}
+                                                        <span>Выберите файл</span>
+                                                    </label>
+
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="fileName5" class="fileName"></div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <input id="loadArt5" type="submit" value="ЗАГРУЗИТЬ РАБОТУ" />
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                        </ul>
+                        </li>
+                    {% endif %}
+                    {% if tasks.5 and tasks.5.visible %}
+                    <li class="taskListLi">
+                    <ul class="taskFrame">
+                    <li class="taskFrameLeft">
+                        <ul>
+                        <li>
+                            <ul class="taskUl">
+                                <li><div class="circle"><span class="circleNum">6</span></div></li>
+                                <li class="taskLi">Задание</li>
+                                <li>
+                                    <div class="taskNameLi"><span>{{ tasks.5.name }}</span></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="taskTextWrap"><p>{{ tasks.5.text }}</p></div>
+                        </li>
+                            </ul>
+                    </li>
+                    <li class="taskFrameRight">
+                        <div class="taskFrameRightWrap">
+                            {% if task_6.0 %}
+                                <div class="formLoadedWrap">
+                                    <ul>
+                                    <li>
+                                        <div class="taskFrameRightWrap">
+                                            <img id="task_6.0.id" src="{{ task_6.0.docfile.url }}" alt="Reducto!" class="partnerLogo">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <form action="{% url 'bh2017:deleteImg6' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                            <div>
+                                                <input id="deleteArt6" type="submit" value="УДАЛИТЬ РАБОТУ" />
+                                            </div>
+                                        </form>
+                                    </li>
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <div class="formNotWrap" >
+                                    <form action="{% url 'bh2017:loadImg6' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                        <ul>
+                                            <li>
+                                                <div class="fileUpload">
+                                                    <label>
+                                                        {{ loadArt_6.docfile }}
+                                                        <span>Выберите файл</span>
+                                                    </label>
+
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="fileName6" class="fileName"></div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <input id="loadArt6" type="submit" value="ЗАГРУЗИТЬ РАБОТУ" />
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                        </ul>
+                        </li>
+                    {% endif %}
+                    {% if tasks.6 and tasks.6.visible %}
+                    <li class="taskListLi">
+                    <ul class="taskFrame">
+                    <li class="taskFrameLeft">
+                        <ul>
+                        <li>
+                            <ul class="taskUl">
+                                <li><div class="circle"><span class="circleNum">7</span></div></li>
+                                <li class="taskLi">Задание</li>
+                                <li>
+                                    <div class="taskNameLi"><span>{{ tasks.6.name }}</span></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="taskTextWrap"><p>{{ tasks.6.text }}</p></div>
+                        </li>
+                            </ul>
+                    </li>
+                    <li class="taskFrameRight">
+                        <div class="taskFrameRightWrap">
+                            {% if task_7.0 %}
+                                <div class="formLoadedWrap">
+                                    <ul>
+                                    <li>
+                                        <div class="taskFrameRightWrap">
+                                            <img id="task_7.0.id" src="{{ task_7.0.docfile.url }}" alt="Reducto!" class="partnerLogo">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <form action="{% url 'bh2017:deleteImg7' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                            <div>
+                                                <input id="deleteArt7" type="submit" value="УДАЛИТЬ РАБОТУ" />
+                                            </div>
+                                        </form>
+                                    </li>
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <div class="formNotWrap" >
+                                    <form action="{% url 'bh2017:loadImg7' %}" method="POST" enctype="multipart/form-data">
+                                            <p>{% csrf_token %}</p>
+                                        <ul>
+                                            <li>
+                                                <div class="fileUpload">
+                                                    <label>
+                                                        {{ loadArt_7.docfile }}
+                                                        <span>Выберите файл</span>
+                                                    </label>
+
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="fileName7" class="fileName"></div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <input id="loadArt7" type="submit" value="ЗАГРУЗИТЬ РАБОТУ" />
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                        </ul>
                         </li>
                     {% endif %}
                 </ul>
