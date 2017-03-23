@@ -5,8 +5,8 @@ from django.shortcuts import render
 from django.http import (HttpResponse, HttpResponseForbidden,
                          HttpResponseRedirect)
 from django.core.urlresolvers import reverse
-from models import Artist, Partner, Jury, Tasks
-from forms import ArtistForm, UserAuth, registrationFull, changePersonal, passwordChange, forgetPass
+from models import Artist, Partner, Jury, Tasks, Task_1, Task_6, Task_7, Task_3, Task_5, Task_2, Task_4
+from forms import ArtistForm, UserAuth, registrationFull, changePersonal, passwordChange, forgetPass, loadArt1, loadArt2, loadArt3, loadArt4, loadArt5, loadArt6, loadArt7
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.http import JsonResponse
@@ -121,8 +121,26 @@ def tasks(request):
     obj = Partner.objects.all()
     paginator = Paginator(obj, 12)
     page = request.GET.get('page')
-    fullName = 0
+    fullName = None
+    loadArt_1 = loadArt1()
+    loadArt_2 = loadArt2()
+    loadArt_3 = loadArt3()
+    loadArt_4 = loadArt4()
+    loadArt_5 = loadArt5()
+    loadArt_6 = loadArt6()
+    loadArt_7 = loadArt7()
+    if not request.user.is_anonymous():
+        fullName = Artist.objects.filter(user=request.user)
+        fullName = fullName[0].name
     tasks1 = Tasks.objects.all()
+    task_1 = Task_1.objects.filter(artist1=request.user)
+    task_2 = Task_2.objects.filter(artist1=request.user)
+    task_3 = Task_3.objects.filter(artist1=request.user)
+    task_4 = Task_4.objects.filter(artist1=request.user)
+    task_5 = Task_5.objects.filter(artist1=request.user)
+    task_6 = Task_6.objects.filter(artist1=request.user)
+    task_7 = Task_7.objects.filter(artist1=request.user)
+    print task_1
     if not request.user.is_anonymous():
          fullName = Artist.objects.filter(user=request.user)
          fullName = fullName[0].name
@@ -135,7 +153,7 @@ def tasks(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         documents = paginator.page(paginator.num_pages)
-    return render(request, 'bh2017/tasks.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName, 'tasks': tasks1})
+    return render(request, 'bh2017/tasks.html', {'documents': documents, 'formAuth': formAuth, 'Artist': fullName, 'tasks': tasks1, 'task_1': task_1, 'task_2': task_2, 'task_3': task_3, 'task_4': task_4, 'task_5': task_5, 'task_6': task_6, 'task_7': task_7, 'loadArt_1': loadArt_1, 'loadArt_2': loadArt_2, 'loadArt_3': loadArt_3, 'loadArt_4': loadArt_4, 'loadArt_5': loadArt_5, 'loadArt_6': loadArt_6, 'loadArt_7': loadArt_7})
 
 def prizes(request):
     formAuth = UserAuth()
@@ -486,3 +504,131 @@ def loadmorepartner(request):
     else:
         data = data + '///Last'
     return HttpResponse(data)
+
+def loadImg1(request):
+    if request.method == 'POST':
+        form = loadArt1(request.POST, request.FILES)
+        if form.is_valid():
+            task_1 = Task_1(artist1=request.user, docfile=request.FILES['docfile'], visible=True)
+            task_1.save()
+            return HttpResponseRedirect(reverse('bh2017:tasks'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})
+
+def deleteImg1(request):
+    if request.method == 'POST':
+        Task_1.objects.filter(artist1=request.user).delete()
+        return HttpResponseRedirect(reverse('bh2017:tasks'))
+
+def loadImg1(request):
+    if request.method == 'POST':
+        form = loadArt1(request.POST, request.FILES)
+        if form.is_valid():
+            task_1 = Task_1(artist1=request.user, docfile=request.FILES['docfile'], visible=True)
+            task_1.save()
+            return HttpResponseRedirect(reverse('bh2017:tasks'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})
+
+def deleteImg1(request):
+    if request.method == 'POST':
+        Task_1.objects.filter(artist1=request.user).delete()
+        return HttpResponseRedirect(reverse('bh2017:tasks'))
+
+def loadImg2(request):
+    if request.method == 'POST':
+        form = loadArt2(request.POST, request.FILES)
+        if form.is_valid():
+            task_2 = Task_2(artist1=request.user, docfile=request.FILES['docfile'], visible=True)
+            task_2.save()
+            return HttpResponseRedirect(reverse('bh2017:tasks'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})
+
+def deleteImg2(request):
+    if request.method == 'POST':
+        Task_2.objects.filter(artist1=request.user).delete()
+        return HttpResponseRedirect(reverse('bh2017:tasks'))
+
+def loadImg3(request):
+    if request.method == 'POST':
+        form = loadArt3(request.POST, request.FILES)
+        if form.is_valid():
+            task_3 = Task_3(artist1=request.user, docfile=request.FILES['docfile'], visible=True)
+            task_3.save()
+            return HttpResponseRedirect(reverse('bh2017:tasks'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})
+
+def deleteImg3(request):
+    if request.method == 'POST':
+        Task_3.objects.filter(artist1=request.user).delete()
+        return HttpResponseRedirect(reverse('bh2017:tasks'))
+
+def loadImg4(request):
+    if request.method == 'POST':
+        form = loadArt4(request.POST, request.FILES)
+        if form.is_valid():
+            task_4 = Task_4(artist1=request.user, docfile=request.FILES['docfile'], visible=True)
+            task_4.save()
+            return HttpResponseRedirect(reverse('bh2017:tasks'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})
+
+def deleteImg4(request):
+    if request.method == 'POST':
+        Task_4.objects.filter(artist1=request.user).delete()
+        return HttpResponseRedirect(reverse('bh2017:tasks'))
+
+def loadImg5(request):
+    if request.method == 'POST':
+        form = loadArt5(request.POST, request.FILES)
+        if form.is_valid():
+            task_5 = Task_5(artist1=request.user, docfile=request.FILES['docfile'], visible=True)
+            task_5.save()
+            return HttpResponseRedirect(reverse('bh2017:tasks'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})
+
+def deleteImg5(request):
+    if request.method == 'POST':
+        Task_5.objects.filter(artist1=request.user).delete()
+        return HttpResponseRedirect(reverse('bh2017:tasks'))
+
+def loadImg6(request):
+    if request.method == 'POST':
+        form = loadArt6(request.POST, request.FILES)
+        if form.is_valid():
+            task_6 = Task_6(artist1=request.user, docfile=request.FILES['docfile'], visible=True)
+            task_6.save()
+            return HttpResponseRedirect(reverse('bh2017:tasks'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})
+
+def deleteImg6(request):
+    if request.method == 'POST':
+        Task_6.objects.filter(artist1=request.user).delete()
+        return HttpResponseRedirect(reverse('bh2017:tasks'))
+
+def loadImg7(request):
+    if request.method == 'POST':
+        form = loadArt7(request.POST, request.FILES)
+        if form.is_valid():
+            task_7 = Task_7(artist1=request.user, docfile=request.FILES['docfile'], visible=True)
+            task_7.save()
+            return HttpResponseRedirect(reverse('bh2017:tasks'))
+    else:
+        form = ArtistForm()
+    return render(request, 'bh2017/index.html', {'form': form})
+
+def deleteImg7(request):
+    if request.method == 'POST':
+        Task_7.objects.filter(artist1=request.user).delete()
+        return HttpResponseRedirect(reverse('bh2017:tasks'))

@@ -78,43 +78,43 @@ class Sponsor(models.Model):
         return unicode(self.art) or u''
 
 class Task_1(models.Model):
-    art = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task1')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
 
 class Task_2(models.Model):
-    art = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task2')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
 
 class Task_3(models.Model):
-    art = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task4')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
 
 class Task_4(models.Model):
-    art = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task4')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
 
 class Task_5(models.Model):
-    art = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task5')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
 
 class Task_6(models.Model):
-    art = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task6')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
 
 class Task_7(models.Model):
-    art = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task7')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)

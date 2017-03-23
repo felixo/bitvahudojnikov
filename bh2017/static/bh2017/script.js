@@ -64,6 +64,27 @@ var csrftoken = getCookie('csrftoken');
                 });
         }
       });
+      $("#fileway1").change(function(){
+      getFileName();
+      });
+      $("#fileway2").change(function(){
+      getFileName2();
+      });
+      $("#fileway3").change(function(){
+      getFileName3();
+      });
+      $("#fileway4").change(function(){
+      getFileName4();
+      });
+      $("#fileway5").change(function(){
+      getFileName5();
+      });
+      $("#fileway6").change(function(){
+      getFileName6();
+      });
+      $("#fileway7").change(function(){
+      getFileName7();
+      });
       $("#nextButton").click(function( event ) {
         event.preventDefault();
         var link = $("#nextButton").attr('href');
@@ -138,4 +159,74 @@ function getCookie(name) {
  function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+function getFileName () {
+
+var file = document.getElementById('fileway1').value;
+
+//file = file.replace(/\\/g, «/»).split('/').pop();
+
+document.getElementById ('fileName1').innerHTML = 'Имя файла: ' + file;
+
+}
+
+function getFileName2 () {
+
+var file = document.getElementById('fileway2').value;
+
+//file = file.replace(/\\/g, «/»).split('/').pop();
+
+document.getElementById ('fileName2').innerHTML = 'Имя файла: ' + file;
+
+}
+
+function getFileName3 () {
+
+var file = document.getElementById('fileway3').value;
+
+//file = file.replace(/\\/g, «/»).split('/').pop();
+
+document.getElementById ('fileName3').innerHTML = 'Имя файла: ' + file;
+
+}
+
+function getFileName4 () {
+
+var file = document.getElementById('fileway4').value;
+
+//file = file.replace(/\\/g, «/»).split('/').pop();
+
+document.getElementById ('fileName4').innerHTML = 'Имя файла: ' + file;
+
+}
+
+function getFileName5 () {
+
+var file = document.getElementById('fileway5').value;
+
+//file = file.replace(/\\/g, «/»).split('/').pop();
+
+document.getElementById ('fileName5').innerHTML = 'Имя файла: ' + file;
+
+}
+
+function getFileName6 () {
+
+var file = document.getElementById('fileway6').value;
+
+//file = file.replace(/\\/g, «/»).split('/').pop();
+
+document.getElementById ('fileName6').innerHTML = 'Имя файла: ' + file;
+
+}
+
+function getFileName7 () {
+
+var file = document.getElementById('fileway7').value;
+
+//file = file.replace(/\\/g, «/»).split('/').pop();
+
+document.getElementById ('fileName7').innerHTML = 'Имя файла: ' + file;
+
 }
