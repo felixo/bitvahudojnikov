@@ -129,18 +129,26 @@ def tasks(request):
     loadArt_5 = loadArt5()
     loadArt_6 = loadArt6()
     loadArt_7 = loadArt7()
+    tasks1 = None
+    task_1 = None
+    task_2 = None
+    task_3 = None
+    task_4 = None
+    task_5 = None
+    task_6 = None
+    task_7 = None
     if not request.user.is_anonymous():
         fullName = Artist.objects.filter(user=request.user)
         fullName = fullName[0].name
-    tasks1 = Tasks.objects.all()
-    task_1 = Task_1.objects.filter(artist1=request.user)
-    task_2 = Task_2.objects.filter(artist1=request.user)
-    task_3 = Task_3.objects.filter(artist1=request.user)
-    task_4 = Task_4.objects.filter(artist1=request.user)
-    task_5 = Task_5.objects.filter(artist1=request.user)
-    task_6 = Task_6.objects.filter(artist1=request.user)
-    task_7 = Task_7.objects.filter(artist1=request.user)
-    print task_1
+    	tasks1 = Tasks.objects.all()
+    	task_1 = Task_1.objects.filter(artist1=request.user)
+    	task_2 = Task_2.objects.filter(artist1=request.user)
+    	task_3 = Task_3.objects.filter(artist1=request.user)
+    	task_4 = Task_4.objects.filter(artist1=request.user)
+    	task_5 = Task_5.objects.filter(artist1=request.user)
+    	task_6 = Task_6.objects.filter(artist1=request.user)
+    	task_7 = Task_7.objects.filter(artist1=request.user)
+    #print task_1
     if not request.user.is_anonymous():
          fullName = Artist.objects.filter(user=request.user)
          fullName = fullName[0].name
