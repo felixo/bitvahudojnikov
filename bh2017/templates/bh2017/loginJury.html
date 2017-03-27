@@ -1,0 +1,57 @@
+{% extends 'bh2017/base.html'%}
+{% load staticfiles %}
+
+{% block title %} Всероссийская битва художников {% endblock %}
+{% block sidebar %}
+    <ul id="sidebarList">
+                <li><a class="menuNone" href="{% url 'bh2017:registration' %}">РЕГИСТРАЦИЯ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:tasks' %}">ЗАДАНИЯ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:prizes' %}">ПРИЗЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:rules' %}">ПРАВИЛА</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:jury' %}">ЖЮРИ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:sponsors' %}">СПОНСОРЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:partners' %}">ПАРТНЕРЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:faq' %}">ВОПРОСЫ-ОТВЕТЫ</a></li>
+            </ul>
+{% endblock %}
+{% block content %}
+<div id="contentWrap">
+{% if user and not user.is_anonymous %}
+    <ul>
+        <li><a class="menuNone" href="{% url 'bh2017:gallery1' %}">Показать галлерею задания № 1</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:rules' %}">Показать галлерею задания № 2</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:rules' %}">Показать галлерею задания № 3</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:rules' %}">Показать галлерею задания № 4</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:rules' %}">Показать галлерею задания № 5</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:rules' %}">Показать галлерею задания № 6</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:rules' %}">Показать галлерею задания № 7</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:rules' %}">Показать галлерею всех заданий</a></li>
+    </ul>
+{% else %}
+
+        <div id="wrongPass">
+            <h1>УВАЖАЕМЫЕ ЖЮРИ, ВВЕДИТЕ ЛОГИН И ПАРОЛЬ</h1>
+        </div>
+        <div id="formAuthWrapWrap">
+        <div id="formAuthWrap">
+            <form action="{% url 'bh2017:AuthJury' %}" method="POST" enctype="multipart/form-data">
+                <p>{% csrf_token %}</p>
+                <ul id="formAuthList">
+                    <li>{{ juryAuth.username }}</li>
+                    <li>{{ juryAuth.password }}</li>
+                 </ul>
+                <ul id="loginButList">
+                    <li class="loginButListDot">
+                        <div id="loginBut">
+                            <input type="submit" value="ВОЙТИ" />
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        </div>
+{% endif %}
+</div>
+{% endblock %}
+{% block partner%}
+{% endblock %}

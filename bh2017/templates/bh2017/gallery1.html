@@ -1,0 +1,36 @@
+{% extends 'bh2017/base.html'%}
+{% load staticfiles %}
+
+{% block title %} Всероссийская битва художников {% endblock %}
+
+{% block content %}
+    <div id="contentWrap">
+        {% if user and not user.is_anonymous %}
+
+        {% else %}
+            <div id="wrongPass">
+            <h1>УВАЖАЕМЫЕ ЖЮРИ, ВВЕДИТЕ ЛОГИН И ПАРОЛЬ</h1>
+            </div>
+        <div id="formAuthWrapWrap">
+        <div id="formAuthWrap">
+            <form action="{% url 'bh2017:AuthJury' %}" method="POST" enctype="multipart/form-data">
+                <p>{% csrf_token %}</p>
+                <ul id="formAuthList">
+                    <li>{{ juryAuth.username }}</li>
+                    <li>{{ juryAuth.password }}</li>
+                 </ul>
+                <ul id="loginButList">
+                    <li class="loginButListDot">
+                        <div id="loginBut">
+                            <input type="submit" value="ВОЙТИ" />
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block partner%}
+{% endblock %}

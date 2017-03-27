@@ -1,7 +1,8 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from models import Artist, Task_1, Task_2, Task_3, Task_4, Task_5, Task_6, Task_7
+from models import Artist, Task_1, Task_2, Task_3, Task_4, Task_5, Task_6, Task_7, Jury
+from django.contrib.auth.models import User
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
@@ -145,4 +146,13 @@ class loadArt7(forms.ModelForm):
         fields = ('docfile','visible')
         widgets = {
             'docfile': forms.FileInput({'id': 'fileway7'}),
+        }
+
+class JuryAuth(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password')
+        widgets = {
+            'username': forms.TextInput({'placeholder': 'Логин', 'id': '21285'}),
+            'password': forms.PasswordInput({'placeholder': 'Пароль'}),
         }

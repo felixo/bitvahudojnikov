@@ -6,7 +6,7 @@ from django.http import (HttpResponse, HttpResponseForbidden,
                          HttpResponseRedirect)
 from django.core.urlresolvers import reverse
 from models import Artist, Partner, Jury, Tasks, Task_1, Task_6, Task_7, Task_3, Task_5, Task_2, Task_4
-from forms import ArtistForm, UserAuth, registrationFull, changePersonal, passwordChange, forgetPass, loadArt1, loadArt2, loadArt3, loadArt4, loadArt5, loadArt6, loadArt7
+from forms import ArtistForm, UserAuth, registrationFull, changePersonal, passwordChange, forgetPass, loadArt1, loadArt2, loadArt3, loadArt4, loadArt5, loadArt6, loadArt7, JuryAuth
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.http import JsonResponse
@@ -640,3 +640,42 @@ def deleteImg7(request):
     if request.method == 'POST':
         Task_7.objects.filter(artist1=request.user).delete()
         return HttpResponseRedirect(reverse('bh2017:tasks'))
+
+def loginJury(request):
+    juryAuth = JuryAuth()
+    fullName = None
+    if not request.user.is_anonymous():
+        try:
+            fullName = Jury.objects.filter(user=request.user)
+            fullName = fullName[0].name
+        except IndexError:
+            fullName = None
+            logout(request)
+    return render(request, 'bh2017/loginJury.html', {'juryAuth': juryAuth, 'Artist': fullName})
+
+def AuthJury(request):
+    if request.method == 'POST':
+        juryAuth = JuryAuth(data=request.POST)
+        user = authenticate(username=juryAuth.data['username'], password=juryAuth.data['password'])
+        if user is not None:
+            login(request, user)
+            print 'OK'
+            return HttpResponseRedirect(reverse('bh2017:loginJury'))
+        else:
+            print 'Nope'
+            data = "0"
+            return HttpResponseRedirect(reverse('bh2017:loginJury'))
+    print 'whats wrong with you'
+    return HttpResponseRedirect(reverse('bh2017:loginJury'))
+
+def gallery1(request):
+    juryAuth = JuryAuth()
+    fullName = None
+    if not request.user.is_anonymous():
+        try:
+            fullName = Jury.objects.filter(user=request.user)
+            fullName = fullName[0].name
+        except IndexError:
+            fullName = None
+            logout(request)
+    return  render(request, 'bh2017/gallery1.html', {'juryAuth': juryAuth, 'Artist': fullName})

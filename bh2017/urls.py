@@ -42,4 +42,7 @@ urlpatterns = [
     url(r'^deleteImg6', views.deleteImg6, name='deleteImg6'),
     url(r'^loadImg7', views.loadImg7, name='loadImg7'),
     url(r'^deleteImg7', views.deleteImg7, name='deleteImg7'),
+    url(r'^loginJury', views.loginJury, name='loginJury'),
+    url(r'^AuthJury', views.AuthJury, name='AuthJury'),
+    url(r'^gallery1', views.gallery1, name='gallery1'),
 ]

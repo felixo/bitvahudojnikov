@@ -82,48 +82,56 @@ class Task_1(models.Model):
     docfile = models.FileField(upload_to='Task1')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
+    count = models.IntegerField(default=0)
 
 class Task_2(models.Model):
     artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task2')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
+    count = models.IntegerField(default=0)
 
 class Task_3(models.Model):
     artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task4')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
+    count = models.IntegerField(default=0)
 
 class Task_4(models.Model):
     artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task4')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
+    count = models.IntegerField(default=0)
 
 class Task_5(models.Model):
     artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task5')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
+    count = models.IntegerField(default=0)
 
 class Task_6(models.Model):
     artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task6')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
+    count = models.IntegerField(default=0)
 
 class Task_7(models.Model):
     artist1 = models.OneToOneField(User, default='')
     docfile = models.FileField(upload_to='Task7')
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
+    count = models.IntegerField(default=0)
 
 class Vote(models.Model):
     art = models.ForeignKey(Artist, on_delete=models.CASCADE)
     vote_id = models.ForeignKey(User, related_name='votes')
     vote_is_it = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
+
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.art) or u''
