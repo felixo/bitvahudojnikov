@@ -987,3 +987,139 @@ input[type="number"] {
 #taskRegLink {
     color: white;
 }
+
+.taskUl li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.taskLi {
+    color: #004e96;
+    font: 24px 'Pala';
+    padding-left: 15px;
+}
+
+#taskList {
+    text-align: left;
+
+}
+
+.taskUl {
+    padding: 0;
+    max-width: 593px;
+    width: 540px;
+}
+
+.taskNameLi {
+    color: #004e96;
+    font: 18px 'Palai';
+}
+
+.taskTextWrap {
+    color: #5a5a5f;
+    font: 16px 'Pala';
+}
+
+.taskFrame li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.taskFrameLeft {
+    max-width: 593px;
+}
+
+.taskUl > li:last-child {
+    float: right;
+    margin-top: 11px;
+}
+
+.taskFrameRightWrap {
+    max-width: 324px;
+    text-align: center;
+}
+
+.taskFrameRightWrap {
+    max-width: 324px;
+
+}
+
+.formLoadedWrap ul li{
+    display: block;
+}
+
+#fileway1 {
+    display: none;
+}
+
+#fileway2 {
+    display: none;
+}
+
+#fileway3 {
+    display: none;
+}
+
+#fileway4 {
+    display: none;
+}
+
+#fileway5 {
+    display: none;
+}
+
+#fileway6 {
+    display: none;
+}
+
+#fileway7 {
+    display: none;
+}
+
+.fileUpload {
+    overflow: hidden;
+    font: 13px 'Pala';
+    background-color: #e80606;
+    color: white;
+    border: 0;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+}
+
+.fileUpload label {
+    vertical-align: -12px;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 40px;
+    display: block;
+}
+
+.fileUpload span {
+    vertical-align: -12px;
+}
+
+.formNotWrap li{
+    margin-bottom: 10px;
+}
+
+.fileName {
+    color: #004e96;
+    font: 14px 'Palai';
+}
+
+.taskListLi {
+    margin-bottom: 50px;
+}
+
+.galleryImgWrap {
+    width: 500px;
+}
+
+.galleryDotList {
+    text-align: right;
+    margin-bottom: 50px;
+    color: #004e96;
+}

@@ -1113,3 +1113,18 @@ input[type="number"] {
 .taskListLi {
     margin-bottom: 50px;
 }
+
+.galleryImgWrap {
+    width: 500px;
+}
+
+.galleryDotList {
+    text-align: right;
+    margin-bottom: 50px;
+    color: #004e96;
+}
+
+#headFaberLogo {
+    width: 144px;
+    vertical-align: -30px;
+}
