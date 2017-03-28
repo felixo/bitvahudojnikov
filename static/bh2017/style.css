@@ -329,7 +329,7 @@ h1 {
     margin-bottom: 50px;
 }
 
-.prizeImgWrap {
+.prizeImgWrap1 {
     width: 242px;
     height: 242px;
 }
@@ -710,7 +710,7 @@ input[type="number"] {
 }
 
 .prizeImgWrap {
-    width: 400px;
+    width: 400px;    
     height: 257px;
 }
 
@@ -889,4 +889,101 @@ input[type="number"] {
 .answer {
     font: 14px 'Pala';
     color: #6e6d6d;
+}
+
+#socialWrap2 {
+    display: inline;
+    vertical-align: sub;
+}
+
+#socialDotList2 {
+    margin: 0;
+    padding: 0;
+}
+
+.juryImgWrap {
+    width: 365px;
+    height: 233px;
+}
+
+.juryName {
+    font: 18px 'Pala';
+    color: #004e96;
+}
+
+.juryTitle {
+    font: 16px 'Palai';
+    color: #a6a8af;
+}
+
+.juryPost {
+    font: 14px 'Pala';
+    color: #a6a8af;
+    white-space: pre-wrap;
+}
+
+.jurysListDotList li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+.juryText {
+    max-width: 542px;
+}
+
+.juryTextWrap li {
+    display: block;
+    text-align: left;
+}
+
+.juristList li{
+
+}
+
+.juryTextWrap {
+    margin-top: 10px;
+}
+
+.juryPost p{
+    margin: 0;
+    margin-top: -10px;
+}
+
+.juryPost ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+    display: inline-block;
+}
+
+.juryPost ul li{
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+    margin-top: -10px;
+}
+
+.taskBut {
+    font: 13px 'Pala';
+    background-color: #e80606;
+    color: white;
+    border: 0;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+}
+
+.taskBut span {
+    vertical-align: -10px;
+}
+
+#tasksAuth li {
+    display: inline-block;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#taskRegLink {
+    color: white;
 }
