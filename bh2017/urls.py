@@ -44,5 +44,7 @@ urlpatterns = [
     url(r'^deleteImg7', views.deleteImg7, name='deleteImg7'),
     url(r'^loginJury', views.loginJury, name='loginJury'),
     url(r'^AuthJury', views.AuthJury, name='AuthJury'),
-    url(r'^gallery1', views.gallery1, name='gallery1'),
+    url(r'^gallery1/$', views.gallery1, name='gallery1'),
+    url(r'^vote1/(?P<paint_id>[0-9]+)/$', views.vote1, name='vote1'),
+    url(r'^remVote1/(?P<paint_id>[0-9]+)/$', views.remVote1, name='remVote1'),
 ]

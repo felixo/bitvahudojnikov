@@ -127,12 +127,20 @@ class Task_7(models.Model):
     count = models.IntegerField(default=0)
 
 class Vote(models.Model):
-    art = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    paint_1 = models.ForeignKey(Task_1, on_delete=models.CASCADE, blank=True, null=True)
+    paint_2 = models.ForeignKey(Task_2, on_delete=models.CASCADE, blank=True, null=True)
+    paint_3 = models.ForeignKey(Task_3, on_delete=models.CASCADE, blank=True, null=True)
+    paint_4 = models.ForeignKey(Task_4, on_delete=models.CASCADE, blank=True, null=True)
+    paint_5 = models.ForeignKey(Task_5, on_delete=models.CASCADE, blank=True, null=True)
+    paint_6 = models.ForeignKey(Task_6, on_delete=models.CASCADE, blank=True, null=True)
+    paint_7 = models.ForeignKey(Task_7, on_delete=models.CASCADE, blank=True, null=True)
     vote_id = models.ForeignKey(User, related_name='votes')
     vote_is_it = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
 
 
+
+
     def __unicode__(self):  # __unicode__ on Python 2
-        return unicode(self.art) or u''
+        return unicode(self.vote_id) or u''
 
