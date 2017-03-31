@@ -5,7 +5,7 @@
 
 {% block content %}
     <div id="contentWrap">
-        <h2><a href="{% url 'bh2017:loginJury' %}">Назад к галлереям</a></h2>
+        <h2><a href="{% url 'bh2017:loginJury' %}">Назад к галереям</a></h2>
         {% if user and not user.is_anonymous %}
             {% if documents %}
                 <ul id = "galleryList">
