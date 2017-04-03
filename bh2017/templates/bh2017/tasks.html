@@ -51,16 +51,21 @@
                                         </div>
                                     </li>
                                     <li>
+                                        {% if tasks.0.active %}
                                         <form action="{% url 'bh2017:deleteImg1' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
                                             <div>
                                                 <input id="deleteArt" type="submit" value="УДАЛИТЬ РАБОТУ" />
                                             </div>
                                         </form>
+                                        {% else %}
+                                        <span class="task_not_active">Задание завершено</span>
+                                        {% endif %}
                                     </li>
                                     </ul>
                                 </div>
                             {% else %}
+                            {% if tasks.0.active %}
                                 <div class="formNotWrap" >
                                     <form action="{% url 'bh2017:loadImg1' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
@@ -85,6 +90,15 @@
                                         </ul>
                                     </form>
                                 </div>
+                            {% else %}
+                            <div class="formNotWrap" >
+                                <ul>
+                                    <li>
+                                        <span class="task_not_active">Прием работ окончен</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
                             {% endif %}
                         </div>
                     </li>
@@ -122,16 +136,21 @@
                                         </div>
                                     </li>
                                     <li>
+                                        {% if tasks.1.active %}
                                         <form action="{% url 'bh2017:deleteImg2' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
                                             <div>
                                                 <input id="deleteArt2" type="submit" value="УДАЛИТЬ РАБОТУ" />
                                             </div>
                                         </form>
+                                        {% else %}
+                                        <span class="task_not_active">Задание завершено</span>
+                                        {% endif %}
                                     </li>
                                     </ul>
                                 </div>
                             {% else %}
+                            {% if tasks.1.active %}
                                 <div class="formNotWrap" >
                                     <form action="{% url 'bh2017:loadImg2' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
@@ -156,6 +175,15 @@
                                         </ul>
                                     </form>
                                 </div>
+                            {% else %}
+                            <div class="formNotWrap" >
+                                <ul>
+                                    <li>
+                                        <span class="task_not_active">Прием работ окончен</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
                             {% endif %}
                         </div>
                     </li>
@@ -192,16 +220,21 @@
                                         </div>
                                     </li>
                                     <li>
+                                        {% if tasks.2.active %}
                                         <form action="{% url 'bh2017:deleteImg3' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
                                             <div>
                                                 <input id="deleteArt3" type="submit" value="УДАЛИТЬ РАБОТУ" />
                                             </div>
                                         </form>
+                                        {% else %}
+                                        <span class="task_not_active">Задание завершено</span>
+                                        {% endif %}
                                     </li>
                                     </ul>
                                 </div>
                             {% else %}
+                            {% if tasks.2.active %}
                                 <div class="formNotWrap" >
                                     <form action="{% url 'bh2017:loadImg3' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
@@ -226,6 +259,15 @@
                                         </ul>
                                     </form>
                                 </div>
+                            {% else %}
+                            <div class="formNotWrap" >
+                                <ul>
+                                    <li>
+                                        <span class="task_not_active">Прием работ окончен</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
                             {% endif %}
                         </div>
                     </li>
@@ -262,16 +304,21 @@
                                         </div>
                                     </li>
                                     <li>
+                                        {% if tasks.3.active %}
                                         <form action="{% url 'bh2017:deleteImg4' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
                                             <div>
                                                 <input id="deleteArt4" type="submit" value="УДАЛИТЬ РАБОТУ" />
                                             </div>
                                         </form>
+                                        {% else %}
+                                        <span class="task_not_active">Задание завершено</span>
+                                        {% endif %}
                                     </li>
                                     </ul>
                                 </div>
                             {% else %}
+                            {% if tasks.3.active %}
                                 <div class="formNotWrap" >
                                     <form action="{% url 'bh2017:loadImg4' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
@@ -296,6 +343,15 @@
                                         </ul>
                                     </form>
                                 </div>
+                            {% else %}
+                            <div class="formNotWrap" >
+                                <ul>
+                                    <li>
+                                        <span class="task_not_active">Прием работ окончен</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
                             {% endif %}
                         </div>
                     </li>
@@ -332,16 +388,21 @@
                                         </div>
                                     </li>
                                     <li>
+                                        {% if tasks.4.active %}
                                         <form action="{% url 'bh2017:deleteImg5' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
                                             <div>
                                                 <input id="deleteArt5" type="submit" value="УДАЛИТЬ РАБОТУ" />
                                             </div>
                                         </form>
+                                        {% else %}
+                                        <span class="task_not_active">Задание завершено</span>
+                                        {% endif %}
                                     </li>
                                     </ul>
                                 </div>
                             {% else %}
+                            {% if tasks.4.active %}
                                 <div class="formNotWrap" >
                                     <form action="{% url 'bh2017:loadImg5' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
@@ -366,6 +427,15 @@
                                         </ul>
                                     </form>
                                 </div>
+                            {% else %}
+                            <div class="formNotWrap" >
+                                <ul>
+                                    <li>
+                                        <span class="task_not_active">Прием работ окончен</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
                             {% endif %}
                         </div>
                     </li>
@@ -402,16 +472,21 @@
                                         </div>
                                     </li>
                                     <li>
+                                        {% if tasks.5.active %}
                                         <form action="{% url 'bh2017:deleteImg6' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
                                             <div>
                                                 <input id="deleteArt6" type="submit" value="УДАЛИТЬ РАБОТУ" />
                                             </div>
                                         </form>
+                                        {% else %}
+                                        <span class="task_not_active">Задание завершено</span>
+                                        {% endif %}
                                     </li>
                                     </ul>
                                 </div>
                             {% else %}
+                            {% if tasks.5.active %}
                                 <div class="formNotWrap" >
                                     <form action="{% url 'bh2017:loadImg6' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
@@ -436,6 +511,15 @@
                                         </ul>
                                     </form>
                                 </div>
+                            {% else %}
+                            <div class="formNotWrap" >
+                                <ul>
+                                    <li>
+                                        <span class="task_not_active">Прием работ окончен</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
                             {% endif %}
                         </div>
                     </li>
@@ -472,16 +556,21 @@
                                         </div>
                                     </li>
                                     <li>
+                                        {% if tasks.6.active %}
                                         <form action="{% url 'bh2017:deleteImg7' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
                                             <div>
                                                 <input id="deleteArt7" type="submit" value="УДАЛИТЬ РАБОТУ" />
                                             </div>
                                         </form>
+                                        {% else %}
+                                        <span class="task_not_active">Задание завершено</span>
+                                        {% endif %}
                                     </li>
                                     </ul>
                                 </div>
                             {% else %}
+                            {% if tasks.6.active %}
                                 <div class="formNotWrap" >
                                     <form action="{% url 'bh2017:loadImg7' %}" method="POST" enctype="multipart/form-data">
                                             <p>{% csrf_token %}</p>
@@ -506,6 +595,15 @@
                                         </ul>
                                     </form>
                                 </div>
+                            {% else %}
+                            <div class="formNotWrap" >
+                                <ul>
+                                    <li>
+                                        <span class="task_not_active">Прием работ окончен</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
                             {% endif %}
                         </div>
                     </li>
