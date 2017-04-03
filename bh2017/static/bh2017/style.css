@@ -1128,3 +1128,9 @@ input[type="number"] {
     width: 144px;
     vertical-align: -30px;
 }
+
+.task_not_active {
+    width: 60px;
+    color: #004e96;
+    padding-left: 36px;
+}

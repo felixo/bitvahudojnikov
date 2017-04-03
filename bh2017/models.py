@@ -49,6 +49,7 @@ class Tasks(models.Model):
     name = models.CharField(max_length=200)
     text = models.CharField(max_length=2000)
     visible = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
