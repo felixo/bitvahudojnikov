@@ -1,6 +1,7 @@
 *.pyc
 *.pyo
 
+
 media/*
 bh2017/migrations/*
 static/*
