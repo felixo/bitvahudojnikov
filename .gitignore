@@ -1,2 +1,6 @@
 *.pyc
 *.pyo
+
+static/*
+media/*
+bh2017/migrations/*

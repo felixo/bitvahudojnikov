@@ -45,6 +45,9 @@ urlpatterns = [
     url(r'^loginJury', views.loginJury, name='loginJury'),
     url(r'^AuthJury', views.AuthJury, name='AuthJury'),
     url(r'^gallery1/$', views.gallery1, name='gallery1'),
+    url(r'^gallery2/$', views.gallery2, name='gallery2'),
     url(r'^vote1/(?P<paint_id>[0-9]+)/$', views.vote1, name='vote1'),
-    url(r'^remVote1/(?P<paint_id>[0-9]+)/$', views.remVote1, name='remVote1'),
+    url(r'^remVote1/(?P<paint_id>[0-9]+)/$', views.remVote1, name='remVote2'),
+    url(r'^vote2/(?P<paint_id>[0-9]+)/$', views.vote2, name='vote2'),
+    url(r'^remVote2/(?P<paint_id>[0-9]+)/$', views.remVote2, name='remVote2'),
 ]
