@@ -50,7 +50,7 @@ urlpatterns = [
     url(r'^vote1/(?P<paint_id>[0-9]+)/$', views.vote1, name='vote1'),
     url(r'^remVote1/(?P<paint_id>[0-9]+)/$', views.remVote1, name='remVote1'),
     url(r'^vote2/(?P<paint_id>[0-9]+)/$', views.vote2, name='vote2'),
-    url(r'^remVote2/(?P<paint_id>[0-9]+)/$', views.remVote2, name='remVote3'),
+    url(r'^remVote2/(?P<paint_id>[0-9]+)/$', views.remVote3, name='remVote3'),
     url(r'^vote3/(?P<paint_id>[0-9]+)/$', views.vote3, name='vote2'),
     url(r'^remVote3/(?P<paint_id>[0-9]+)/$', views.remVote3, name='remVote3'),
 ]
