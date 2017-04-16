@@ -145,3 +145,4 @@ EMAIL_HOST = 'mail.nic.ru'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'robot@bitvahudojnikov.ru'
 EMAIL_HOST_PASSWORD = 'do1236969'
+
