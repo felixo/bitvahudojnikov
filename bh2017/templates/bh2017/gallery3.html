@@ -1,0 +1,67 @@
+{% extends 'bh2017/base.html'%}
+{% load staticfiles %}
+
+{% block title %} Всероссийская битва художников {% endblock %}
+
+{% block content %}
+    <div id="contentWrap">
+        <h2><a href="{% url 'bh2017:loginJury' %}">Назад к галереям</a></h2>
+        {% if user and not user.is_anonymous %}
+            {% if documents %}
+                <ul id = "galleryList">
+                {% for document, i in listOfTrue %}
+                    <li class="galleryDot">
+                        <ul class="galleryDotList">
+                            <li class="galleryDotListDot"><div class="galleryImgWrap"><img id="document.id" src="{{ document.docfile.url }}" alt="Reducto!" class="partnerLogo"></div></li>
+                            <li class="galleryDotListDot"><div>{{ document.count }}<span> голосов - </span>
+                            {% if i %}
+                                <a class="Vote" href="{% url 'bh2017:vote3' document.id %}">Убрать голос</a>
+                            {% else %}
+                                <a class="remVote" href="{% url 'bh2017:remVote3' document.id %}">Проголосовать</a>
+                            {% endif %}
+                            </div></li>
+                        </ul>
+                    </li>
+                {% endfor %}
+                </ul>
+            <div id="more">
+            {% if documents.has_previous %}
+            <a class="prewButton" href="?page=1"> На первую </a>
+            <a class="prewButton" href="?page={{ documents.previous_page_number }}"> << Предыдущая | </a>
+            {% endif %}
+            <span id="currentPage"> Страница {{ documents.number }} из {{ documents.paginator.num_pages }} </span>
+            {% if documents.has_next %}
+                <a class="nextButton" href="?page={{ documents.next_page_number }}"> | Следующая >></a>
+                <a class="nextButton" href="?page={{ documents.paginator.num_pages }}"> На последнюю </a>
+            {% endif %}
+            </div>
+            {% else %}
+                <h2>Ни одной работы еще не загрузили.</h2>
+            {% endif %}
+        {% else %}
+            <div id="wrongPass">
+            <h1>УВАЖАЕМЫЕ ЖЮРИ, ВВЕДИТЕ ЛОГИН И ПАРОЛЬ</h1>
+            </div>
+        <div id="formAuthWrapWrap">
+        <div id="formAuthWrap">
+            <form action="{% url 'bh2017:AuthJury' %}" method="POST" enctype="multipart/form-data">
+                <p>{% csrf_token %}</p>
+                <ul id="formAuthList">
+                    <li>{{ juryAuth.username }}</li>
+                    <li>{{ juryAuth.password }}</li>
+                 </ul>
+                <ul id="loginButList">
+                    <li class="loginButListDot">
+                        <div id="loginBut">
+                            <input type="submit" value="ВОЙТИ" />
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block partner%}
+{% endblock %}
