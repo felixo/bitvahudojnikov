@@ -79,53 +79,53 @@ class Sponsor(models.Model):
         return unicode(self.art) or u''
 
 class Task_1(models.Model):
-    artist1 = models.OneToOneField(User, default='')
-    docfile = models.FileField(upload_to='Task1')
+    artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
+    docfile = models.FileField(upload_to='Task1', verbose_name="Рисунок")
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
-    count = models.IntegerField(default=0)
+    count = models.IntegerField(default=0, verbose_name="Голосов")
 
 class Task_2(models.Model):
-    artist1 = models.OneToOneField(User, default='')
-    docfile = models.FileField(upload_to='Task2')
+    artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
+    docfile = models.FileField(upload_to='Task2', verbose_name="Рисунок")
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
-    count = models.IntegerField(default=0)
+    count = models.IntegerField(default=0, verbose_name="Голосов")
 
 class Task_3(models.Model):
-    artist1 = models.OneToOneField(User, default='')
-    docfile = models.FileField(upload_to='Task4')
+    artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
+    docfile = models.FileField(upload_to='Task4', verbose_name="Рисунок")
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
-    count = models.IntegerField(default=0)
+    count = models.IntegerField(default=0, verbose_name="Голосов")
 
 class Task_4(models.Model):
-    artist1 = models.OneToOneField(User, default='')
-    docfile = models.FileField(upload_to='Task4')
+    artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
+    docfile = models.FileField(upload_to='Task4', verbose_name="Рисунок")
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
-    count = models.IntegerField(default=0)
+    count = models.IntegerField(default=0, verbose_name="Голосов")
 
 class Task_5(models.Model):
-    artist1 = models.OneToOneField(User, default='')
-    docfile = models.FileField(upload_to='Task5')
+    artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
+    docfile = models.FileField(upload_to='Task5', verbose_name="Рисунок")
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
-    count = models.IntegerField(default=0)
+    count = models.IntegerField(default=0, verbose_name="Голосов")
 
 class Task_6(models.Model):
-    artist1 = models.OneToOneField(User, default='')
-    docfile = models.FileField(upload_to='Task6')
+    artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
+    docfile = models.FileField(upload_to='Task6', verbose_name="Рисунок")
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
-    count = models.IntegerField(default=0)
+    count = models.IntegerField(default=0, verbose_name="Голосов")
 
 class Task_7(models.Model):
-    artist1 = models.OneToOneField(User, default='')
-    docfile = models.FileField(upload_to='Task7')
+    artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
+    docfile = models.FileField(upload_to='Task7', verbose_name="Рисунок")
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
-    count = models.IntegerField(default=0)
+    count = models.IntegerField(default=0, verbose_name="Голосов")
 
 class Vote(models.Model):
     paint_1 = models.ForeignKey(Task_1, on_delete=models.CASCADE, blank=True, null=True)
