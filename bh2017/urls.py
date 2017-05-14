@@ -50,6 +50,7 @@ urlpatterns = [
     url(r'^gallery4/$', views.gallery4, name='gallery4'),
     url(r'^gallery5/$', views.gallery5, name='gallery5'),
     url(r'^gallery6/$', views.gallery6, name='gallery6'),
+    url(r'^gallery7/$', views.gallery7, name='gallery7'),
     url(r'^vote1/(?P<paint_id>[0-9]+)/$', views.vote1, name='vote1'),
     url(r'^remVote1/(?P<paint_id>[0-9]+)/$', views.remVote1, name='remVote1'),
     url(r'^vote2/(?P<paint_id>[0-9]+)/$', views.vote2, name='vote2'),
@@ -62,4 +63,6 @@ urlpatterns = [
     url(r'^remVote5/(?P<paint_id>[0-9]+)/$', views.remVote5, name='remVote5'),
     url(r'^vote6/(?P<paint_id>[0-9]+)/$', views.vote6, name='vote6'),
     url(r'^remVote6/(?P<paint_id>[0-9]+)/$', views.remVote6, name='remVote6'),
+    url(r'^vote7/(?P<paint_id>[0-9]+)/$', views.vote7, name='vote7'),
+    url(r'^remVote7/(?P<paint_id>[0-9]+)/$', views.remVote7, name='remVote7'),
 ]
