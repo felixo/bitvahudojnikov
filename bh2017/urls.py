@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^faq/$', views.faq, name='faq'),
     url(r'^forgetpass/$', views.forgetpass, name='forgetpass'),
     url(r'^login/', views.loginAuth, name='loginAuth'),
+url(r'^login_gallerys/', views.login_gallerys, name='login_gallerys'),
     url(r'^logoutArtist', views.logoutArtist, name='logoutArtist'),
     url(r'^loginFail', views.loginFail, name='loginFail'),
     url(r'^fullArtistAdd', views.fullArtistAdd, name='fullArtistAdd'),

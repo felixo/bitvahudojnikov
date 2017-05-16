@@ -17,27 +17,193 @@
 {% endblock %}
 {% block content %}
 <div id="contentWrap">
+    <a href="{% url 'bh2017:index' %}"><img id="logoother" src="{% static 'bh2017/images/logoother.jpg' %}"></a>
 {% if user and not user.is_anonymous %}
-    <ul>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery1' %}">Показать галерею задания № 1</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery2' %}">Показать галерею задания № 2</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery3' %}">Показать галерею задания № 3</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery4' %}">Показать галерею задания № 4</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery5' %}">Показать галерею задания № 5</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery6' %}">Показать галерею задания № 6</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery7' %}">Показать галерею задания № 7</a></li>
-    </ul>
+<h1>Общие галереи:</h1>
+        <ul id="materialList">
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-1.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>1-е задание:<br>рисуем<br>акварелью</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-2.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>2-е задание:<br>масляными<br>красками</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-3.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>3-е задание:<br>акриловами<br>красками</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-4.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>4-е задание:<br>маркерами<br>и ручками</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-5.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>5-е задание:<br>цветными<br>карандашами</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-6.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>6-е задание:<br>пастелью и<br>графитными <br>карандашами</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-7.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>7-е задание:<br>любыми<br>материалами</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    <h1>Галереи юных художников:</h1>
+        <ul id="materialList">
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-1.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>1-е задание:<br>рисуем<br>акварелью</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-2.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>2-е задание:<br>масляными<br>красками</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-3.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>3-е задание:<br>акриловами<br>красками</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-4.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>4-е задание:<br>маркерами<br>и ручками</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-5.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>5-е задание:<br>цветными<br>карандашами</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-6.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>6-е задание:<br>пастелью и<br>графитными <br>карандашами</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="materialListDot">
+                <ul class="materiaslRow">
+                    <li class="materialImg">
+                        <img src="{% static "bh2017/images/Instruments-7.png" %}">
+                    </li>
+                    <li class="materialText">
+                        <div class="materialTextWrap">
+                            <span>7-е задание:<br>любыми<br>материалами</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
 {% else %}
 
         <div id="wrongPass">
-            <h1>УВАЖАЕМЫЕ ЖЮРИ, ВВЕДИТЕ ЛОГИН И ПАРОЛЬ</h1>
+            <h1>УВАЖАЕМЫЕ УЧАСТНИКИ, ВВЕДИТЕ ЛОГИН И ПАРОЛЬ</h1>
         </div>
         <div id="formAuthWrapWrap">
         <div id="formAuthWrap">
-            <form action="{% url 'bh2017:AuthJury' %}" method="POST" enctype="multipart/form-data">
+            <form action="{% url 'bh2017:login_gallerys' %}" method="POST" enctype="multipart/form-data">
                 <p>{% csrf_token %}</p>
                 <ul id="formAuthList">
-                    <li>{{ juryAuth.username }}</li>
+                    <li>{{ juryAuth.email }}</li>
                     <li>{{ juryAuth.password }}</li>
                  </ul>
                 <ul id="loginButList">

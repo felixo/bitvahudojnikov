@@ -1132,13 +1132,30 @@ def remVote7(request, paint_id):
         return HttpResponseRedirect(reverse('bh2017:loginJury'))
 
 def com_gallerys(request):
-    juryAuth = JuryAuth()
+    formAuth = UserAuth()
     fullName = None
     if not request.user.is_anonymous():
         try:
-            fullName = Jury.objects.filter(user=request.user)
+            fullName = Artist.objects.filter(user=request.user)
             fullName = fullName[0].name
         except IndexError:
             fullName = None
             logout(request)
-    return render(request, 'bh2017/com_gallerys.html', {'juryAuth': juryAuth, 'Artist': fullName})
+    return render(request, 'bh2017/com_gallerys.html', {'juryAuth': formAuth, 'Artist': fullName})
+
+def login_gallerys(request):
+    if request.method == 'POST':
+        formAuth = UserAuth(request.POST, request.FILES)
+        if formAuth.is_valid():
+            user = authenticate(username=formAuth.data['email'], password=formAuth.data['password'])
+            if user is not None:
+                login(request, user)
+            # A backend authenticated the credentials
+                print 'OK'
+                return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+            else:
+            # No backend authenticated the credentials
+                print 'Nope'
+                data = "0"
+            return HttpResponseRedirect(reverse('bh2017:loginFail'))
+    return HttpResponseRedirect(reverse('bh2017:loginFail'))
