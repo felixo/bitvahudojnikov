@@ -5,7 +5,7 @@
 {% block sidebar %}
     <ul id="sidebarList">
                 <li><a class="menuNone" href="{% url 'bh2017:registration' %}">РЕГИСТРАЦИЯ</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:com_gallerys' %}">ГАЛЕРЕЯ</a></li>
+                <li><a class="menuSelected" href="{% url 'bh2017:com_gallerys' %}">ГАЛЕРЕЯ</a></li>
                 <li><a class="menuNone" href="{% url 'bh2017:tasks' %}">ЗАДАНИЯ</a></li>
                 <li><a class="menuNone" href="{% url 'bh2017:prizes' %}">ПРИЗЫ</a></li>
                 <li><a class="menuNone" href="{% url 'bh2017:rules' %}">ПРАВИЛА</a></li>
@@ -16,29 +16,42 @@
             </ul>
 {% endblock %}
 {% block content %}
-    <div id="contentWrap">
+<div id="contentWrap">
+{% if user and not user.is_anonymous %}
+    <ul>
+        <li><a class="menuNone" href="{% url 'bh2017:gallery1' %}">Показать галерею задания № 1</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:gallery2' %}">Показать галерею задания № 2</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:gallery3' %}">Показать галерею задания № 3</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:gallery4' %}">Показать галерею задания № 4</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:gallery5' %}">Показать галерею задания № 5</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:gallery6' %}">Показать галерею задания № 6</a></li>
+        <li><a class="menuNone" href="{% url 'bh2017:gallery7' %}">Показать галерею задания № 7</a></li>
+    </ul>
+{% else %}
+
         <div id="wrongPass">
-            <h1>НЕВЕРНЫЙ ЛОГИН ИЛИ ПАРОЛЬ, ПОПРУБУЙТЕ ЕЩЕ РАЗ!</h1>
+            <h1>УВАЖАЕМЫЕ ЖЮРИ, ВВЕДИТЕ ЛОГИН И ПАРОЛЬ</h1>
         </div>
         <div id="formAuthWrapWrap">
         <div id="formAuthWrap">
-            <form action="{% url 'bh2017:loginAuth' %}" method="POST" enctype="multipart/form-data">
+            <form action="{% url 'bh2017:AuthJury' %}" method="POST" enctype="multipart/form-data">
                 <p>{% csrf_token %}</p>
                 <ul id="formAuthList">
-                    <li>{{ formAuth.email }}</li>
-                    <li>{{ formAuth.password }}</li>
+                    <li>{{ juryAuth.username }}</li>
+                    <li>{{ juryAuth.password }}</li>
                  </ul>
                 <ul id="loginButList">
-                    <li class="loginButListDot"><a class="menuSelected" href="{% url 'bh2017:forgetpass' %}">Забыли пароль?</a></li>
                     <li class="loginButListDot">
                         <div id="loginBut">
                             <input type="submit" value="ВОЙТИ" />
                         </div>
                     </li>
-                    <li class="loginButListDot"><a class="menuSelected" href="{% url 'bh2017:registration' %}">Регистрация</a></li>
                 </ul>
             </form>
         </div>
         </div>
-    </div>
+{% endif %}
+</div>
+{% endblock %}
+{% block partner%}
 {% endblock %}

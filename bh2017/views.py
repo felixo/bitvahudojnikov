@@ -1130,3 +1130,15 @@ def remVote7(request, paint_id):
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         return HttpResponseRedirect(reverse('bh2017:loginJury'))
+
+def com_gallerys(request):
+    juryAuth = JuryAuth()
+    fullName = None
+    if not request.user.is_anonymous():
+        try:
+            fullName = Jury.objects.filter(user=request.user)
+            fullName = fullName[0].name
+        except IndexError:
+            fullName = None
+            logout(request)
+    return render(request, 'bh2017/com_gallerys.html', {'juryAuth': juryAuth, 'Artist': fullName})

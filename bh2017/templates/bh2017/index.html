@@ -17,21 +17,10 @@
                         <li class="hAnnounce">ВСЕРОССИЙСКАЯ</li>
                         <li class="hAnnounce" id="hAnnounce">БИТВА ХУДОЖНИКОВ</li>
 
-                        <li class="mAnnounce" id="mAnnounce">ПРИСОЕДИНЯЙСЯ!</li>
-                        <li calss="regformDotDot">
+                        <li class="mAnnounce" id="mAnnounce">ВЫБЕРИ СВОЕГО ПОБЕДИТЕЛЯ!</li>
+                        <li class="regformDotDot" id="regformDotDot">
                             <div id="formWrap">
-                                <form action="{% url 'bh2017:addArtist' %}" method="POST" enctype="multipart/form-data">
-                                    <p>{% csrf_token %}</p>
-                                    <ul id="regformList">
-                                        <li>{{ form.name }}</li>
-                                        <li>{{ form.email}}</li>
-                                        <li>
-                                            <div id="submitId">
-                                                <input id="registrationButton"type="submit" value="РЕГИСТРАЦИЯ" />
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </form>
+                                <div id="submitId"><a><Span>ПРОГОЛОСОВАТЬ</Span></a></div>
                             </div>
                         </li>
                     </ul>
@@ -57,7 +46,7 @@
                         <div class="circle"><span class="circleNum">2</span></div>
                     </li>
                     <li class="wtdText">
-                        <div class="wtdTextWrap">Получать задания на сайте <br>в разделе <a href="{% url 'bh2017:tasks' %}" style="text-decoration: underline">"Задания"</a></div>
+                        <div class="wtdTextWrap">Перейти в раздел <br>в раздел <a href="{% url 'bh2017:tasks' %}" style="text-decoration: underline">"Галерея"</a></div>
                     </li>
                 </ul>
             </li>
@@ -65,6 +54,16 @@
                 <ul class="wtdListDotList">
                     <li class="wtdNum">
                         <div class="circle"><span class="circleNum">3</span></div>
+                    </li>
+                    <li>
+                        <div class="wtdTextWrap">Проголосовать за работы участников <br>по каждому заданию</div>
+                    </li>
+                </ul>
+            </li>
+            <li class="wtdListDot">
+                <ul class="wtdListDotList">
+                    <li class="wtdNum">
+                        <div class="circle"><span class="circleNum">4</span></div>
                     </li>
                     <li class="wtdText">
                         <div class="wtdTextWrap">Подписаться на страницы конкурса <br>в
@@ -88,36 +87,6 @@
                                 </ul>
                             </div>
                             и следить за новостями</div>
-                    </li>
-                </ul>
-            </li>
-            <li class="wtdListDot">
-                <ul class="wtdListDotList">
-                    <li class="wtdNum">
-                        <div class="circle"><span class="circleNum">4</span></div>
-                    </li>
-                    <li class="wtdText">
-                        <div class="wtdTextWrap">Выполнить 7 творческих заданий. <br><a href="{% url 'bh2017:rules' %}" style="text-decoration: underline">Читать правила</a></div>
-                    </li>
-                </ul>
-            </li>
-            <li class="wtdListDot">
-                <ul class="wtdListDotList">
-                    <li class="wtdNum">
-                        <div class="circle"><span class="circleNum">5</span></div>
-                    </li>
-                    <li class="wtdText">
-                        <div class="wtdTextWrap">Принять участие <br>в финальной битве </div>
-                    </li>
-                </ul>
-            </li>
-            <li class="wtdListDot">
-                <ul class="wtdListDotList">
-                    <li class="wtdNum">
-                        <div class="circle"><span class="circleNum">6</span></div>
-                    </li>
-                    <li class="wtdText">
-                        <div class="wtdTextWrap">Войти в число победителей и получить один <br>из <a href="{% url 'bh2017:prizes' %}" style="text-decoration: underline">потрясающих подарков!</a></div>
                     </li>
                 </ul>
             </li>

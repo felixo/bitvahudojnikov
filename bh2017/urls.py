@@ -65,4 +65,5 @@ urlpatterns = [
     url(r'^remVote6/(?P<paint_id>[0-9]+)/$', views.remVote6, name='remVote6'),
     url(r'^vote7/(?P<paint_id>[0-9]+)/$', views.vote7, name='vote7'),
     url(r'^remVote7/(?P<paint_id>[0-9]+)/$', views.remVote7, name='remVote7'),
+    url(r'^com_gallerys', views.com_gallerys, name='com_gallerys'),
 ]
