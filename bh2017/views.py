@@ -1536,7 +1536,7 @@ def com_vote5(request, paint_id):
             vote_is_it = False
         if vote_is_it:
             Vote.objects.filter(vote_id=request.user).filter(paint_5=paint_id).delete()
-            obj = Task_2.objects.filter(id=paint_id)[0]
+            obj = Task_5.objects.filter(id=paint_id)[0]
             obj.com_count = obj.com_count - 1
             obj.save()
         else:
