@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <script src="{% static 'bh2017/jquery-3.1.1.min.js' %}"></script>
+    {% block script %}<script src="{% static 'bh2017/script.js' %}"></script> {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bh2017/style.css' %}" />
+    <link rel="icon" href="{% static "bh2017/images/favicon-bitva.jpg"%}">
+    <title>{% block title %} Всероссийская битва художников {% endblock %}</title>
+</head>
+<body>
+    <div id="attic">
+        <ul id="atticList">
+
+                   {% if user and user.is_authenticated %}
+                    <li id="logoutDot">
+                   <div id="logoutWarp">
+                       <ul id="logoutWarpList">
+                           <li ><a href="{% url 'bh2017:logoutArtist' %}"><div id="logoutBut"><span>ВЫЙТИ</span></div></a></li>
+                           <li id="logoutText">Здравствуйте,<br><a href="{% url 'bh2017:cabinet' %}">{{ Artist }}</a></li>
+                       </ul>
+                   </div>
+                    </li>
+                   {% else %}
+                    <li id="loginDot">
+                        <div id="loginWrap">
+                            <span>ВОЙТИ</span>
+                        </div>
+                    </li>
+                   {% endif %}
+
+
+            <li id="nevskayaDot">
+                <div id="nevskayaWrap">
+                    <ul id="nevskayaWrapList">
+                        <li id="nevskayaWrapListLogoDot">
+                            <div id="nevskayaWrapListLogoWrap">
+                                <a href="http://www.nevskayapalitra.ru/"><img src="{% static "bh2017/images/nevsakayalogo.png" %}" /></a>
+                            </div>
+                        </li>
+                        <li id="nevskayaWrapListTextDot">
+                            <div id="nevskayaWrapListTextWrap">
+                                <span>Генеральный спонсор</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li id="faberDot">
+                <div id="faberWrap">
+                    <ul id="faberWrapList">
+                        <li>
+                            <div>
+                                <a href="http://faber-castell.com.ru/"><img id="headFaberLogo" src="{% static "bh2017/images/faberlogo.png" %}" /></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="faberWrapListTextWrap">
+                                <span>Официальный спонсор<br>ООО "Фабер-Кастелл Анадолу"</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li id="socialDot">
+                <div id="socialWrap">
+                    <ul id="socialDotList">
+                        <li>
+                            <div>
+                                <a href="https://vk.com/bitvahudojnikov"><img src="{% static "bh2017/images/vklogo.png" %}" /></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="https://www.instagram.com/bitvahudojnikov/"><img src="{% static "bh2017/images/instalogo.png" %}" /></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="https://www.facebook.com/bitvahudojnikov/"><img src="{% static "bh2017/images/fblogo.png" %}" /></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div id="menuLine"></div>
+    </div>
+
+    <div id="sidebar">
+        {% block sidebar %}
+            <ul id="sidebarList">
+                <li><a class="menuNone" href="{% url 'bh2017:registration' %}">РЕГИСТРАЦИЯ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:com_gallerys' %}">ГАЛЕРЕЯ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:tasks' %}">ЗАДАНИЯ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:prizes' %}">ПРИЗЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:rules' %}">ПРАВИЛА</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:jury' %}">ЖЮРИ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:sponsors' %}">СПОНСОРЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:partners' %}">ПАРТНЕРЫ</a></li>
+                <li><a class="menuNone" href="{% url 'bh2017:faq' %}">ВОПРОСЫ-ОТВЕТЫ</a></li>
+            </ul>
+        {% endblock %}
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+        {% block partner %}
+            <div class="headerWrap"><h1>ПАРТНЕРЫ КОНКУРСА</h1></div>
+            <div id="partnerWarp">
+                <ul id="partnerList">
+                    {% if documents %}
+                        {% for document in documents %}
+                            <li class="partnerDot">
+                                <a href="{{document.text}}" class="partnerLinks">
+                                    <img id="document.id" src="{{ document.logo.url }}" alt="Reducto!" class="partnerLogo">
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                {% if documents.has_next %}
+                <p>{% csrf_token %}</p>
+                    <div><a id="nextButton" href="?page={{ documents.next_page_number }}"> ЕЩЕ</a></div>
+                {% endif %}
+            </div>
+        {% endblock %}
+    </div>
+
+
+
+
+
+<footer>
+    <div id="footerWrap">
+        <img id="footerback" src="{% static "bh2017/images/footer.jpg" %}" />
+        <ul id="footerList">
+            <li>
+                <div>
+                    <span>Мы в социальных сетях</span>
+                </div>
+            </li>
+            <li>
+                <ul id="footerSocList">
+                    <li><a href="https://vk.com/bitvahudojnikov"><img height="17" src="{% static "bh2017/images/bvk.png" %}" /></a></li>
+                    <li><a href="https://www.instagram.com/bitvahudojnikov/"><img height="18" src="{% static "bh2017/images/binst.png" %}"></a></li>
+                    <li><a href="https://www.facebook.com/bitvahudojnikov/"><img id="bfb" src="{% static "bh2017/images/bfb.png" %}"></a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</footer>
+ <div id="parent_popup">
+    <div id="popup">
+    <p style="cursor: pointer; margin: 0;" onclick="document.getElementById('parent_popup').style.display='none';">Закрыть [x]</p>
+        <img id="loginlogo" src="{% static 'bh2017/images/loginlogo.jpg' %}">
+        <div id="authText">
+            <span>АВТОРИЗАЦИЯ</span>
+        </div>
+        <div id="formAuthWrap">
+            <form action="{% url 'bh2017:loginAuth' %}" method="POST" enctype="multipart/form-data">
+                <p>{% csrf_token %}</p>
+                <ul id="formAuthList">
+                    <li>{{ formAuth.email }}</li>
+                    <li>{{ formAuth.password }}</li>
+                 </ul>
+                <ul id="loginButList">
+                    <li class="loginButListDot"><a class="menuSelected" href="{% url 'bh2017:restore' %}">Забыли пароль?</a></li>
+                    <li class="loginButListDot">
+                        <div id="loginBut">
+                            <input id=loginButton" type="submit" value="ВОЙТИ" />
+                        </div>
+                    </li>
+                    <li class="loginButListDot"><a class="menuSelected" href="{% url 'bh2017:registration' %}">Регистрация</a></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
