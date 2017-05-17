@@ -2,25 +2,25 @@ from django.contrib import admin
 from .models import Artist, Partner, Sponsor, Task_1, Task_2, Task_3, Task_4, Task_5, Task_6, Task_7, Jury, Tasks, Vote
 
 class Task_1Admin(admin.ModelAdmin):
-    list_display = ('artist1', 'docfile','count')
+    list_display = ('artist1', 'docfile','count','com_count')
 
 class Task_2Admin(admin.ModelAdmin):
-    list_display = ('artist1', 'docfile','count')
+    list_display = ('artist1', 'docfile','count','com_count')
 
 class Task_3Admin(admin.ModelAdmin):
-    list_display = ('artist1', 'docfile','count')
+    list_display = ('artist1', 'docfile','count','com_count')
 
 class Task_4Admin(admin.ModelAdmin):
-    list_display = ('artist1', 'docfile','count')
+    list_display = ('artist1', 'docfile','count','com_count')
 
 class Task_5Admin(admin.ModelAdmin):
-    list_display = ('artist1', 'docfile','count')
+    list_display = ('artist1', 'docfile','count','com_count')
 
 class Task_6Admin(admin.ModelAdmin):
-    list_display = ('artist1', 'docfile','count')
+    list_display = ('artist1', 'docfile','count','com_count')
 
 class Task_7Admin(admin.ModelAdmin):
-    list_display = ('artist1', 'docfile','count')
+    list_display = ('artist1', 'docfile','count','com_count')
 
 class ArtistAdmin(admin.ModelAdmin):
     search_fields = ['email']

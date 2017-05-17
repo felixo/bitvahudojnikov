@@ -299,6 +299,7 @@ h1 {
 
 .wtdListDotList li{
     display: inline-block;
+    vertical-align: middle;
 }
 
 .wtdNum {
@@ -1133,4 +1134,38 @@ input[type="number"] {
     width: 60px;
     color: #004e96;
     padding-left: 36px;
+}
+
+#submitId {
+    font: 13px 'Pala';
+    background-color: #e80606;
+    color: white;
+    border: 0;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+#regformDotDot {
+    width: 430px;
+}
+
+#regformDotDot span {
+    vertical-align: -12px;
+}
+
+#regformDotDot a {
+    text-decoration: none;
+    color: white;
+}
+
+#regformDotDot a:hover{
+    text-decoration: underline;
+}
+
+#regformDotDot a:visited {
+    color: white;
 }
