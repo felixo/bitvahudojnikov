@@ -1192,6 +1192,199 @@ def com_gallery1(request):
     listOfTrue = zip(documents, listOfTrue)
     return  render(request, 'bh2017/com_gallery1.html', {'documents': documents,'juryAuth': juryAuth, 'Artist': fullName, 'votes': votes, 'listOfTrue': listOfTrue})
 
+@login_required
+def com_gallery2(request):
+    juryAuth = UserAuth()
+    fullName = None
+    obj = Task_2.objects.all()
+    paginator = Paginator(obj, 6)
+    page = request.GET.get('page')
+    votes = Vote.objects.filter(vote_id=request.user)
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    if not request.user.is_anonymous():
+        try:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
+        except IndexError:
+            fullName = None
+            logout(request)
+    listOfTrue = []
+    for document in documents:
+        if votes.filter(paint_2=document.id):
+            listOfTrue.append(True)
+        else:
+            listOfTrue.append(False)
+    listOfTrue = zip(documents, listOfTrue)
+    return  render(request, 'bh2017/com_gallery2.html', {'documents': documents,'juryAuth': juryAuth, 'Artist': fullName, 'votes': votes, 'listOfTrue': listOfTrue})
+
+@login_required
+def com_gallery3(request):
+    juryAuth = UserAuth()
+    fullName = None
+    obj = Task_3.objects.all()
+    paginator = Paginator(obj, 6)
+    page = request.GET.get('page')
+    votes = Vote.objects.filter(vote_id=request.user)
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    if not request.user.is_anonymous():
+        try:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
+        except IndexError:
+            fullName = None
+            logout(request)
+    listOfTrue = []
+    for document in documents:
+        if votes.filter(paint_3=document.id):
+            listOfTrue.append(True)
+        else:
+            listOfTrue.append(False)
+    listOfTrue = zip(documents, listOfTrue)
+    return  render(request, 'bh2017/com_gallery3.html', {'documents': documents,'juryAuth': juryAuth, 'Artist': fullName, 'votes': votes, 'listOfTrue': listOfTrue})
+
+@login_required
+def com_gallery4(request):
+    juryAuth = UserAuth()
+    fullName = None
+    obj = Task_4.objects.all()
+    paginator = Paginator(obj, 6)
+    page = request.GET.get('page')
+    votes = Vote.objects.filter(vote_id=request.user)
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    if not request.user.is_anonymous():
+        try:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
+        except IndexError:
+            fullName = None
+            logout(request)
+    listOfTrue = []
+    for document in documents:
+        if votes.filter(paint_4=document.id):
+            listOfTrue.append(True)
+        else:
+            listOfTrue.append(False)
+    listOfTrue = zip(documents, listOfTrue)
+    return  render(request, 'bh2017/com_gallery4.html', {'documents': documents,'juryAuth': juryAuth, 'Artist': fullName, 'votes': votes, 'listOfTrue': listOfTrue})
+
+@login_required
+def com_gallery5(request):
+    juryAuth = UserAuth()
+    fullName = None
+    obj = Task_5.objects.all()
+    paginator = Paginator(obj, 6)
+    page = request.GET.get('page')
+    votes = Vote.objects.filter(vote_id=request.user)
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    if not request.user.is_anonymous():
+        try:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
+        except IndexError:
+            fullName = None
+            logout(request)
+    listOfTrue = []
+    for document in documents:
+        if votes.filter(paint_5=document.id):
+            listOfTrue.append(True)
+        else:
+            listOfTrue.append(False)
+    listOfTrue = zip(documents, listOfTrue)
+    return  render(request, 'bh2017/com_gallery5.html', {'documents': documents,'juryAuth': juryAuth, 'Artist': fullName, 'votes': votes, 'listOfTrue': listOfTrue})
+
+@login_required
+def com_gallery6(request):
+    juryAuth = UserAuth()
+    fullName = None
+    obj = Task_6.objects.all()
+    paginator = Paginator(obj, 6)
+    page = request.GET.get('page')
+    votes = Vote.objects.filter(vote_id=request.user)
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    if not request.user.is_anonymous():
+        try:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
+        except IndexError:
+            fullName = None
+            logout(request)
+    listOfTrue = []
+    for document in documents:
+        if votes.filter(paint_6=document.id):
+            listOfTrue.append(True)
+        else:
+            listOfTrue.append(False)
+    listOfTrue = zip(documents, listOfTrue)
+    return  render(request, 'bh2017/com_gallery6.html', {'documents': documents,'juryAuth': juryAuth, 'Artist': fullName, 'votes': votes, 'listOfTrue': listOfTrue})
+
+@login_required
+def com_gallery7(request):
+    juryAuth = UserAuth()
+    fullName = None
+    obj = Task_7.objects.all()
+    paginator = Paginator(obj, 6)
+    page = request.GET.get('page')
+    votes = Vote.objects.filter(vote_id=request.user)
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    if not request.user.is_anonymous():
+        try:
+            fullName = Artist.objects.filter(user=request.user)
+            fullName = fullName[0].name
+        except IndexError:
+            fullName = None
+            logout(request)
+    listOfTrue = []
+    for document in documents:
+        if votes.filter(paint_7=document.id):
+            listOfTrue.append(True)
+        else:
+            listOfTrue.append(False)
+    listOfTrue = zip(documents, listOfTrue)
+    return  render(request, 'bh2017/com_gallery7.html', {'documents': documents,'juryAuth': juryAuth, 'Artist': fullName, 'votes': votes, 'listOfTrue': listOfTrue})
+
+
 def com_vote1(request, paint_id):
     if not request.user.is_anonymous():
         try:
@@ -1206,6 +1399,7 @@ def com_vote1(request, paint_id):
         else:
             return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
 
 def com_remVote1(request, paint_id):
     if not request.user.is_anonymous():
@@ -1225,3 +1419,219 @@ def com_remVote1(request, paint_id):
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+
+
+def com_vote2(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_2=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            Vote.objects.filter(vote_id=request.user).filter(paint_2=paint_id).delete()
+            obj = Task_2.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count - 1
+            obj.save()
+        else:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+def com_remVote2(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_2=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+        else:
+            print Jury.objects.filter(user=request.user)
+            obj = Task_2.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count + 1
+            obj.save()
+            vote = Vote.objects.create(vote_id=request.user, paint_2=obj, vote_is_it=True)
+            vote.save()
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+
+
+def com_vote3(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_3=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            Vote.objects.filter(vote_id=request.user).filter(paint_3=paint_id).delete()
+            obj = Task_3.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count - 1
+            obj.save()
+        else:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def com_remVote3(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_3=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+        else:
+            print Jury.objects.filter(user=request.user)
+            obj = Task_3.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count + 1
+            obj.save()
+            vote = Vote.objects.create(vote_id=request.user, paint_3=obj, vote_is_it=True)
+            vote.save()
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+
+
+def com_vote4(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_4=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            Vote.objects.filter(vote_id=request.user).filter(paint_4=paint_id).delete()
+            obj = Task_4.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count - 1
+            obj.save()
+        else:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def com_remVote4(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_4=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+        else:
+            print Jury.objects.filter(user=request.user)
+            obj = Task_4.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count + 1
+            obj.save()
+            vote = Vote.objects.create(vote_id=request.user, paint_4=obj, vote_is_it=True)
+            vote.save()
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+
+
+def com_vote5(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_5=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            Vote.objects.filter(vote_id=request.user).filter(paint_5=paint_id).delete()
+            obj = Task_2.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count - 1
+            obj.save()
+        else:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def com_remVote5(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_5=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+        else:
+            print Jury.objects.filter(user=request.user)
+            obj = Task_5.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count + 1
+            obj.save()
+            vote = Vote.objects.create(vote_id=request.user, paint_5=obj, vote_is_it=True)
+            vote.save()
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+
+
+def com_vote6(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_6=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            Vote.objects.filter(vote_id=request.user).filter(paint_6=paint_id).delete()
+            obj = Task_6.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count - 1
+            obj.save()
+        else:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def com_remVote6(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_6=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+        else:
+            print Jury.objects.filter(user=request.user)
+            obj = Task_6.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count + 1
+            obj.save()
+            vote = Vote.objects.create(vote_id=request.user, paint_6=obj, vote_is_it=True)
+            vote.save()
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+
+
+def com_vote7(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_7=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            Vote.objects.filter(vote_id=request.user).filter(paint_7=paint_id).delete()
+            obj = Task_7.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count - 1
+            obj.save()
+        else:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def com_remVote7(request, paint_id):
+    if not request.user.is_anonymous():
+        try:
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(paint_7=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+        else:
+            print Jury.objects.filter(user=request.user)
+            obj = Task_7.objects.filter(id=paint_id)[0]
+            obj.com_count = obj.com_count + 1
+            obj.save()
+            vote = Vote.objects.create(vote_id=request.user, paint_7=obj, vote_is_it=True)
+            vote.save()
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
+

@@ -15,9 +15,9 @@
                             <li class="galleryDotListDot"><div class="galleryImgWrap"><img id="document.id" src="{{ document.docfile.url }}" alt="Reducto!" class="partnerLogo"></div></li>
                             <li class="galleryDotListDot"><div>{{ document.com_count }}<span> голосов - </span>
                             {% if i %}
-                                <a class="Vote" href="{% url 'bh2017:com_vote1' document.id %}">Убрать голос</a>
+                                <a class="Vote" href="{% url 'bh2017:com_vote2' document.id %}">Убрать голос</a>
                             {% else %}
-                                <a class="remVote" href="{% url 'bh2017:com_remVote1' document.id %}">Проголосовать</a>
+                                <a class="remVote" href="{% url 'bh2017:com_remVote2' document.id %}">Проголосовать</a>
                             {% endif %}
                             </div></li>
                         </ul>

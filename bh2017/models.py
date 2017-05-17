@@ -84,7 +84,7 @@ class Task_1(models.Model):
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
     count = models.IntegerField(default=0, verbose_name="Голосов")
-    com_count = models.IntegerField(default=0, verbose_name="Голосов")
+    com_count = models.IntegerField(default=0, verbose_name="Симпы")
 
 
 class Task_2(models.Model):
@@ -93,7 +93,7 @@ class Task_2(models.Model):
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
     count = models.IntegerField(default=0, verbose_name="Голосов")
-    com_count = models.IntegerField(default=0, verbose_name="Голосов")
+    com_count = models.IntegerField(default=0, verbose_name="Симпы")
 
 class Task_3(models.Model):
     artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
