@@ -13,7 +13,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
 from django.contrib.auth import authenticate,login, logout
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.db import IntegrityError
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
@@ -1639,8 +1639,8 @@ def com_remVote7(request, paint_id):
 def final_gallery(request):
     juryAuth = JuryAuth()
     fullName = None
-    obj = Task_7.objects.all()
-    paginator = Paginator(obj, 6)
+    obj = Artist.objects.filter(count_of_task__gte=4)
+    paginator = Paginator(obj, 1)
     page = request.GET.get('page')
     votes = Vote.objects.filter(vote_id=request.user)
     try:
@@ -1660,55 +1660,93 @@ def final_gallery(request):
             logout(request)
     listOfTrue = []
     for document in documents:
-        if votes.filter(paint_7=document.id):
+        if votes.filter(final=document.id):
             listOfTrue.append(True)
         else:
             listOfTrue.append(False)
-    listOfTrue = zip(documents, listOfTrue)
+    task1 = []
+    for document in documents:
+        try:
+            Task_1.objects.get(artist1=document.user)
+            task1.append(Task_1.objects.get(artist1=document.user).docfile)
+        except ObjectDoesNotExist:
+            task1.append(False)
+    task2 = []
+    for document in documents:
+        try:
+            Task_2.objects.get(artist1=document.user)
+            task2.append(Task_2.objects.get(artist1=document.user).docfile)
+        except ObjectDoesNotExist:
+            task2.append(False)
+    task3 = []
+    for document in documents:
+        try:
+            Task_3.objects.get(artist1=document.user)
+            task3.append(Task_3.objects.get(artist1=document.user).docfile)
+        except ObjectDoesNotExist:
+            task3.append(False)
+    task4 = []
+    for document in documents:
+        try:
+            Task_4.objects.get(artist1=document.user)
+            task4.append(Task_4.objects.get(artist1=document.user).docfile)
+        except ObjectDoesNotExist:
+            task4.append(False)
+    task5 = []
+    for document in documents:
+        try:
+            Task_5.objects.get(artist1=document.user)
+            task5.append(Task_5.objects.get(artist1=document.user).docfile)
+        except ObjectDoesNotExist:
+            task5.append(False)
+    task6 = []
+    for document in documents:
+        try:
+            Task_6.objects.get(artist1=document.user)
+            task6.append(Task_6.objects.get(artist1=document.user).docfile)
+        except ObjectDoesNotExist:
+            task6.append(False)
+    task7 = []
+    for document in documents:
+        try:
+            Task_7.objects.get(artist1=document.user)
+            task7.append(Task_7.objects.get(artist1=document.user).docfile)
+        except ObjectDoesNotExist:
+            task7.append(False)
+    listOfTrue = zip(documents, listOfTrue, task1, task2, task3,task4, task5, task6, task7)
     return  render(request, 'bh2017/final_gallery.html', {'documents': documents,'juryAuth': juryAuth, 'Artist': fullName, 'votes': votes, 'listOfTrue': listOfTrue})
 
-def get_count(request):
-    artists = Artist.objects.all()
-    for artist in artists:
-        artist.count_of_task = 0
-        artist.save()
-    for artist in artists:
+def final_vote(request, paint_id):
+    if not request.user.is_anonymous():
         try:
-            task_1 = Task_1.objects.get(artist1=artist.user)
-            artist.count_of_task = artist.count_of_task + 1
-        except ObjectDoesNotExist:
-            print 'notOk'
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(final=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            Vote.objects.filter(vote_id=request.user).filter(final=paint_id).delete()
+            obj = Artist.objects.filter(id=paint_id)[0]
+            obj.votess = obj.votess - 1
+            obj.save()
+        else:
+            return HttpResponseRedirect(reverse('bh2017:loginJury'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def final_remVote(request, paint_id):
+    if not request.user.is_anonymous():
         try:
-            task_2 = Task_2.objects.get(artist1=artist.user)
-            artist.count_of_task = artist.count_of_task + 1
-        except ObjectDoesNotExist:
-            print 'notOk'
-        try:
-            task_3 = Task_3.objects.get(artist1=artist.user)
-            artist.count_of_task = artist.count_of_task + 1
-        except ObjectDoesNotExist:
-            print 'notOk'
-        try:
-            task_4 = Task_4.objects.get(artist1=artist.user)
-            artist.count_of_task = artist.count_of_task + 1
-        except ObjectDoesNotExist:
-            print 'notOk'
-        try:
-            task_5 = Task_5.objects.get(artist1=artist.user)
-            artist.count_of_task = artist.count_of_task + 1
-        except ObjectDoesNotExist:
-            print 'notOk'
-        try:
-            task_6 = Task_6.objects.get(artist1=artist.user)
-            artist.count_of_task = artist.count_of_task + 1
-        except ObjectDoesNotExist:
-            print 'notOk'
-        try:
-            task_7 = Task_7.objects.get(artist1=artist.user)
-            artist.count_of_task = artist.count_of_task + 1
-        except ObjectDoesNotExist:
-            print 'notOk'
-        artist.save()
-        print artist.count_of_task
-    print 'OK'
-    return HttpResponseRedirect(reverse('bh2017:index'))
+            vote_is_it = Vote.objects.filter(vote_id=request.user).filter(final=paint_id)[0].vote_is_it
+        except IndexError:
+            vote_is_it = False
+        if vote_is_it:
+            return HttpResponseRedirect(reverse('bh2017:loginJury'))
+        else:
+            print Jury.objects.filter(user=request.user)
+            obj = Artist.objects.filter(id=paint_id)[0]
+            obj.votess = obj.votess + 1
+            obj.save()
+            vote = Vote.objects.create(vote_id=request.user, final=obj.id, vote_is_it=True)
+            vote.save()
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        return HttpResponseRedirect(reverse('bh2017:loginJury'))

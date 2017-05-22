@@ -52,7 +52,6 @@ urlpatterns = [
     url(r'^gallery5/$', views.gallery5, name='gallery5'),
     url(r'^gallery6/$', views.gallery6, name='gallery6'),
     url(r'^gallery7/$', views.gallery7, name='gallery7'),
-    url(r'^get_count/$', views.get_count, name='get_count'),
     url(r'^final_gallery/$', views.final_gallery, name='final_gallery'),
     url(r'^com_gallery1/$', views.com_gallery1, name='com_gallery1'),
     url(r'^com_gallery2/$', views.com_gallery2, name='com_gallery2'),
@@ -90,4 +89,6 @@ urlpatterns = [
     url(r'^com_remVote6/(?P<paint_id>[0-9]+)/$', views.com_remVote6, name='com_remVote6'),
     url(r'^com_vote7/(?P<paint_id>[0-9]+)/$', views.com_vote7, name='com_vote7'),
     url(r'^com_remVote7/(?P<paint_id>[0-9]+)/$', views.com_remVote7, name='com_remVote7'),
+    url(r'^final_vote/(?P<paint_id>[0-9]+)/$', views.final_vote, name='final_vote'),
+    url(r'^final_remVote/(?P<paint_id>[0-9]+)/$', views.final_remVote, name='final_remVote'),
 ]

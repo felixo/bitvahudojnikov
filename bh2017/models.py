@@ -31,6 +31,7 @@ class Artist(models.Model):
     data = models.DateTimeField('date published', auto_now_add=True)
     age = models.IntegerField(default=0);
     count_of_task = models.IntegerField(default=0, verbose_name="Выполненых заданий")
+    votess = models.IntegerField(default=0, verbose_name="Голоса финалистов")
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
@@ -102,7 +103,7 @@ class Task_3(models.Model):
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
     count = models.IntegerField(default=0, verbose_name="Голосов")
-    com_count = models.IntegerField(default=0, verbose_name="Голосов")
+    com_count = models.IntegerField(default=0, verbose_name="Симпы")
 
 class Task_4(models.Model):
     artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
@@ -110,7 +111,7 @@ class Task_4(models.Model):
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
     count = models.IntegerField(default=0, verbose_name="Голосов")
-    com_count = models.IntegerField(default=0, verbose_name="Голосов")
+    com_count = models.IntegerField(default=0, verbose_name="Симпы")
 
 class Task_5(models.Model):
     artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
@@ -118,7 +119,7 @@ class Task_5(models.Model):
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
     count = models.IntegerField(default=0, verbose_name="Голосов")
-    com_count = models.IntegerField(default=0, verbose_name="Голосов")
+    com_count = models.IntegerField(default=0, verbose_name="Симпы")
 
 class Task_6(models.Model):
     artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
@@ -126,7 +127,7 @@ class Task_6(models.Model):
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
     count = models.IntegerField(default=0, verbose_name="Голосов")
-    com_count = models.IntegerField(default=0, verbose_name="Голосов")
+    com_count = models.IntegerField(default=0, verbose_name="Симпы")
 
 class Task_7(models.Model):
     artist1 = models.OneToOneField(User, default='', verbose_name="Художник")
@@ -134,7 +135,7 @@ class Task_7(models.Model):
     visible = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
     count = models.IntegerField(default=0, verbose_name="Голосов")
-    com_count = models.IntegerField(default=0, verbose_name="Голосов")
+    com_count = models.IntegerField(default=0, verbose_name="Симпы")
 
 class Vote(models.Model):
     paint_1 = models.ForeignKey(Task_1, on_delete=models.CASCADE, blank=True, null=True)
@@ -144,6 +145,7 @@ class Vote(models.Model):
     paint_5 = models.ForeignKey(Task_5, on_delete=models.CASCADE, blank=True, null=True)
     paint_6 = models.ForeignKey(Task_6, on_delete=models.CASCADE, blank=True, null=True)
     paint_7 = models.ForeignKey(Task_7, on_delete=models.CASCADE, blank=True, null=True)
+    final = models.IntegerField(default=0, verbose_name="Голосов")
     vote_id = models.ForeignKey(User, related_name='votes')
     vote_is_it = models.BooleanField(default=False)
     data = models.DateTimeField('date published', auto_now_add=True)
