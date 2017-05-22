@@ -19,19 +19,69 @@
 <div id="contentWrap">
     <h2><a href="{% url 'bh2017:loginJury' %}">Назад к галереям</a></h2>
 {% if user and not user.is_anonymous %}
-<h1>Общие галереи:</h1>
+            {% if documents %}
 
-{% else %}
-
-        <div id="wrongPass">
-            <h1>УВАЖАЕМЫЕ УЧАСТНИКИ, ВВЕДИТЕ ЛОГИН И ПАРОЛЬ</h1>
-        </div>
+                <ul id = "final_gallery_list">
+                {% for document, i, t1, t2, t3, t4, t5, t6, t7 in listOfTrue %}
+                    <h1>Работы участника № {{ document.id }}</h1>
+                    <li class="final_gallery_list_dot">
+                        <ul class="final_gallery_list_dot_list">
+                            {% if t1 %}
+                            <li class="final_gallery_list_dot_list_dot"><div class="galleryImgWrap"><img id="{{ t1.id }}" src="{{ t1.url }}" alt="Reducto!" class="partnerLogo"></div></li>
+                            {% endif %}
+                            {% if t2 %}
+                            <li class="final_gallery_list_dot_list_dot"><div class="galleryImgWrap"><img id="{{ t2.id }}" src="{{ t2.url }}" alt="Reducto!" class="partnerLogo"></div></li>
+                            {% endif %}
+                            {% if t3 %}
+                            <li class="final_gallery_list_dot_list_dot"><div class="galleryImgWrap"><img id="{{ t3.id }}" src="{{ t3.url }}" alt="Reducto!" class="partnerLogo"></div></li>
+                            {% endif %}
+                            {% if t4 %}
+                            <li class="final_gallery_list_dot_list_dot"><div class="galleryImgWrap"><img id="{{ t4.id }}" src="{{ t4.url }}" alt="Reducto!" class="partnerLogo"></div></li>
+                            {% endif %}
+                            {% if t5 %}
+                            <li class="final_gallery_list_dot_list_dot"><div class="galleryImgWrap"><img id="{{ t5.id }}" src="{{ t5.url }}" alt="Reducto!" class="partnerLogo"></div></li>
+                            {% endif %}
+                            {% if t6 %}
+                            <li class="final_gallery_list_dot_list_dot"><div class="galleryImgWrap"><img id="{{ t6.id }}" src="{{ t6.url }}" alt="Reducto!" class="partnerLogo"></div></li>
+                            {% endif %}
+                            {% if t7 %}
+                            <li class="final_gallery_list_dot_list_dot"><div class="galleryImgWrap"><img id="{{ t7.id }}" src="{{ t7.url }}" alt="Reducto!" class="partnerLogo"></div></li>
+                            {% endif %}
+                            <li class="galleryDotListDot"><div>{{ document.votess }}<span> голосов - </span>
+                            {% if i %}
+                                <a class="Vote" href="{% url 'bh2017:final_vote' document.id %}">Убрать голос</a>
+                            {% else %}
+                                <a class="remVote" href="{% url 'bh2017:final_remVote' document.id %}">Проголосовать</a>
+                            {% endif %}
+                            </div></li>
+                        </ul>
+                    </li>
+                {% endfor %}
+                </ul>
+            <div id="more">
+            {% if documents.has_previous %}
+            <a class="prewButton" href="?page=1"> На первую </a>
+            <a class="prewButton" href="?page={{ documents.previous_page_number }}"> << Предыдущая | </a>
+            {% endif %}
+            <span id="currentPage"> Страница {{ documents.number }} из {{ documents.paginator.num_pages }} </span>
+            {% if documents.has_next %}
+                <a class="nextButton" href="?page={{ documents.next_page_number }}"> | Следующая >></a>
+                <a class="nextButton" href="?page={{ documents.paginator.num_pages }}"> На последнюю </a>
+            {% endif %}
+            </div>
+            {% else %}
+                <h2>Ни одной работы еще не загрузили.</h2>
+            {% endif %}
+        {% else %}
+            <div id="wrongPass">
+            <h1>УВАЖАЕМЫЕ ЖЮРИ, ВВЕДИТЕ ЛОГИН И ПАРОЛЬ</h1>
+            </div>
         <div id="formAuthWrapWrap">
         <div id="formAuthWrap">
-            <form action="{% url 'bh2017:login_gallerys' %}" method="POST" enctype="multipart/form-data">
+            <form action="{% url 'bh2017:AuthJury' %}" method="POST" enctype="multipart/form-data">
                 <p>{% csrf_token %}</p>
                 <ul id="formAuthList">
-                    <li>{{ juryAuth.email }}</li>
+                    <li>{{ juryAuth.username }}</li>
                     <li>{{ juryAuth.password }}</li>
                  </ul>
                 <ul id="loginButList">
@@ -44,7 +94,7 @@
             </form>
         </div>
         </div>
-{% endif %}
+        {% endif %}
 </div>
 {% endblock %}
 {% block partner%}

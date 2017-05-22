@@ -1169,3 +1169,11 @@ input[type="number"] {
 #regformDotDot a:visited {
     color: white;
 }
+
+#final_gallery_list {
+    padding-left: 0;
+}
+
+.final_gallery_list_dot_list {
+    padding-left: 0;
+}
