@@ -1065,7 +1065,7 @@ def remVote6(request, paint_id):
     else:
         return HttpResponseRedirect(reverse('bh2017:loginJury'))
 
-login_required
+@login_required
 def gallery7(request):
     juryAuth = JuryAuth()
     fullName = None
@@ -1635,3 +1635,80 @@ def com_remVote7(request, paint_id):
     else:
         return HttpResponseRedirect(reverse('bh2017:com_gallerys'))
 
+@login_required
+def final_gallery(request):
+    juryAuth = JuryAuth()
+    fullName = None
+    obj = Task_7.objects.all()
+    paginator = Paginator(obj, 6)
+    page = request.GET.get('page')
+    votes = Vote.objects.filter(vote_id=request.user)
+    try:
+        documents = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        documents = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        documents = paginator.page(paginator.num_pages)
+    if not request.user.is_anonymous():
+        try:
+            fullName = Jury.objects.filter(user=request.user)
+            fullName = fullName[0].name
+        except IndexError:
+            fullName = None
+            logout(request)
+    listOfTrue = []
+    for document in documents:
+        if votes.filter(paint_7=document.id):
+            listOfTrue.append(True)
+        else:
+            listOfTrue.append(False)
+    listOfTrue = zip(documents, listOfTrue)
+    return  render(request, 'bh2017/final_gallery.html', {'documents': documents,'juryAuth': juryAuth, 'Artist': fullName, 'votes': votes, 'listOfTrue': listOfTrue})
+
+def get_count(request):
+    artists = Artist.objects.all()
+    for artist in artists:
+        artist.count_of_task = 0
+        artist.save()
+    for artist in artists:
+        try:
+            task_1 = Task_1.objects.get(artist1=artist.user)
+            artist.count_of_task = artist.count_of_task + 1
+        except ObjectDoesNotExist:
+            print 'notOk'
+        try:
+            task_2 = Task_2.objects.get(artist1=artist.user)
+            artist.count_of_task = artist.count_of_task + 1
+        except ObjectDoesNotExist:
+            print 'notOk'
+        try:
+            task_3 = Task_3.objects.get(artist1=artist.user)
+            artist.count_of_task = artist.count_of_task + 1
+        except ObjectDoesNotExist:
+            print 'notOk'
+        try:
+            task_4 = Task_4.objects.get(artist1=artist.user)
+            artist.count_of_task = artist.count_of_task + 1
+        except ObjectDoesNotExist:
+            print 'notOk'
+        try:
+            task_5 = Task_5.objects.get(artist1=artist.user)
+            artist.count_of_task = artist.count_of_task + 1
+        except ObjectDoesNotExist:
+            print 'notOk'
+        try:
+            task_6 = Task_6.objects.get(artist1=artist.user)
+            artist.count_of_task = artist.count_of_task + 1
+        except ObjectDoesNotExist:
+            print 'notOk'
+        try:
+            task_7 = Task_7.objects.get(artist1=artist.user)
+            artist.count_of_task = artist.count_of_task + 1
+        except ObjectDoesNotExist:
+            print 'notOk'
+        artist.save()
+        print artist.count_of_task
+    print 'OK'
+    return HttpResponseRedirect(reverse('bh2017:index'))
