@@ -30,6 +30,7 @@ class Artist(models.Model):
     favorite = models.CharField(max_length=200, choices=Status)
     data = models.DateTimeField('date published', auto_now_add=True)
     age = models.IntegerField(default=0);
+    count_of_task = models.IntegerField(default=0, verbose_name="Выполненых заданий")
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''

@@ -5,7 +5,7 @@
 {% block sidebar %}
     <ul id="sidebarList">
                 <li><a class="menuNone" href="{% url 'bh2017:registration' %}">РЕГИСТРАЦИЯ</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:com_gallerys' %}">ГАЛЕРЕЯ</a></li>
+                <li><a class="menuSelected" href="{% url 'bh2017:com_gallerys' %}">ГАЛЕРЕЯ</a></li>
                 <li><a class="menuNone" href="{% url 'bh2017:tasks' %}">ЗАДАНИЯ</a></li>
                 <li><a class="menuNone" href="{% url 'bh2017:prizes' %}">ПРИЗЫ</a></li>
                 <li><a class="menuNone" href="{% url 'bh2017:rules' %}">ПРАВИЛА</a></li>
@@ -17,28 +17,21 @@
 {% endblock %}
 {% block content %}
 <div id="contentWrap">
+    <h2><a href="{% url 'bh2017:loginJury' %}">Назад к галереям</a></h2>
 {% if user and not user.is_anonymous %}
-    <ul>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery1' %}">Показать галерею задания № 1</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery2' %}">Показать галерею задания № 2</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery3' %}">Показать галерею задания № 3</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery4' %}">Показать галерею задания № 4</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery5' %}">Показать галерею задания № 5</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery6' %}">Показать галерею задания № 6</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:gallery7' %}">Показать галерею задания № 7</a></li>
-        <li><a class="menuNone" href="{% url 'bh2017:final_gallery' %}">Галерея финалистов</a></li>
-    </ul>
+<h1>Общие галереи:</h1>
+
 {% else %}
 
         <div id="wrongPass">
-            <h1>УВАЖАЕМЫЕ ЖЮРИ, ВВЕДИТЕ ЛОГИН И ПАРОЛЬ</h1>
+            <h1>УВАЖАЕМЫЕ УЧАСТНИКИ, ВВЕДИТЕ ЛОГИН И ПАРОЛЬ</h1>
         </div>
         <div id="formAuthWrapWrap">
         <div id="formAuthWrap">
-            <form action="{% url 'bh2017:AuthJury' %}" method="POST" enctype="multipart/form-data">
+            <form action="{% url 'bh2017:login_gallerys' %}" method="POST" enctype="multipart/form-data">
                 <p>{% csrf_token %}</p>
                 <ul id="formAuthList">
-                    <li>{{ juryAuth.username }}</li>
+                    <li>{{ juryAuth.email }}</li>
                     <li>{{ juryAuth.password }}</li>
                  </ul>
                 <ul id="loginButList">
