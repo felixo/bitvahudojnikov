@@ -23,7 +23,7 @@ class Task_7Admin(admin.ModelAdmin):
     list_display = ('artist1', 'docfile','count','com_count')
 
 class ArtistAdmin(admin.ModelAdmin):
-    list_display = ('name', 'age', 'city', 'email', 'count_of_task', 'votess')
+    list_display = ('name', 'age', 'link', 'city', 'email', 'count_of_task', 'votess')
     search_fields = ['email']
 
 admin.site.register(Artist, ArtistAdmin)
