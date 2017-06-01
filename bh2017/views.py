@@ -18,6 +18,15 @@ from django.db import IntegrityError
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 
+from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponse
+
+from django.template.loader import get_template
+
+from weasyprint import HTML, CSS
+
+from django.conf import settings
+
 def index(request):
     form = ArtistForm()
     formAuth = UserAuth()
@@ -1750,3 +1759,16 @@ def final_remVote(request, paint_id):
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         return HttpResponseRedirect(reverse('bh2017:loginJury'))
+
+def sertificat(request):
+    html_template = get_template('bh2017/cabinet.html')
+    user = request.user
+
+    rendered_html = html_template.render(RequestContext(request, {'you': user})).encode(encoding="UTF-8")
+
+    pdf_file = HTML(string=rendered_html, base_url=request.build_absolute_uri()).write_pdf(stylesheets=[CSS(settings.STATIC_ROOT + '/bh2017/style.css')])
+
+    http_response = HttpResponse(pdf_file, content_type='application/pdf')
+    http_response['Content-Disposition'] = 'filename="sertificat.pdf"'
+
+    return http_response

@@ -91,4 +91,5 @@ urlpatterns = [
     url(r'^com_remVote7/(?P<paint_id>[0-9]+)/$', views.com_remVote7, name='com_remVote7'),
     url(r'^final_vote/(?P<paint_id>[0-9]+)/$', views.final_vote, name='final_vote'),
     url(r'^final_remVote/(?P<paint_id>[0-9]+)/$', views.final_remVote, name='final_remVote'),
+    url(r'^sertificat/$', views.sertificat, name='sertificat'),
 ]
